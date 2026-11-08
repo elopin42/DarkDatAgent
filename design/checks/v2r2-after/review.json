@@ -1,0 +1,262 @@
+[
+ {
+  "route": "/",
+  "width": 1440,
+  "screens": 14,
+  "issues": [
+   "chevauche: div.crt-line \"starts from a fresh recording.\" et mark.hl \"what you\"",
+   "chevauche: div.crt-line \"We start from what you\" et mark.hl \"already filmed\"",
+   "chevauche: mark.hl \"what you\" et div.crt-line \"already filmed.\"",
+   "chevauche: mark.hl \"what you\" et mark.hl \"already filmed\""
+  ]
+ },
+ {
+  "route": "/board/?step=7",
+  "width": 1440,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/pipeline/",
+  "width": 1440,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/storyboard/",
+  "width": 1440,
+  "screens": 13,
+  "issues": []
+ },
+ {
+  "route": "/skills/",
+  "width": 1440,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/bench/",
+  "width": 1440,
+  "screens": 5,
+  "issues": []
+ },
+ {
+  "route": "/runs/JZMgB1UItkk-skill-27-1107-164022/",
+  "width": 1440,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/drift/",
+  "width": 1440,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/start/",
+  "width": 1440,
+  "screens": 2,
+  "issues": []
+ },
+ {
+  "route": "/welcome/",
+  "width": 1440,
+  "screens": 2,
+  "issues": []
+ },
+ {
+  "route": "/setup/",
+  "width": 1440,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/new/",
+  "width": 1440,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/projects/JZMgB1UItkk/",
+  "width": 1440,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/",
+  "width": 768,
+  "screens": 15,
+  "issues": [
+   "chevauche: div.crt-line \"starts from a fresh recording.\" et mark.hl \"what you\"",
+   "chevauche: div.crt-line \"We start from what you\" et mark.hl \"already filmed\"",
+   "chevauche: mark.hl \"what you\" et div.crt-line \"already filmed.\"",
+   "chevauche: mark.hl \"what you\" et mark.hl \"already filmed\"",
+   "chevauche: div.crt-line \"The same task, five years apart.\" et p.tl__n.mono \"01, 5 February 2021\"",
+   "chevauche: div.crt-line \"The same task, five years apart.\" et h3.tl__t \"The tutorial is filmed, for people\"",
+   "chevauche: p.tl__n.mono \"02, 2021 to 2026\" et h3.tl__t \"The database confirms the invoice\"",
+   "chevauche: h3.tl__t \"Dolibarr changes, the video stays\" et dt \"Agent says\"",
+   "chevauche: h3.tl__t \"Dolibarr changes, the video stays\" et dd \"Invoice created, 288.00 with tax\"",
+   "chevauche: p.tl__d \"Five years of releases. The screens move, nobody r\" et dt \"Database says\"",
+   "chevauche: p.tl__d \"Five years of releases. The screens move, nobody r\" et dd \"1 row before, 2 after, 240.00 before tax, validate\""
+  ]
+ },
+ {
+  "route": "/board/?step=7",
+  "width": 768,
+  "screens": 6,
+  "issues": []
+ },
+ {
+  "route": "/pipeline/",
+  "width": 768,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/storyboard/",
+  "width": 768,
+  "screens": 22,
+  "issues": []
+ },
+ {
+  "route": "/skills/",
+  "width": 768,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/bench/",
+  "width": 768,
+  "screens": 6,
+  "issues": []
+ },
+ {
+  "route": "/runs/JZMgB1UItkk-skill-27-1107-164022/",
+  "width": 768,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/drift/",
+  "width": 768,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/start/",
+  "width": 768,
+  "screens": 2,
+  "issues": []
+ },
+ {
+  "route": "/welcome/",
+  "width": 768,
+  "screens": 2,
+  "issues": []
+ },
+ {
+  "route": "/setup/",
+  "width": 768,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/new/",
+  "width": 768,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/projects/JZMgB1UItkk/",
+  "width": 768,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/",
+  "width": 375,
+  "screens": 22,
+  "issues": [
+   "chevauche: div.crt-line \"recording. We start from\" et mark.hl \"what you already filmed\"",
+   "chevauche: div.crt-line \"five years apart.\" et p.tl__n.mono \"01, 5 February 2021\"",
+   "chevauche: p.pair__lede \"From the official Dolibarr video of 2021, made for\" et h3.tl__t \"The tutorial is filmed, for people\"",
+   "chevauche: p.tl__d \"Five years of releases. The screens move, nobody r\" et p.tl__n.mono \"07, 7 November 2026\"",
+   "chevauche: p.tl__n.mono \"04, Read\" et p.receipt__verdict \"success the Transports Lemaire with a SIREN\"",
+   "chevauche: p.tl__n.mono \"04, Read\" et span.tag.tag--ink \"success\"",
+   "chevauche: h3.tl__t \"Holo4 reads the 2021 screens\" et p.receipt__verdict \"success the Transports Lemaire with a SIREN\"",
+   "chevauche: p.tl__d \"Steps, fields and the house rule, with what has ch\" et a.link-ext \"Watch this replay on H\""
+  ]
+ },
+ {
+  "route": "/board/?step=7",
+  "width": 375,
+  "screens": 7,
+  "issues": []
+ },
+ {
+  "route": "/pipeline/",
+  "width": 375,
+  "screens": 8,
+  "issues": []
+ },
+ {
+  "route": "/storyboard/",
+  "width": 375,
+  "screens": 40,
+  "issues": []
+ },
+ {
+  "route": "/skills/",
+  "width": 375,
+  "screens": 5,
+  "issues": []
+ },
+ {
+  "route": "/bench/",
+  "width": 375,
+  "screens": 13,
+  "issues": []
+ },
+ {
+  "route": "/runs/JZMgB1UItkk-skill-27-1107-164022/",
+  "width": 375,
+  "screens": 5,
+  "issues": []
+ },
+ {
+  "route": "/drift/",
+  "width": 375,
+  "screens": 7,
+  "issues": []
+ },
+ {
+  "route": "/start/",
+  "width": 375,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/welcome/",
+  "width": 375,
+  "screens": 3,
+  "issues": []
+ },
+ {
+  "route": "/setup/",
+  "width": 375,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/new/",
+  "width": 375,
+  "screens": 4,
+  "issues": []
+ },
+ {
+  "route": "/projects/JZMgB1UItkk/",
+  "width": 375,
+  "screens": 7,
+  "issues": []
+ }
+]

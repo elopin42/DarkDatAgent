@@ -1,0 +1,48 @@
+{
+  "url": "http://localhost:5203",
+  "quand": "2026-11-07T22:51:15.631Z",
+  "gpu": "local",
+  "vues": [
+    {
+      "taille": "1440x900@1",
+      "console": [
+        "warning: Warning: <path> length cannot be measured when vector-effect is non-scaling-stroke and the element isn't proportionally scaled.",
+        "warning: THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+        "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+        "warning: THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+      ],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.04",
+          "y": 332,
+          "fichier": "large-02-0.04.png"
+        },
+        {
+          "etat": "0.07",
+          "y": 582,
+          "fichier": "large-03-0.07.png"
+        },
+        {
+          "etat": "0.1",
+          "y": 831,
+          "fichier": "large-04-0.1.png"
+        },
+        {
+          "etat": "0.14",
+          "y": 1163,
+          "fichier": "large-05-0.14.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 3049,
+      "fpsRepos": 61,
+      "hauteurPage": 9209
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{% load fmt %}<ol class="steps steps--state"{% if live_id %} id="{{ live_id }}"{% endif %}>
+  {% for s in st.steps %}<li class="is-{{ s.state }}">{{ s.label }}{% if s.state == 'done' %}, done{% if s.seconds %} in {{ s.seconds|dur }}{% endif %}{% elif s.state == 'running' %}, <strong>in progress</strong>{% elif s.state == 'failed' %}, <strong>failed</strong>{% endif %}</li>
+  {% endfor %}
+</ol>

@@ -1,0 +1,7 @@
+# Pipeline dependencies, pinned: a rebuilt .venv (make clean, make) gets exactly these.
+# Each one is checked by scripts/preflight.py before a pipeline or a run starts.
+gladiaio-sdk==2.2.1
+yt-dlp==2026.10.26
+requests==2.34.2
+hai-agents[browser]==1.4.3   # 60_register.py, 70_run_one.py (H agents, skills, sessions; [browser] drives the local Chrome)
+mysql-connector-python==26.10.0  # 80_verify.py (the SQL judge reads Dolibarr's database)

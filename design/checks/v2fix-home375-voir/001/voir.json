@@ -1,0 +1,32 @@
+{
+  "url": "http://127.0.0.1:5221/",
+  "quand": "2026-11-08T04:06:50.376Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "375x812@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.15",
+          "y": 1866,
+          "fichier": "large-02-0.15.png"
+        },
+        {
+          "etat": "pleine page",
+          "fichier": "large-plein.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 528,
+      "fpsRepos": 61,
+      "hauteurPage": 13252
+    }
+  ]
+}

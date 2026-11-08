@@ -1,0 +1,466 @@
+{% extends "atelier/app.html" %}
+{% load fmt %}
+{% block title %}{% if p.source.kind == 'youtube' %}YouTube {{ p.source.id }}{% else %}{{ p.source.name }}{% endif %}{% endblock %}
+{% block desc %}The progress of one video through the chain.{% endblock %}
+{% block head %}{% if live %}<script>
+// While something runs: fetch the page in the background every 3 s and swap only the parts that changed
+// (state, steps, runs, log). The page itself never reloads, so typing and the storyboard are left alone.
+// A full reload happens only when the page gains or loses a section, and never while the user types.
+(() => {
+  const edited = (el) => (el.type === "radio" || el.type === "checkbox" ? el.checked !== el.defaultChecked
+    : el.tagName === "SELECT" ? [...el.options].some((o) => o.selected !== o.defaultSelected) : el.value !== el.defaultValue);
+  const typing = () => {
+    const el = document.activeElement;
+    return (el && el.closest("form") && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))
+      || [...document.querySelectorAll("main form input:not([type=hidden]), main form textarea, main form select")].some(edited);
+  };
+  const shape = (doc) => [...doc.querySelectorAll("main section > h2, main form")].map((e) => e.tagName === "FORM"
+    ? "form " + e.getAttribute("action") + ((e.querySelector("[name=action]") || {}).value || "") : e.textContent.trim()).join("|");
+  const poll = async () => {
+    let doc;
+    try {
+      const r = await fetch(location.pathname, { headers: { "X-Requested-With": "poll" }, cache: "no-store" });
+      doc = new DOMParser().parseFromString(await r.text(), "text/html");
+    } catch (e) { return setTimeout(poll, 3000); }
+    if (shape(doc) !== shape(document)) {
+      if (!typing()) return location.reload();
+    } else {
+      doc.querySelectorAll("[id^=live-]").forEach((fresh) => {
+        const old = document.getElementById(fresh.id);
+        if (!old) return;
+        // A details the user opened stays open after the swap.
+        old.querySelectorAll("details[id]").forEach((d) => { const f = fresh.querySelector("#" + CSS.escape(d.id)); if (f) f.open = d.open; });
+        if (old.innerHTML !== fresh.innerHTML && !old.contains(document.activeElement)) old.replaceWith(fresh);
+      });
+    }
+    if (doc.querySelector("meta[name=live-poll]")) setTimeout(poll, 3000);
+  };
+  setTimeout(poll, 3000);
+})();
+</script><meta name="live-poll" content="1">{% endif %}{% endblock %}
+{% block crumbs %}<p class="crumbs"><a href="{% url 'start' %}">Your videos</a>, video</p>{% endblock %}
+{% block h1 %}{% if p.source.kind == 'youtube' %}YouTube {{ p.source.id }}{% else %}{{ p.source.name }}{% endif %}{% endblock %}
+{% block lede %}
+      <p class="page__state" id="live-state">{% if not st %}Waiting to start.{% elif st.state == 'running' %}<strong>Processing the video</strong>{% if now %}, step {{ now.n }} of {{ now.of }}: {{ now.label }}{% endif %}. This page updates by itself.{% elif st.state == 'failed' %}<strong>Stopped</strong>{% if now %} at step {{ now.n }} of {{ now.of }}: {{ now.label }}{% endif %}.{% elif live_run %}<strong>A run is in progress.</strong> This page updates by itself.{% elif agent %}<strong>Agent ready.</strong> {% if invoice_skill %}Pick an invoice and run it.{% else %}Give it a task.{% endif %}{% elif skill %}<strong>Tutorial understood.</strong> The agent comes next.{% else %}<strong>Video processed.</strong> One more step before the agent.{% endif %}</p>
+      <p class="page__lede">{% if p.source.kind == 'youtube' %}<a href="{{ p.source.url }}" rel="noopener noreferrer">Video on YouTube</a>{% else %}{{ p.source.name }}{% endif %} in {% if p.lang == 'en' %}English{% else %}French{% endif %}, done in {{ p.software.name }}.</p>
+{% endblock %}
+{% block main %}
+{% if not st or st.state != 'done' %}
+      <section id="processing">
+        <h2 class="h2">{% if st.state == 'failed' %}Processing stopped{% else %}Processing the video{% endif %}</h2>
+        {% if st.state == 'failed' %}<p class="notice notice--alert" role="alert"><strong>{{ st.error }}</strong></p>{% endif %}
+        {% if st %}{% include "atelier/_pipeline_steps.html" with live_id="live-steps" %}{% endif %}
+        {% if st.state == 'failed' %}
+        <form class="form" method="post" action="{% url 'project' p.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="pipeline">
+          <p><button class="btn btn--amber" type="submit">Try again</button></p>
+          <p class="muted">Steps already done are skipped.</p>
+        </form>
+        {% else %}
+        <p class="muted">It runs in the background: you can leave this page. The first video takes a few minutes.</p>
+        {% endif %}
+      </section>
+{% elif not skill %}
+      <section id="processing">
+        <h2 class="h2">One more step</h2>
+        <p>This video was processed before the step that understands the tutorial existed.</p>
+        <form class="form" method="post" action="{% url 'project' p.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="pipeline">
+          <p><button class="btn btn--amber" type="submit">Run the new steps</button></p>
+          <p class="muted">Steps already done are skipped.</p>
+        </form>
+      </section>
+{% endif %}
+
+{% if agent %}
+      <section id="task">
+        <h2 class="h2">{% if live_run %}Run in progress{% else %}Give the agent a task{% endif %}</h2>
+        {% if run_error %}<p class="notice notice--alert" role="alert"><strong>{{ run_error }}</strong></p>{% endif %}
+        {% if live_run %}
+        {% if live_run.browser_lost %}
+        <p class="notice notice--alert" role="alert"><strong>The agent lost its browser.</strong> The Chrome window it opened was closed or crashed, so this run cannot do anything any more. Stop it and run again, and leave the Chrome window alone until the run ends.</p>
+        {% else %}
+        <p class="notice" role="status">The agent works in a Chrome window on this computer: leave it alone until the run ends.{% if live_run.agent_view_url %} <a href="{{ live_run.agent_view_url }}" rel="noopener noreferrer">Watch it live</a>.{% endif %}</p>
+        {% endif %}
+        <form class="form" method="post" action="{% url 'project' p.id %}#runs">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="stop">
+          <input type="hidden" name="run" value="{{ live_run.id }}">
+          <p><button class="btn btn--small" type="submit">Stop this run</button></p>
+        </form>
+        {% else %}
+        {% if demo and not dolibarr_up %}
+        <div class="notice notice--alert" role="alert">
+          {% if dolibarr_starting %}<p><strong>The demo Dolibarr is starting</strong>, about a minute. This page updates by itself.</p>
+          {% else %}<p><strong>The demo Dolibarr is stopped.</strong> The agent works in it: start it first (needs Docker), or run <code>make dolibarr</code>.</p>
+          <form method="post" action="{% url 'dolibarr_start' %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.path }}">
+            <p><button class="btn btn--small" type="submit">Start the demo Dolibarr</button></p>
+          </form>{% endif %}
+        </div>
+        {% endif %}
+        <form class="form task-form" method="post" action="{% url 'project' p.id %}#runs" data-task-form>
+          {% csrf_token %}
+          <input type="hidden" name="action" value="run">
+          {% if invoice_skill %}
+          <fieldset class="kinds">
+            <legend>What should the agent do?</legend>
+            <label class="kind"><input type="radio" name="kind" value="list"{% if form.kind != 'new' and form.kind != 'free' %} checked{% endif %}><span class="kind__t">An invoice from the demo list</span><span class="kind__d">Ready to go. Two of them hide a house rule.</span></label>
+            <label class="kind"><input type="radio" name="kind" value="new"{% if form.kind == 'new' %} checked{% endif %}><span class="kind__t">A new invoice</span><span class="kind__d">Type it in. The database still checks the result.</span></label>
+            <label class="kind"><input type="radio" name="kind" value="free"{% if form.kind == 'free' %} checked{% endif %}><span class="kind__t">Something else</span><span class="kind__d">Any task in one sentence. No database check.</span></label>
+          </fieldset>
+
+          <div class="panel" data-panel="list">
+            <p>
+              <label for="row">Invoice</label>
+              <select class="input" id="row" name="row">
+                {% for i in invoices %}<option value="{{ i.id }}"{% if form.row %}{% if i.id|stringformat:"d" == form.row %} selected{% endif %}{% elif i.id == 1 %} selected{% endif %}>{{ i.id }}, {{ i.fournisseur }}, {{ i.libelle }}, {{ i.montant_ht|eur }} before tax{% if i.notes %} (house rule: {{ i.notes|en:tr }}){% endif %}</option>
+                {% endfor %}
+              </select>
+              <span class="hint">From <code>data/factures.csv</code>. The agent creates it in Dolibarr, then validates it.</span>
+            </p>
+          </div>
+
+          <div class="panel" data-panel="new">
+            <div class="fields">
+              <p>
+                <label for="inv-supplier">Supplier</label>
+                <input class="input" id="inv-supplier" name="supplier" list="inv-suppliers" autocomplete="off" value="{{ form.supplier|default:'' }}" placeholder="Papeterie Nord" data-need>
+                <datalist id="inv-suppliers">{% for s in suppliers %}<option value="{{ s }}">{% endfor %}</datalist>
+                <span class="hint">One that exists in Dolibarr: {{ suppliers|join:", " }}.</span>
+              </p>
+              <p>
+                <label for="inv-ref">Invoice number</label>
+                <input class="input" id="inv-ref" name="reference" autocomplete="off" value="{{ form.reference|default:new_ref }}" data-need>
+                <span class="hint">The number on the supplier's invoice. The database finds the invoice with it.</span>
+              </p>
+              <p>
+                <label for="inv-date">Invoice date</label>
+                <input class="input" type="date" id="inv-date" name="date" max="{{ today|date:'Y-m-d' }}" value="{% if form.date %}{{ form.date }}{% else %}{{ today|date:'Y-m-d' }}{% endif %}" data-need>
+              </p>
+              <p>
+                <label for="inv-item">What was bought</label>
+                <input class="input" id="inv-item" name="item" value="{{ form.item|default:'' }}" placeholder="Toner cartridges x2" data-need>
+              </p>
+              <p>
+                <label for="inv-amount">Amount before tax, in euros</label>
+                <input class="input" type="number" id="inv-amount" name="amount" min="0.01" step="0.01" inputmode="decimal" value="{{ form.amount|default:'' }}" placeholder="89.90" data-need>
+              </p>
+              <p>
+                <label for="inv-vat">VAT rate</label>
+                <select class="input" id="inv-vat" name="vat">{% for v in vat_rates %}<option value="{{ v }}"{% if v == form_vat %} selected{% endif %}>{{ v|vat }}</option>{% endfor %}</select>
+              </p>
+            </div>
+            <p class="preview" data-preview aria-live="polite" hidden></p>
+          </div>
+
+          <div class="panel" data-panel="free">
+            <p>
+              <label for="task">The task, in one sentence, with the data the agent must type</label>
+              <textarea class="input" id="task" name="task" rows="3" data-need>{{ form.task|default:'' }}</textarea>
+            </p>
+            {% include "atelier/_task_examples.html" %}
+            <p class="hint">A free task is not checked in the database: the result is what the agent reports.</p>
+          </div>
+          {% else %}
+          <input type="hidden" name="kind" value="free">
+          <p>
+            <label for="task">The task, in one sentence, with the data the agent must type</label>
+            <textarea class="input" id="task" name="task" rows="3" required>{{ form.task|default:'' }}</textarea>
+          </p>
+          {% if u.task.goal %}<p class="examples"><span class="muted">Start from:</span> <button class="chip" type="button" data-example="{{ u.task.goal|en:tr }}">The task in the video</button></p>{% endif %}
+          <p class="hint">The result is what the agent reports{% if demo %}: there is no database check for this task{% endif %}.</p>
+          {% endif %}
+          <details class="more-options"{% if form.arm == 'none' %} open{% endif %}>
+            <summary>More options</summary>
+            <p class="check"><input type="checkbox" id="arm-none" name="arm" value="none"{% if form.arm == 'none' %} checked{% endif %}><label for="arm-none">Run it without what it learned from the video, to compare</label></p>
+            <p class="hint">The bench's control agent: same model, same task, no skill.</p>
+          </details>
+          <p><button class="btn btn--amber" type="submit">Run the agent</button></p>
+          <p class="muted">40 steps and 10 minutes at most. A Chrome window opens on this computer: do not touch it while it runs.</p>
+        </form>
+        <script>
+        // The panel of the chosen task only: its fields are sent and required, the others are off.
+        // A new invoice gets a plain sentence of what the agent will do; an example fills the free task.
+        (() => {
+          const form = document.querySelector("[data-task-form]");
+          if (!form) return;
+          const out = form.querySelector("[data-preview]");
+          const field = (n) => form.elements.namedItem(n);  // not elements[n]: elements.item is a method
+          const val = (n) => (field(n) && !field(n).disabled ? field(n).value.trim() : "");
+          const preview = () => {
+            if (!out) return;
+            const s = val("supplier"), r = val("reference"), d = val("date"), i = val("item"), a = parseFloat(val("amount").replace(",", "."));
+            out.hidden = !(s && i && a > 0);
+            if (out.hidden) return;
+            const day = d ? new Date(d + "T12:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "";
+            out.textContent = `The agent will create, then validate, an invoice from ${s}${r ? `, number ${r}` : ""}${day ? `, dated ${day}` : ""}: one line “${i}”, €${a.toFixed(2)} before tax, VAT ${parseFloat(val("vat"))}%. Then the database checks it.`;
+          };
+          const sync = () => {
+            const kind = (form.querySelector("input[name=kind]:checked") || {}).value;
+            form.querySelectorAll("[data-panel]").forEach((p) => {
+              const on = p.dataset.panel === kind;
+              p.querySelectorAll("input, select, textarea").forEach((el) => {
+                el.disabled = !on;
+                if (el.hasAttribute("data-need")) el.required = on;
+              });
+            });
+            preview();
+          };
+          form.addEventListener("change", (e) => (e.target.name === "kind" ? sync() : preview()));
+          form.addEventListener("input", preview);
+          form.querySelectorAll("[data-example]").forEach((b) => b.addEventListener("click", () => {
+            field("task").value = b.dataset.example;
+            field("task").focus();
+          }));
+          sync();
+        })();
+        </script>
+        {% endif %}
+      </section>
+{% endif %}
+
+{% if agent or runs %}
+      <section id="live-runs">
+        <h2 class="h2" id="runs">Results</h2>
+        {% if runs %}
+        <p class="muted">The result comes from the Dolibarr database, never from what the agent says.</p>
+        <div class="table-scroll"><table class="table table--runs" data-runs>
+          <thead><tr><th scope="col">Task</th><th scope="col">When</th><th scope="col">Agent</th><th scope="col">Result</th><th scope="col" class="num">Steps</th><th scope="col" class="num">Time</th><th scope="col"><span class="sr-only">Replay</span></th></tr></thead>
+          <tbody>{% for r in runs|slice:":5" %}{% include "atelier/_run_row.html" %}{% endfor %}</tbody>
+        </table></div>
+        {% if runs|length > 5 %}
+        <details id="older-runs">
+          <summary>Older runs ({{ runs|length|add:"-5" }})</summary>
+          <div class="table-scroll"><table class="table table--runs" data-runs>
+            <thead><tr><th scope="col">Task</th><th scope="col">When</th><th scope="col">Agent</th><th scope="col">Result</th><th scope="col" class="num">Steps</th><th scope="col" class="num">Time</th><th scope="col"><span class="sr-only">Replay</span></th></tr></thead>
+            <tbody>{% for r in runs|slice:"5:" %}{% include "atelier/_run_row.html" %}{% endfor %}</tbody>
+          </table></div>
+        </details>
+        {% endif %}
+        {% else %}
+        <p>No run yet. {% if invoice_skill %}Pick an invoice above and press Run the agent.{% else %}Write a task above and press Run the agent.{% endif %}</p>
+        {% endif %}
+      </section>
+{% endif %}
+
+{% if u %}
+      <section id="learned">
+        <h2 class="h2">What the agent learned from the video</h2>
+        {% if u.task.goal %}<p class="learned__goal">{{ u.task.goal|en:tr }}</p>{% endif %}
+        <dl class="facts" data-front-free>
+          {% if u.steps %}{% with first=u.steps|first last=u.steps|last %}<div><dt>Procedure</dt><dd>{{ u.steps|length }} steps, shown from {{ first.t|tc }} to {{ last.t|tc }} in the video</dd></div>{% endwith %}{% endif %}
+          <div><dt>Rules from the video</dt><dd>{{ u.exception_rules|length }} rule{{ u.exception_rules|length|pluralize }}, {{ u.final_check|length }} check{{ u.final_check|length|pluralize }} at the end</dd></div>
+          {% if u.not_covered %}<div><dt>Not in the video</dt><dd>{{ u.not_covered|length }} related tasks the video does not show</dd></div>{% endif %}
+          {% if u.software.name %}<div><dt>Software in the video</dt><dd>{{ u.software.name }} {{ u.software.version }}</dd></div>{% endif %}
+          {% if u.confidence.level %}<div><dt>Reading confidence</dt><dd>{{ u.confidence.level }}</dd></div>{% endif %}
+        </dl>
+        {% if u_lang == 'en' and p.lang != 'en' %}<p class="muted">Translated from {% if p.lang == 'fr' %}French{% else %}the video's language{% endif %} for reading. The agent follows the original steps, with the screen labels as they appear in {{ p.software.name }}, in SKILL.md.</p>{% endif %}
+        {% if skill_download %}<p><a class="btn btn--small" href="{% url 'project_skill' p.id %}" download>Download SKILL.md</a>{% if skill_revision is not None %} <span class="muted">revision {{ skill_revision }}</span>{% endif %}</p>{% endif %}
+
+        <div class="disclose">
+          {% if u.steps %}
+          <details>
+            <summary>The {{ u.steps|length }} steps</summary>
+            {% if u.preconditions %}<p>Before starting:</p>
+            <ul lang="{{ u_lang }}">{% for x in u.preconditions %}<li>{{ x.text|en:tr }}</li>{% endfor %}</ul>{% endif %}
+            <ol class="steps steps--learned" lang="{{ u_lang }}">
+              {% for s in u.steps %}<li><strong>{{ s.action|en:tr }}</strong> <a class="tc" href="{% url 'project_frame' p.id s.frame %}">{{ s.t|tc }}</a>{% if s.expect %}<span class="muted">{{ s.expect|en:tr }}</span>{% endif %}</li>
+              {% endfor %}
+            </ol>
+          </details>
+          {% endif %}
+          {% if u.exception_rules or u.final_check %}
+          <details>
+            <summary>Rules and checks from the video</summary>
+            {% if u.exception_rules %}<ul lang="{{ u_lang }}">{% for r in u.exception_rules %}<li>{{ r.rule|en:tr }} <span class="tc">{{ r.t|tc }}</span></li>{% endfor %}</ul>{% endif %}
+            {% if u.final_check %}<p>Checked at the end:</p>
+            <ul lang="{{ u_lang }}">{% for c in u.final_check %}<li>{{ c|en:tr }}</li>{% endfor %}</ul>{% endif %}
+          </details>
+          {% endif %}
+          {% if u.drift_risks %}
+          <details>
+            <summary>What has probably changed since the video ({{ u.drift_risks|length }})</summary>
+            <ul lang="{{ u_lang }}">{% for d in u.drift_risks %}<li>{{ d|en:tr }}</li>{% endfor %}</ul>
+          </details>
+          {% endif %}
+          {% if u.not_covered %}
+          <details>
+            <summary>What the video does not show ({{ u.not_covered|length }})</summary>
+            <ul lang="{{ u_lang }}">{% for g in u.not_covered %}<li>{{ g|en:tr }}</li>{% endfor %}</ul>
+          </details>
+          {% endif %}
+          {% if u.field_mapping %}
+          <details>
+            <summary>Fields the agent fills ({{ u.field_mapping|length }})</summary>
+            <div class="table-scroll"><table class="table" lang="{{ u_lang }}">
+              <thead><tr><th scope="col">Input</th><th scope="col">Field on screen</th><th scope="col">Note</th></tr></thead>
+              <tbody>{% for m in u.field_mapping %}<tr><th scope="row">{{ m.input|en:tr }}</th><td><code lang="{{ p.lang }}">{{ m.field }}</code></td><td>{{ m.note|en:tr }}</td></tr>{% endfor %}</tbody>
+            </table></div>
+          </details>
+          {% endif %}
+          {% if storyboard %}
+          <details class="reel-box">
+            <summary>Screens of the video ({{ storyboard|length }})</summary>
+            <p class="muted">{{ sentences }} sentences, {{ frames }} keyframes. The video plays by itself, one screen at a time.</p>
+            <div class="reel" data-reel="{{ p.id }}">
+              <ol class="reel-track" tabindex="0" aria-label="Storyboard, {{ storyboard|length }} screens">
+                {% for s in storyboard %}
+                <li class="reel-slide{% if s.warn %} has-warn{% endif %}" aria-label="{{ forloop.counter }} of {{ storyboard|length }}">
+                  {% if s.warn %}<p class="reel-warn" role="note">{{ s.warn }}</p>{% endif %}
+                  <figure>
+                    <img src="{% url 'project_frame' p.id s.frame %}" alt="Screen at {{ s.t|tc }}" width="1280" height="800"{% if forloop.counter > 2 %} loading="lazy"{% endif %}>
+                    <figcaption><span class="tc">{{ s.t|tc }}</span> <span lang="{{ p.lang }}">“{{ s.sentence }}”</span></figcaption>
+                  </figure>
+                </li>
+                {% endfor %}
+              </ol>
+              <div class="reel-bar">
+                <button class="btn btn--small" type="button" data-prev aria-label="Previous screen">‹</button>
+                <button class="btn btn--small" type="button" data-play aria-label="Pause">❚❚</button>
+                <button class="btn btn--small" type="button" data-next aria-label="Next screen">›</button>
+                <span class="reel-count tc" aria-live="polite"></span>
+                <progress class="reel-progress" max="{{ storyboard|length }}" value="1"></progress>
+              </div>
+            </div>
+            <script>
+            (() => {
+              const reel = document.querySelector("[data-reel]");
+              if (!reel) return;
+              const track = reel.querySelector(".reel-track");
+              const slides = [...track.children];
+              const count = reel.querySelector(".reel-count");
+              const bar = reel.querySelector(".reel-progress");
+              const playBtn = reel.querySelector("[data-play]");
+              const key = "reel:" + reel.dataset.reel;
+              const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+              let i = 0, playing = !still, hold = false, timer = null;
+              try { i = Math.min(+sessionStorage.getItem(key) || 0, slides.length - 1); } catch (e) {}
+
+              const show = (n, smooth = true) => {
+                i = (n + slides.length) % slides.length;
+                track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: smooth && !still ? "smooth" : "auto" });
+                count.textContent = (i + 1) + " / " + slides.length;
+                bar.value = i + 1;
+                try { sessionStorage.setItem(key, i); } catch (e) {}
+              };
+              // A warning card stays longer on screen so it gets read.
+              const tick = () => {
+                clearTimeout(timer);
+                if (!playing) return;
+                timer = setTimeout(() => { if (!hold) show(i + 1); tick(); }, slides[i].classList.contains("has-warn") ? 7000 : 4000);
+              };
+              const setPlay = (on) => {
+                playing = on;
+                playBtn.textContent = on ? "❚❚" : "▶";
+                playBtn.setAttribute("aria-label", on ? "Pause" : "Play");
+                tick();
+              };
+
+              reel.querySelector("[data-prev]").onclick = () => { show(i - 1); tick(); };
+              reel.querySelector("[data-next]").onclick = () => { show(i + 1); tick(); };
+              playBtn.onclick = () => setPlay(!playing);
+              reel.addEventListener("mouseenter", () => hold = true);
+              reel.addEventListener("mouseleave", () => hold = false);
+              track.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowRight") { show(i + 1); tick(); e.preventDefault(); }
+                if (e.key === "ArrowLeft") { show(i - 1); tick(); e.preventDefault(); }
+              });
+              // Manual swipe/scroll: follow the slide the user landed on.
+              let t;
+              track.addEventListener("scroll", () => {
+                clearTimeout(t);
+                t = setTimeout(() => {
+                  const n = Math.round(track.scrollLeft / track.clientWidth);
+                  if (n !== i) { i = n; count.textContent = (i + 1) + " / " + slides.length; bar.value = i + 1; try { sessionStorage.setItem(key, i); } catch (e) {} tick(); }
+                }, 120);
+              });
+
+              // Hidden until the button is clicked; it stays open across the auto refresh.
+              const box = reel.closest("details");
+              const okey = key + ":open";
+              try { if (sessionStorage.getItem(okey)) box.open = true; } catch (e) {}
+              const start = () => {
+                try { box.open ? sessionStorage.setItem(okey, 1) : sessionStorage.removeItem(okey); } catch (e) {}
+                if (box.open) { show(i, false); setPlay(playing); } else clearTimeout(timer);
+              };
+              box.addEventListener("toggle", start);
+              if (box.open) start();
+            })();
+            </script>
+          </details>
+          {% endif %}
+        </div>
+
+        {% if repairs %}
+        <div id="repairs">
+          <h3 class="h3">Repairs from the runs</h3>
+          <div class="table-scroll"><table class="table">
+            <thead><tr><th scope="col">Step</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Seen in runs</th><th scope="col">Revision</th></tr></thead>
+            <tbody>
+              {% for x in repairs %}
+              <tr>
+                <td>{{ x.step|default:"" }}</td>
+                <td>{{ x.before|default:"" }}</td>
+                <td>{{ x.after|default:"" }}</td>
+                <td>{% for rid in x.seen_in_runs %}<code>{{ rid }}</code>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                <td>{% if x.revision is not None %}{{ x.revision }}{% endif %}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table></div>
+        </div>
+        {% endif %}
+      </section>
+{% endif %}
+
+{% if audit_shown %}
+      <section id="audit">
+        <h2 class="h2">What the agent had to work around</h2>
+        <p class="muted">Where the 2021 tutorial no longer matches the 2026 software.</p>
+        <div class="table-scroll"><table class="table">
+          <thead><tr><th scope="col">Step</th><th scope="col">2021</th><th scope="col">2026</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead>
+          <tbody>
+            {% for x in audit %}
+            <tr>
+              <td>{{ x.step|default:"" }}</td>
+              <td>{{ x.then_2021|default:"" }}</td>
+              <td>{{ x.now_2026|default:"" }}</td>
+              <td>{{ x.status|default:"" }}</td>
+              <td>{{ x.source|default:"" }}{% if x.checked_by != "hand" %} <span class="tag tag--line">not hand-checked</span>{% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table></div>
+        <p class="muted">Full list: <a href="{% url 'drift' %}">Drift</a>.</p>
+      </section>
+{% endif %}
+
+      <details class="tech">
+        <summary>Technical details</summary>
+        {% if agent %}<p>Agent <code>{{ agent.agent_ref }}</code> in the H catalog, with the skill <code>{{ agent.skill }}</code> and the model <code>{{ agent.model }}</code>. It works in a Chrome window on this computer, starting at <code>{{ p.software.url }}</code>.{% if demo %} The demo Dolibarr logs it in as <code>agent</code>.{% else %} If the software asks for a login, log in once in that Chrome window (profile <code>~/.hai/chrome-profile</code>): the session is kept.{% endif %}</p>{% endif %}
+        {% if u %}<p>The video was read by {{ u.meta.model }} (H Models API) from {{ u.meta.images }} keyframes{% if u.meta.sentences %} and {{ u.meta.sentences }} sentences{% endif %}, in {{ u.meta.requests }} requests.{% if u.software.evidence %} Software seen on {{ u.software.evidence }}.{% endif %}</p>
+        {% if u.confidence.why %}<p>Why the reading confidence is {{ u.confidence.level }}:</p>
+        <p lang="{{ u_lang }}">{{ u.confidence.why|en:tr }}</p>{% endif %}
+        {% if u.transcript_fixes %}<p>Words corrected from the screen:</p>
+        <div class="table-scroll"><table class="table">
+          <thead><tr><th scope="col">At</th><th scope="col">Heard</th><th scope="col">Meant</th><th scope="col">Why</th></tr></thead>
+          <tbody>{% for f in u.transcript_fixes %}<tr><td class="tc">{{ f.t|tc }}</td><td lang="{{ p.lang }}">{{ f.heard }}</td><td lang="{{ p.lang }}">{{ f.meant }}</td><td lang="{{ u_lang }}">{{ f.why|en:tr }}</td></tr>{% endfor %}</tbody>
+        </table></div>{% endif %}{% endif %}
+        {% if st and st.state == 'done' %}<p>Processing of the video:</p>
+        {% include "atelier/_pipeline_steps.html" %}{% endif %}
+        {% if skill %}<details>
+          <summary>The skill as written for the agent</summary>
+          <pre>{{ skill }}</pre>
+        </details>{% endif %}
+        {% if log %}<details>
+          <summary>Processing log</summary>
+          <pre id="live-log">{{ log }}</pre>
+        </details>{% endif %}
+        <p class="muted">Files: <code>work/{{ p.id }}/</code> and <code>work/runs/</code>.</p>
+      </details>
+{% endblock %}
+{% block footer %}Local app. Files of this video: <code>work/{{ p.id }}/</code>. Everything runs on this computer.{% endblock %}

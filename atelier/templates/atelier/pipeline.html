@@ -1,0 +1,47 @@
+{% extends "atelier/base.html" %}
+{% load fmt %}
+{% block title %}Pipeline · Yesterday’s tutorial{% endblock %}
+{% block main %}
+<h1>Pipeline</h1>
+<p>Nine scripts, one per step. Each reads the previous one’s file and writes its own to <code>work/</code>, so only the one that crashed gets rerun.</p>
+
+<dl class="facts">
+  <dt>Source video</dt><dd>{{ video.published_short }}, {{ video.duration|tc }}, <code>{{ video.id }}</code></dd>
+  <dt>Storyboard</dt><dd>{{ sentences }} sentences, {{ video.frames }} keyframes</dd>
+  <dt>H sessions</dt><dd>{{ sessions }}, {{ arms_run }} arm{{ arms_run|pluralize }} × 8 invoices</dd>
+  <dt>Bench cost</dt><dd>{{ total_cost|usd }}, {{ cost_per_run|usd }} per invoice</dd>
+</dl>
+
+<section>
+  <h2>The steps</h2>
+  <table>
+    <thead>
+      <tr><th class="num">No.</th><th>What</th><th>How</th><th>Script</th><th>Output</th><th>State</th></tr>
+    </thead>
+    <tbody>
+      {% for s in steps %}
+      <tr>
+        <td class="num">{{ s.n|stringformat:"02d" }}</td>
+        <td><a href="{% url s.url %}">{{ s.what }}</a></td>
+        <td>{{ s.how }}</td>
+        <td><code>{{ s.script }}</code></td>
+        <td><code>{{ s.out }}</code></td>
+        <td>done</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% if decisions %}
+<section>
+  <h2>Decisions at fixed times</h2>
+  <p>Made on Saturday, written to <code>report/journal.md</code>.</p>
+  <dl class="decisions">
+    {% for when, q, a in decisions %}
+    <dt>{{ when }} · {{ q }}</dt><dd>{{ a }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+{% endif %}
+{% endblock %}

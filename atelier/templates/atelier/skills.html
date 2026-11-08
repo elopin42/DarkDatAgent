@@ -1,0 +1,70 @@
+{% extends "atelier/base.html" %}
+{% load fmt %}
+{% block title %}Induced skills · Yesterday’s tutorial{% endblock %}
+{% block main %}
+<p class="crumbs"><a href="{% url 'pipeline' %}">Pipeline</a> · steps 5 and 6</p>
+<h1>Induced skills</h1>
+<p>The procedure Holo4 writes from the storyboard. Reviewed for format only, never corrected on substance, or the bench would stop measuring the induction.</p>
+
+<nav class="tabs" aria-label="Skill">
+  <ul>
+    {% for slug, label in tabs %}
+    <li><a href="{% url 'skill' slug %}{% if view == 'md' %}?view=md{% endif %}"{% if slug == key %} aria-current="page"{% endif %}>{{ label }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+<nav class="tabs" aria-label="View">
+  <ul>
+    <li><a href="?view=doc"{% if view == 'doc' %} aria-current="page"{% endif %}>Read</a></li>
+    <li><a href="?view=md"{% if view == 'md' %} aria-current="page"{% endif %}>Markdown</a></li>
+  </ul>
+</nav>
+
+<dl class="facts">
+  <dt>Skill</dt><dd><code>{{ k.name }}:{{ k.revision }}</code></dd>
+  <dt>Agent</dt><dd><code>{{ arm.agent }}</code></dd>
+  <dt>Model</dt><dd>{{ k.model }}</dd>
+  <dt>Source</dt><dd>{{ k.source.title }}, {{ k.source.published_short }}</dd>
+  <dt>Inputs</dt><dd>{{ k.inputs }}</dd>
+  <dt>On the bench</dt>
+  <dd>{% if arm.not_run %}Arm not run yet.{% if sample %} Planned for Saturday 19:30 if time allows.{% endif %}{% else %}{{ s.success }} invoices completed of {{ s.n }}, {{ s.steps|num }} steps on average. <a href="{% url 'bench' %}?arm={{ arm.key }}">See the runs</a>{% endif %}</dd>
+  {% if show_drift %}
+  <dt>Drift</dt><dd>{{ drift_count }} steps no longer match the 2026 screen. <a href="{% url 'drift' %}">Drift report</a></dd>
+  {% endif %}
+</dl>
+
+{% if view == 'md' %}
+<pre class="skill-markdown">{{ markdown }}</pre>
+{% else %}
+<article class="skill">
+  <pre class="frontmatter">name: {{ k.name }}
+description: {{ k.description }}</pre>
+
+  <h2>Preconditions</h2>
+  <ul>{% for p in k.preconditions %}<li>{{ p }}</li>{% endfor %}</ul>
+
+  <h2>Steps</h2>
+  <ol>
+    {% for st in steps %}
+    <li{% if st.drifted %} class="drifted"{% endif %}>{{ st.text }}{% if st.t %} <span class="tc">{{ st.t|tc }}</span>{% endif %}{% if st.drifted %} <span class="tag drift">drift</span>{% endif %}</li>
+    {% endfor %}
+  </ol>
+
+  <h2>Field mapping</h2>
+  <table>
+    <thead><tr><th>CSV column</th><th>Interface field</th></tr></thead>
+    <tbody>{% for a, b in k.mapping %}<tr><td><code>{{ a }}</code></td><td>{{ b }}</td></tr>{% endfor %}</tbody>
+  </table>
+
+  <h2>Exception rules</h2>
+  {% if k.exceptions %}
+  <ul>{% for e in k.exceptions %}<li>{{ e.text }} <span class="tc">{{ e.t|tc }}</span></li>{% endfor %}</ul>
+  {% else %}
+  <p class="muted">No rule stated or shown in the video.{% if sample %} That is why invoice 3 fails.{% endif %}</p>
+  {% endif %}
+
+  <h2>Final check</h2>
+  <p>{{ k.check }}</p>
+</article>
+{% endif %}
+{% endblock %}

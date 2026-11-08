@@ -1,0 +1,61 @@
+[
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"it.\" alone on the last of 3 lines (2% of the measure)",
+    "advisory": true,
+    "selector": "article.trap.trap--fail > p.trap__what"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"order.\" alone on the last of 2 lines (12% of the measure)",
+    "advisory": true,
+    "selector": "div.drift__item:nth-of-type(1) > p:nth-of-type(2)"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"follows.\" alone on the last of 3 lines (19% of the measure)",
+    "advisory": true,
+    "selector": "li.claim.claim--object > p.claim__v"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"guessing.\" alone on the last of 3 lines (12% of the measure)",
+    "advisory": true,
+    "selector": "div.prose > p:nth-of-type(4)"
+  },
+  {
+    "antipattern": "cream-palette",
+    "name": "Cream / beige palette",
+    "description": "A warm cream or beige page background has become the default \"tasteful\" AI surface, reached for by reflex. Choose a background that comes from a deliberate palette, not the safe warm off-white.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "cream/beige page background rgb(237, 235, 231)",
+    "selector": "body"
+  }
+]

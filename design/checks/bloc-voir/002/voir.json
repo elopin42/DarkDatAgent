@@ -1,0 +1,45 @@
+{
+  "url": "http://localhost:5202",
+  "quand": "2026-11-07T22:52:49.556Z",
+  "gpu": "local",
+  "vues": [
+    {
+      "taille": "1440x900@1",
+      "console": [
+        "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported."
+      ],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.1",
+          "y": 887,
+          "fichier": "large-02-0.1.png"
+        },
+        {
+          "etat": "0.17",
+          "y": 1508,
+          "fichier": "large-03-0.17.png"
+        },
+        {
+          "etat": "0.24",
+          "y": 2129,
+          "fichier": "large-04-0.24.png"
+        },
+        {
+          "etat": "0.3",
+          "y": 2662,
+          "fichier": "large-05-0.3.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 3641,
+      "fpsRepos": 61,
+      "hauteurPage": 9772
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/drift/",
+    "line": 0,
+    "snippet": "\"bouton”\" alone on the last of 2 lines (26% of the measure)",
+    "advisory": true,
+    "selector": "li.shot:nth-of-type(1) > p"
+  },
+  {
+    "antipattern": "cream-palette",
+    "name": "Cream / beige palette",
+    "description": "A warm cream or beige page background has become the default \"tasteful\" AI surface, reached for by reflex. Choose a background that comes from a deliberate palette, not the safe warm off-white.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "http://127.0.0.1:5221/drift/",
+    "line": 0,
+    "snippet": "cream/beige page background rgb(237, 235, 231)",
+    "selector": "body"
+  }
+]

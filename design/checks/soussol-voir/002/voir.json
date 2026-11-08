@@ -1,0 +1,63 @@
+{
+  "url": "http://localhost:5201",
+  "quand": "2026-11-07T23:41:59.121Z",
+  "gpu": "local",
+  "vues": [
+    {
+      "taille": "1440x900@1",
+      "console": [
+        "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported."
+      ],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.25",
+          "y": 1739,
+          "fichier": "large-02-0.25.png"
+        },
+        {
+          "etat": "0.5",
+          "y": 3478,
+          "fichier": "large-03-0.5.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 5023,
+      "fpsRepos": 60,
+      "hauteurPage": 7855
+    },
+    {
+      "taille": "375x812@1",
+      "console": [
+        "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported."
+      ],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "mobile-01-0.png"
+        },
+        {
+          "etat": "0.25",
+          "y": 2774,
+          "fichier": "mobile-02-0.25.png"
+        },
+        {
+          "etat": "0.5",
+          "y": 5548,
+          "fichier": "mobile-03-0.5.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 1160,
+      "fpsRepos": 61,
+      "hauteurPage": 11908
+    }
+  ]
+}

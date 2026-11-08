@@ -1,0 +1,53 @@
+{% extends "atelier/base.html" %}
+{% load static %}
+{% block title %}Demo board · Yesterday’s tutorial{% endblock %}
+{% block body_class %}board-page{% endblock %}
+{% block main %}
+<h1>Demo board</h1>
+<form class="board-controls" onsubmit="return false">
+  <label>Arm
+    <select id="arm">
+      {% for key, label in arm_options %}<option value="{{ key }}">{{ label }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Invoice <select id="row"></select></label>
+  <label>Speed
+    <select id="speed">
+      <option value="1400">Sped-up real time</option>
+      <option value="600">Fast</option>
+    </select>
+  </label>
+  <button type="button" id="reset">Restart</button>
+  <button type="button" id="go">Start</button>
+</form>
+
+<div class="board">
+  <section class="pane" id="pane-tutorial">
+    <h2>Tutorial · <span id="t-date"></span></h2>
+    <img id="t-frame" src="" alt="Tutorial keyframe at the current moment" width="640" height="400" hidden>
+    <p class="quote" id="t-quote"></p>
+    <p class="scrub"><span id="t-now"></span> <progress id="t-head" value="0" max="1"></progress> <span id="t-end"></span></p>
+  </section>
+
+  <section class="pane" id="pane-skill">
+    <h2>Induced skill · <span id="s-rev"></span></h2>
+    <div id="s-body"></div>
+  </section>
+
+  <section class="pane wide" id="pane-agent">
+    <h2>Agent · session <code id="a-session"></code> · <span id="a-counters"></span></h2>
+    <ol class="log" id="a-log" reversed></ol>
+  </section>
+
+  <section class="pane wide" id="pane-sql">
+    <h2>SQL database · <code>llx_facture_fourn</code> · <span id="q-state">waiting</span></h2>
+    <p class="sql-line">before: <span id="q-before">12</span> rows · after: <span id="q-after">—</span></p>
+    <div id="q-row"></div>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ payload|json_script:"board-data" }}
+<script>window.FRAMES_URL = "/frames/{{ frames_vid }}/";</script>
+<script src="{% static 'atelier/board.js' %}"></script>
+{% endblock %}

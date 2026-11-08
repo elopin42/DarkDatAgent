@@ -1,0 +1,23 @@
+{% extends "atelier/app.html" %}
+{% block title %}Welcome{% endblock %}
+{% block h1 %}Turn a tutorial video into an agent.{% endblock %}
+{% block lede %}<p class="page__lede">Give it a how-to video, even an old one. It reads the screen, listens to the voice, writes the procedure, and an agent does the task in your software.</p>{% endblock %}
+{% block main %}
+      <ol class="steps steps--big">
+        <li><strong>Connect two accounts.</strong> Gladia for the voice, H Company to understand the tutorial and run the agent. Two keys to paste.</li>
+        <li><strong>Add a video.</strong> A file on this computer or a YouTube link.</li>
+        <li><strong>Pick the software</strong> the agent will work in, and press Start.</li>
+      </ol>
+      <p>
+        {% if ready %}
+        <a class="btn btn--amber" href="{% if has_projects %}{% url 'start' %}{% else %}{% url 'new' %}{% endif %}">{% if has_projects %}Open your videos{% else %}Add your first video{% endif %}</a>
+        {% else %}
+        <a class="btn btn--amber" href="{% url 'keys' %}">Connect your accounts</a>
+        {% endif %}
+      </p>
+      <h2 class="h2">What happens on your computer</h2>
+      <p class="prose">Everything runs on your computer. The video file goes to Gladia, which transcribes the voice. The keyframes and sentences go to H Company, which writes the procedure and runs the agent. The first video takes a few minutes: download, transcription, keyframes, storyboard. You can follow each step as it runs.</p>
+      <h2 class="h2">Why</h2>
+      <p class="prose">Companies already have years of training videos and vendor tutorials. This turns them into agents that follow your rules, and tells you when a video is no longer enough. <a href="/">Read about the project</a>.</p>
+{% endblock %}
+{% block footer %}Local app. Nothing is published, nothing leaves this computer except the calls to Gladia and H Company.{% endblock %}

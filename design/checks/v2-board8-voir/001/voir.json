@@ -1,0 +1,39 @@
+{
+  "url": "http://127.0.0.1:5221/board/?step=8",
+  "quand": "2026-11-08T02:34:22.060Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 435,
+      "fpsRepos": 7,
+      "hauteurPage": 2276
+    },
+    {
+      "taille": "375x812@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "mobile-01-0.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 307,
+      "fpsRepos": 8,
+      "hauteurPage": 4171
+    }
+  ]
+}

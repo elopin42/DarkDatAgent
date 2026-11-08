@@ -1,0 +1,573 @@
+{
+  "label": "v2r2-check2",
+  "commit": "",
+  "results": [
+    {
+      "gate": "K1",
+      "item": "home 375 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "home cibles tactiles sous 24 px",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "home 768 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "home 1440 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "home fond en motif répété (grille, points, damier)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "F4",
+      "item": "home alignements (bords gauches de texte)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "9 bords, 5 orphelins (6 au plus) à x=40,338,398,920,1020"
+    },
+    {
+      "gate": "F4",
+      "item": "home échelle typographique",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5 tailles (14, 16, 20, 44, 64 px), rapport 4.6"
+    },
+    {
+      "gate": "F4",
+      "item": "home espacements hors échelle de 4",
+      "status": "PASS",
+      "hard": true,
+      "detail": "15 valeurs, hors échelle : 14px x9, 3px x6"
+    },
+    {
+      "gate": "F4",
+      "item": "home lignes trop longues (plus de 85 signes)",
+      "status": "PASS",
+      "hard": false,
+      "detail": "0"
+    },
+    {
+      "gate": "K9",
+      "item": "home backdrop-filter sur un composant",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "storyboard 375 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "storyboard cibles tactiles sous 24 px",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "storyboard 768 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "storyboard 1440 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "storyboard fond en motif répété (grille, points, damier)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "F4",
+      "item": "storyboard alignements (bords gauches de texte)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "10 bords, 2 orphelins (6 au plus) à x=224,270"
+    },
+    {
+      "gate": "F4",
+      "item": "storyboard échelle typographique",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5 tailles (12, 14, 16, 20, 44 px), rapport 3.7"
+    },
+    {
+      "gate": "F4",
+      "item": "storyboard espacements hors échelle de 4",
+      "status": "PASS",
+      "hard": true,
+      "detail": "11 valeurs, hors échelle : 2px x4, 3px x2"
+    },
+    {
+      "gate": "F4",
+      "item": "storyboard lignes trop longues (plus de 85 signes)",
+      "status": "WARN",
+      "hard": false,
+      "detail": "1"
+    },
+    {
+      "gate": "K9",
+      "item": "storyboard backdrop-filter sur un composant",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "drift 375 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "drift cibles tactiles sous 24 px",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "drift 768 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "drift 1440 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "drift fond en motif répété (grille, points, damier)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "F4",
+      "item": "drift alignements (bords gauches de texte)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "9 bords, 3 orphelins (6 au plus) à x=166,472,778"
+    },
+    {
+      "gate": "F4",
+      "item": "drift échelle typographique",
+      "status": "PASS",
+      "hard": true,
+      "detail": "6 tailles (12, 14, 16, 20, 28, 44 px), rapport 3.7"
+    },
+    {
+      "gate": "F4",
+      "item": "drift espacements hors échelle de 4",
+      "status": "PASS",
+      "hard": true,
+      "detail": "12 valeurs, hors échelle : 2px x2, 3px x2"
+    },
+    {
+      "gate": "F4",
+      "item": "drift lignes trop longues (plus de 85 signes)",
+      "status": "WARN",
+      "hard": false,
+      "detail": "1"
+    },
+    {
+      "gate": "K9",
+      "item": "drift backdrop-filter sur un composant",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K3",
+      "item": "erreurs console et exceptions",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "R3",
+      "item": "favicon",
+      "status": "PASS",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K3",
+      "item": "requêtes vers une origine tierce",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K8",
+      "item": "typo rendue (caractères bannis)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K10",
+      "item": "copie rendue (mots IA, chatbot, faux chiffres)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "home fondus d'entrée (opacité seule de 0 vers 1)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "storyboard fondus d'entrée (opacité seule de 0 vers 1)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "drift fondus d'entrée (opacité seule de 0 vers 1)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K13",
+      "item": "home rafale d'entrée",
+      "status": "INFO",
+      "hard": false,
+      "detail": "shots/home-burst.jpg"
+    },
+    {
+      "gate": "K13",
+      "item": "storyboard rafale d'entrée",
+      "status": "INFO",
+      "hard": false,
+      "detail": "shots/storyboard-burst.jpg"
+    },
+    {
+      "gate": "K13",
+      "item": "drift rafale d'entrée",
+      "status": "INFO",
+      "hard": false,
+      "detail": "shots/drift-burst.jpg"
+    },
+    {
+      "gate": "K1",
+      "item": "home balayage 320 à 1600",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K5",
+      "item": "home reduced motion : rien de caché",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K5",
+      "item": "home reduced motion : animations CSS encore actives",
+      "status": "PASS",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "home axe serious ou critical",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "home focus visible au Tab",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K6",
+      "item": "home desktop i/s pendant le scroll",
+      "status": "PASS",
+      "hard": false,
+      "detail": "60 i/s (headless, à confirmer sur la machine de démo)"
+    },
+    {
+      "gate": "K6",
+      "item": "home LCP mobile throttlé",
+      "status": "PASS",
+      "hard": true,
+      "detail": "752 ms, élément h1"
+    },
+    {
+      "gate": "K6",
+      "item": "home CLS",
+      "status": "PASS",
+      "hard": true,
+      "detail": "0.000"
+    },
+    {
+      "gate": "K6",
+      "item": "home INP approché (première tape)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "64 ms"
+    },
+    {
+      "gate": "K6",
+      "item": "home long tasks au chargement",
+      "status": "INFO",
+      "hard": false,
+      "detail": "1"
+    },
+    {
+      "gate": "K1",
+      "item": "storyboard balayage 320 à 1600",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K5",
+      "item": "storyboard reduced motion : rien de caché",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K5",
+      "item": "storyboard reduced motion : animations CSS encore actives",
+      "status": "PASS",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "storyboard axe serious ou critical",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "storyboard focus visible au Tab",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K6",
+      "item": "storyboard desktop i/s pendant le scroll",
+      "status": "PASS",
+      "hard": false,
+      "detail": "60 i/s (headless, à confirmer sur la machine de démo)"
+    },
+    {
+      "gate": "K6",
+      "item": "storyboard LCP mobile throttlé",
+      "status": "PASS",
+      "hard": true,
+      "detail": "624 ms, élément p"
+    },
+    {
+      "gate": "K6",
+      "item": "storyboard CLS",
+      "status": "PASS",
+      "hard": true,
+      "detail": "0.012"
+    },
+    {
+      "gate": "K6",
+      "item": "storyboard INP approché (première tape)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "32 ms"
+    },
+    {
+      "gate": "K6",
+      "item": "storyboard long tasks au chargement",
+      "status": "INFO",
+      "hard": false,
+      "detail": "0"
+    },
+    {
+      "gate": "K1",
+      "item": "drift balayage 320 à 1600",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K5",
+      "item": "drift reduced motion : rien de caché",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K5",
+      "item": "drift reduced motion : animations CSS encore actives",
+      "status": "PASS",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "drift axe serious ou critical",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K4",
+      "item": "drift focus visible au Tab",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K6",
+      "item": "drift desktop i/s pendant le scroll",
+      "status": "PASS",
+      "hard": false,
+      "detail": "60 i/s (headless, à confirmer sur la machine de démo)"
+    },
+    {
+      "gate": "K6",
+      "item": "drift LCP mobile throttlé",
+      "status": "PASS",
+      "hard": true,
+      "detail": "600 ms, élément span"
+    },
+    {
+      "gate": "K6",
+      "item": "drift CLS",
+      "status": "PASS",
+      "hard": true,
+      "detail": "0.012"
+    },
+    {
+      "gate": "K6",
+      "item": "drift INP approché (première tape)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "0 ms"
+    },
+    {
+      "gate": "K6",
+      "item": "drift long tasks au chargement",
+      "status": "INFO",
+      "hard": false,
+      "detail": "0"
+    },
+    {
+      "gate": "K12",
+      "item": "home repli sans WebGL : page lisible, aucune exception",
+      "status": "PASS",
+      "hard": true,
+      "detail": "1398 mots visibles, à comparer à la capture normale (aucun trou)"
+    },
+    {
+      "gate": "K12",
+      "item": "storyboard repli sans WebGL : page lisible, aucune exception",
+      "status": "PASS",
+      "hard": true,
+      "detail": "988 mots visibles, à comparer à la capture normale (aucun trou)"
+    },
+    {
+      "gate": "K12",
+      "item": "drift repli sans WebGL : page lisible, aucune exception",
+      "status": "PASS",
+      "hard": true,
+      "detail": "437 mots visibles, à comparer à la capture normale (aucun trou)"
+    },
+    {
+      "gate": "K11",
+      "item": "/ détecteur Impeccable",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "cream-palette (+4 indicatifs)"
+    },
+    {
+      "gate": "K11",
+      "item": "/ inspecteur taste",
+      "status": "WARN",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K11",
+      "item": "/storyboard/ détecteur Impeccable",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "cream-palette (+28 indicatifs)"
+    },
+    {
+      "gate": "K11",
+      "item": "/storyboard/ inspecteur taste",
+      "status": "WARN",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K11",
+      "item": "/drift/ détecteur Impeccable",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "cream-palette (+1 indicatifs)"
+    },
+    {
+      "gate": "K11",
+      "item": "/drift/ inspecteur taste",
+      "status": "WARN",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K10",
+      "item": "lint du code source (lint-slop)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    }
+  ]
+}

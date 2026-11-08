@@ -1,0 +1,24 @@
+[
+  {
+    "row": 3,
+    "piege": "doublon",
+    "arms": {
+      "old-voice": {
+        "verdict": "success",
+        "run_id": "JZMgB1UItkk-skill-3-1107-195711",
+        "sentence": "bon tiers (celui avec SIREN)"
+      }
+    }
+  },
+  {
+    "row": 27,
+    "piege": "tva",
+    "arms": {
+      "old-voice": {
+        "verdict": "fail",
+        "run_id": "JZMgB1UItkk-skill-27-1107-164022",
+        "sentence": "rien créé"
+      }
+    }
+  }
+]

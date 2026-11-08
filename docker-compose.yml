@@ -1,0 +1,40 @@
+# Dolibarr for the demo (docs/SETUP.md, block 7). `make dolibarr` starts it and seeds it.
+# Ports are bound to localhost only: the agent's Chrome and 80_verify.py run on this machine.
+name: dolibarr-demo
+
+services:
+  mariadb:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dolidb
+      MYSQL_USER: dolidbuser
+      MYSQL_PASSWORD: dolidbpass
+    volumes: [ "./data/mariadb:/var/lib/mysql" ]
+    ports: [ "127.0.0.1:3306:3306" ]
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 3s
+      retries: 30
+
+  dolibarr:
+    image: dolibarr/dolibarr:22
+    depends_on:
+      mariadb: { condition: service_healthy }
+    environment:
+      DOLI_INSTALL_AUTO: 1
+      DOLI_INIT_DEMO: 0
+      DOLI_DB_HOST: mariadb
+      DOLI_DB_NAME: dolidb
+      DOLI_DB_USER: dolidbuser
+      DOLI_DB_PASSWORD: dolidbpass
+      DOLI_URL_ROOT: "http://localhost:8080"
+      DOLI_ADMIN_LOGIN: admin
+      DOLI_ADMIN_PASSWORD: admin
+      DOLI_COMPANY_NAME: "Demo Hack"
+      DOLI_COMPANY_COUNTRYCODE: FR
+      DOLI_ENABLE_MODULES: "Societe,Fournisseur,Facture,Product"
+    volumes:
+      - "./data/documents:/var/www/documents"
+      - "./scripts/dolibarr:/seed:ro"
+    ports: [ "127.0.0.1:8080:80" ]

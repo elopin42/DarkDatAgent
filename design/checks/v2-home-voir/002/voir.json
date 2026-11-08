@@ -1,0 +1,69 @@
+{
+  "url": "http://127.0.0.1:5221/",
+  "quand": "2026-11-08T02:36:39.454Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0.12",
+          "y": 918,
+          "fichier": "large-01-0.12.png"
+        },
+        {
+          "etat": "0.2",
+          "y": 1530,
+          "fichier": "large-02-0.2.png"
+        },
+        {
+          "etat": "0.33",
+          "y": 2524,
+          "fichier": "large-03-0.33.png"
+        },
+        {
+          "etat": "0.5",
+          "y": 3825,
+          "fichier": "large-04-0.5.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 3727,
+      "fpsRepos": 9,
+      "hauteurPage": 8549
+    },
+    {
+      "taille": "375x812@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0.12",
+          "y": 1455,
+          "fichier": "mobile-01-0.12.png"
+        },
+        {
+          "etat": "0.2",
+          "y": 2425,
+          "fichier": "mobile-02-0.2.png"
+        },
+        {
+          "etat": "0.33",
+          "y": 4001,
+          "fichier": "mobile-03-0.33.png"
+        },
+        {
+          "etat": "0.5",
+          "y": 6062,
+          "fichier": "mobile-04-0.5.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 2862,
+      "fpsRepos": 7,
+      "hauteurPage": 12936
+    }
+  ]
+}

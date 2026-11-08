@@ -1,0 +1,25 @@
+{% extends "atelier/app.html" %}
+{% block title %}Your videos{% endblock %}
+{% block desc %}The videos turned into procedures and agents on this computer.{% endblock %}
+{% block h1 %}Your videos{% endblock %}
+{% block lede %}<p class="page__lede">Each video becomes a procedure, then an agent. Open one to follow its progress.</p>{% endblock %}
+{% block main %}
+      <p><a class="btn btn--amber" href="{% url 'new' %}">Add a video</a></p>
+      <div class="table-scroll" data-lamp><table class="table"><thead><tr><th scope="col">Video</th><th scope="col">Software</th><th scope="col">State</th></tr></thead>
+      <tbody>
+        {% for p in projects %}
+        <tr>
+          <th scope="row"><a href="{% url 'project' p.id %}">{% if p.source.kind == 'youtube' %}YouTube {{ p.source.id }}{% else %}{{ p.source.name }}{% endif %}</a></th>
+          <td>{{ p.software.name }}</td>
+          <td>{% if p.state == 'running' %}in progress{% elif p.state == 'done' %}agent ready{% elif p.state == 'failed' %}<strong>stopped</strong>{% else %}waiting to start{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody></table></div>
+      <h2 class="h2">Accounts</h2>
+      <ul class="plain">
+        {% for k in keys %}
+        <li>{{ k.label }}: {% if k.set %}connected{% else %}<strong>not connected</strong>{% endif %}</li>
+        {% endfor %}
+      </ul>
+      <p><a href="{% url 'keys' %}">Change accounts</a></p>
+{% endblock %}

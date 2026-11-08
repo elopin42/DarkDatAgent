@@ -1,0 +1,40 @@
+{% extends "atelier/base.html" %}
+{% load static fmt %}
+{% block title %}Storyboard · Yesterday’s tutorial{% endblock %}
+{% block main %}
+<p class="crumbs"><a href="{% url 'pipeline' %}">Pipeline</a> · steps 1 to 4</p>
+<h1>Storyboard</h1>
+<p>Each sentence transcribed by Gladia, set on the keyframe on screen when it starts. This is what the model reads to write the skill.</p>
+
+<dl class="facts">
+  <dt>Video</dt><dd>{{ video.title }}, <a href="{{ video.url }}">YouTube</a></dd>
+  <dt>Channel</dt><dd>{{ video.channel }}, {{ video.license }} license</dd>
+  <dt>Published</dt><dd>{{ video.published }}, {{ video.duration|tc }}</dd>
+  <dt>Transcript</dt><dd>Gladia solaria-3, {{ video.language }}, {{ shots|length }} sentences{% if sample %}, shown here in English{% else %}, as Gladia heard them{% endif %}</dd>
+  <dt>Keyframes</dt><dd>{{ video.frames }} images, 1280 px wide</dd>
+</dl>
+
+<nav class="tabs" aria-label="Variant">
+  <ul>
+    <li><a href="?mode=voice"{% if mode == 'voice' %} aria-current="page"{% endif %}>Voice and images</a></li>
+    <li><a href="?mode=images"{% if mode == 'images' %} aria-current="page"{% endif %}>Images only</a></li>
+  </ul>
+</nav>
+
+<ol class="shots">
+  {% for s in shots %}
+  <li>
+    <figure>
+      <img src="{% url 'frame' frames_vid s.frame %}" loading="lazy" alt="Keyframe {{ s.frame }} at {{ s.t|tc }}" width="640" height="400">
+      <figcaption><span class="tc">{{ s.t|tc }}</span> · <code>{{ s.frame }}</code></figcaption>
+    </figure>
+    {% if mode == 'voice' %}
+    {% if s.en != s.fr %}<p>“{{ s.en }}”</p>
+    <p lang="fr" class="muted">{{ s.fr }}</p>{% else %}<p lang="fr">“{{ s.fr }}”</p>{% endif %}
+    {% else %}
+    <p class="muted">No narration: the model only sees the image.</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endblock %}

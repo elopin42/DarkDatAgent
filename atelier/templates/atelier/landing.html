@@ -1,0 +1,117 @@
+{% extends "atelier/base.html" %}
+{% load static fmt %}
+{% block body_class %}landing{% endblock %}
+{% block main %}
+
+{# 1. Header #}
+<section id="header">
+  <h1>Yesterday’s tutorial becomes an agent.</h1>
+  <p class="lede">It does the work by your rules, and tells you when a video is no longer enough.</p>
+  <p>A how-to video filmed in 2021 for people becomes an agent that, in 2026, enters supplier invoices in today’s software, and every run is checked in the SQL database.</p>
+  <div class="captures">
+    <figure>
+      <img src="{% url 'frame' frames_vid capture_2021 %}" alt="Keyframe from the 2021 Dolibarr tutorial: new supplier invoice form" width="640" height="400">
+      <figcaption>Dolibarr, official tutorial, February 5, 2021</figcaption>
+    </figure>
+    {% if has_capture_2026 %}
+    <figure>
+      <img src="{% static 'atelier/captures/agent-2026.png' %}" alt="The agent in Dolibarr 22: new supplier invoice form" width="640" height="400">
+      <figcaption>The agent, November 8, 2026</figcaption>
+    </figure>
+    {% endif %}
+  </div>
+  {% if first_run %}<p><a href="{% url 'run' first_run.id %}">See the run, checked in SQL</a></p>{% endif %}
+</section>
+
+{# 2. The problem #}
+<section id="problem">
+  <h2>Companies are told to adopt AI. Then they are told to redo everything.</h2>
+  <p>Tools that learn a task by watching someone do it shipped this summer: Claude Cowork “Record a skill” (July 2026), OpenAI Codex “Record &amp; Replay” (June 2026), Loom “Record for agent” (July 2026). They work. They all start with the same sentence: “record the task”. In their tool, for the agent, with a microphone, today.</p>
+  <p>That is work companies already did. They have years of training videos, internal Looms and vendor tutorials. Hours of footage explaining to people how to enter an invoice, create a customer, close a case. All of it sits unused.</p>
+  <p>Redoing that content takes time. Exactly the time AI promised to save: you’re asked to redo everything.</p>
+  <p>And generic assistants can click, but they don’t know your rules: which of the two Transports Lemaire?</p>
+  <p>The ones who pay for it: small businesses running software without an API on years of training videos, software vendors whose tutorials go out of date with every release, and the accounting firms and non-profits who re-key the same data by hand every month.</p>
+</section>
+
+{# 3. What we do #}
+<section id="method">
+  <h2>We start from what already exists.</h2>
+  <p>We feed an existing video into the pipeline. Any video, as long as you can see the screen and hear someone talk. Gladia transcribes the voice. ffmpeg cuts the keyframes. A vision model, Holo4 on the H Models API, writes a procedure from them: a skill in the H Agents API format. An H agent follows it in the software, clicking like a person, and a database read checks that it got it right.</p>
+  <p>For the demo, the tutorial is the Dolibarr association’s video on supplier invoices, published on February 5, 2021 under a Creative Commons license. The software has changed since. The agent copes anyway, and when it doesn’t, it tells you at which step the tutorial is wrong.</p>
+  <p class="pipeline-line">YouTube video → Gladia (voice to text) → ffmpeg (keyframes) → H Models API (procedure) → H Agents API (the agent) → Dolibarr in Docker → SQL check</p>
+  <p>Devin, Linkup and Stripe are not used.</p>
+</section>
+
+{# 4. What it gives #}
+<section id="numbers">
+  <h2>The weekend’s numbers.</h2>
+  <p class="section-note">First, the invoices that depend on a house rule. These are the ones a generic assistant gets wrong. Every run, with the agent’s claim next to the database’s answer, is on the <a href="{% url 'bench' %}">bench page</a>.</p>
+  <h3>House-rule rows (pilot, indicative)</h3>
+  <p class="trap-sentence">Two third parties are called Transports Lemaire. Only one has a SIREN. The house rule says to take that one; nothing on the screen says so.</p>
+  {% include "atelier/_traps.html" %}
+  <h3>All invoices</h3>
+  <div class="table-wrap"><table>
+    <thead>
+      <tr><th></th><th class="num">Invoices completed</th><th class="num">Steps per invoice</th><th class="num">Cost per invoice</th></tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr><th scope="row">{{ row.arm.label }}</th>{% if row.arm.not_run %}<td colspan="3" class="muted">not run yet</td>{% else %}<td class="num">{{ row.s.success }} of {{ row.s.n }}</td><td class="num">{{ row.s.steps|num }}</td><td class="num">{{ row.s.cost|usd }}</td>{% endif %}</tr>
+      {% endfor %}
+    </tbody>
+  </table></div>
+  <p>The same invoices in every row, checked in the database, not by the agent. This is a pilot, not a study.</p>
+  {% if sample %}<p>Invoice 3 failed without a tutorial and with the 2021 one: duplicate supplier, and the 2021 tutorial doesn’t say which one to pick. Saturday’s video says it, and it passes.</p>{% endif %}
+</section>
+
+{# 5. The tutorial is out of date, and we know where #}
+<section id="drift">
+  <h2>{% if drift %}The tutorial is out of date in {{ drift_count_word }} place{{ drift|length|pluralize }}.{% else %}Where the tutorial is out of date.{% endif %}</h2>
+  <div class="table-wrap"><table class="diff">
+    <tbody>
+      {% for d in drift %}
+      <tr><th scope="row" rowspan="2">{% if d.step %}Step {{ d.step }}{% else %}—{% endif %}</th><td>2021</td><td>{{ d.was|default:"—" }}</td><td class="num" rowspan="2">seen in {{ d.seen }} runs of {{ old_n }}</td></tr>
+      <tr><td>2026</td><td>{{ d.now }}</td></tr>
+      {% empty %}
+      <tr><td>No drift reported yet by the 2021 tutorial arm.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table></div>
+  <p>The agent notes every time a label from the tutorial no longer matches the screen. That tells you when a video is no longer enough, and which step to re-film.</p>
+</section>
+
+{# 6. Why it is different #}
+<section id="difference">
+  <h2>Others record. We read the archive.</h2>
+  <div class="table-wrap"><table class="compare">
+    <thead>
+      <tr><th></th><th>Input</th><th>Output</th><th>Runs the task</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Claude Cowork “Record a skill”</th><td>a recording made in Cowork, with narration</td><td>skill</td><td>yes, in Cowork</td></tr>
+      <tr><th scope="row">OpenAI Codex “Record &amp; Replay”</th><td>a recording made for Codex</td><td>skill</td><td>yes, Computer Use</td></tr>
+      <tr><th scope="row">Loom “Record for agent”</th><td>a recording made in Loom in agent mode</td><td>action plan</td><td>no</td></tr>
+      <tr><th scope="row">This project</th><td>any existing video, even from 2021</td><td>skill + house rules, checked in SQL</td><td>yes, H agent</td></tr>
+      <tr><th scope="row">heyclicky</th><td>generic model knowledge</td><td>skills, withdrawn in September 2026</td><td>yes, with none of your house rules and no proof in the database</td></tr>
+    </tbody>
+  </table></div>
+  <p>We don’t claim to have invented learning from demonstration. We claim it shouldn’t require a new demonstration.</p>
+  <p>Prior work we build on: TimeWarp (arXiv 2603.04949), and Cloudflare’s account of maintaining documentation videos by hand.</p>
+</section>
+
+{# 7. What it opens #}
+<section id="next">
+  <h2>What comes next, if it holds.</h2>
+  <p>Software vendors have libraries of tutorials. The agent tells them when a video is no longer enough, so they know when to re-film it.</p>
+  <p>Small businesses that run on software without an API have internal Looms and recorded trainings. Same pipeline, with your rules written down once.</p>
+  <p>Accounting firms and non-profits that re-key the same documents: the video of whoever does it best becomes the agent of everyone else.</p>
+  <p>The same tutorial exists in English and Spanish. If all three produce the same procedure, we have a robustness measure. We didn’t have time this weekend.</p>
+  <p>Not built yet: finding the right tutorial from a task description with a web search (Linkup), and an agent that stops and asks a person when a rule from the video is ambiguous instead of guessing.</p>
+</section>
+{% endblock %}
+
+{# 8. Footer #}
+{% block footer %}
+<p>Built on November 7–8, 2026 at the H Company × 42AI hackathon, La Maison by Motier Ventures, Paris, by Ethan. In order: YouTube for the source, Gladia for the voice, ffmpeg for the keyframes, H Company Models API to write the skill and Agents API to run it, Dolibarr 22 in Docker as the target, SQL to check. Not used: Devin, Linkup, Stripe. Videos by the Dolibarr association, Creative Commons Attribution license. Code under the MIT license. Replays: <a href="{% url 'bench' %}">the {{ bench_runs }} bench runs</a>.</p>
+{% if sample %}<p class="mock-note">Mockup, sample data: no bench run yet.</p>{% endif %}
+{% endblock %}

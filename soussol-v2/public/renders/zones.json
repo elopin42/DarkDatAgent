@@ -1,0 +1,478 @@
+{
+ "zones": {
+  "box": {
+   "size@2x": [
+    288,
+    624
+   ],
+   "label@2x": [
+    74.1,
+    245.7,
+    213.9,
+    362.8
+   ],
+   "label_corners@2x": [
+    [
+     74.1,
+     245.7
+    ],
+    [
+     213.9,
+     245.7
+    ],
+    [
+     213.9,
+     362.8
+    ],
+    [
+     74.1,
+     362.8
+    ]
+   ],
+   "spine@2x": [
+    50.4,
+    191.8,
+    237.6,
+    606.9
+   ],
+   "sheet_done@2x": [
+    57.9,
+    68.1,
+    220.1,
+    178.0
+   ]
+  },
+  "box_open": {
+   "frames": 24,
+   "first": "box-rest (étiquette éteinte, couvercle fermé)",
+   "last": "box-active"
+  },
+  "box_done": {
+   "frames": 16,
+   "first": "box-active",
+   "last": "box-done"
+  },
+  "row": {
+   "size@2x": [
+    2560,
+    456
+   ],
+   "count": 24,
+   "labels@2x": [
+    [
+     61.1,
+     119.2,
+     132.9,
+     186.1
+    ],
+    [
+     164.0,
+     119.2,
+     235.8,
+     186.1
+    ],
+    [
+     266.9,
+     119.2,
+     338.7,
+     186.1
+    ],
+    [
+     369.7,
+     119.2,
+     441.5,
+     186.1
+    ],
+    [
+     472.6,
+     119.2,
+     544.4,
+     186.1
+    ],
+    [
+     575.5,
+     119.2,
+     647.3,
+     186.1
+    ],
+    [
+     678.3,
+     119.2,
+     750.1,
+     186.1
+    ],
+    [
+     781.2,
+     119.2,
+     853.0,
+     186.1
+    ],
+    [
+     884.1,
+     119.2,
+     955.9,
+     186.1
+    ],
+    [
+     986.9,
+     119.2,
+     1058.7,
+     186.1
+    ],
+    [
+     1089.8,
+     119.2,
+     1161.6,
+     186.1
+    ],
+    [
+     1192.7,
+     119.2,
+     1264.5,
+     186.1
+    ],
+    [
+     1295.5,
+     119.2,
+     1367.3,
+     186.1
+    ],
+    [
+     1398.4,
+     119.2,
+     1470.2,
+     186.1
+    ],
+    [
+     1501.3,
+     119.2,
+     1573.1,
+     186.1
+    ],
+    [
+     1604.1,
+     119.2,
+     1675.9,
+     186.1
+    ],
+    [
+     1707.0,
+     119.2,
+     1778.8,
+     186.1
+    ],
+    [
+     1809.9,
+     119.2,
+     1881.7,
+     186.1
+    ],
+    [
+     1912.7,
+     119.2,
+     1984.5,
+     186.1
+    ],
+    [
+     2015.6,
+     119.2,
+     2087.4,
+     186.1
+    ],
+    [
+     2118.5,
+     119.2,
+     2190.3,
+     186.1
+    ],
+    [
+     2221.3,
+     119.2,
+     2293.1,
+     186.1
+    ],
+    [
+     2324.2,
+     119.2,
+     2396.0,
+     186.1
+    ],
+    [
+     2427.1,
+     119.2,
+     2498.9,
+     186.1
+    ]
+   ],
+   "boxes_x@2x": [
+    [
+     48.5,
+     145.6
+    ],
+    [
+     151.4,
+     248.4
+    ],
+    [
+     254.3,
+     351.3
+    ],
+    [
+     357.1,
+     454.2
+    ],
+    [
+     460.0,
+     557.0
+    ],
+    [
+     562.9,
+     659.9
+    ],
+    [
+     665.7,
+     762.8
+    ],
+    [
+     768.6,
+     865.6
+    ],
+    [
+     871.4,
+     968.5
+    ],
+    [
+     974.3,
+     1071.4
+    ],
+    [
+     1077.2,
+     1174.2
+    ],
+    [
+     1180.0,
+     1277.1
+    ],
+    [
+     1282.9,
+     1380.0
+    ],
+    [
+     1385.8,
+     1482.8
+    ],
+    [
+     1488.6,
+     1585.7
+    ],
+    [
+     1591.5,
+     1688.6
+    ],
+    [
+     1694.4,
+     1791.4
+    ],
+    [
+     1797.2,
+     1894.3
+    ],
+    [
+     1900.1,
+     1997.1
+    ],
+    [
+     2003.0,
+     2100.0
+    ],
+    [
+     2105.8,
+     2202.9
+    ],
+    [
+     2208.7,
+     2305.7
+    ],
+    [
+     2311.6,
+     2408.6
+    ],
+    [
+     2414.4,
+     2511.5
+    ]
+   ]
+  },
+  "m24": {
+   "size@2x": [
+    1600,
+    1200
+   ],
+   "screen_corners@2x": [
+    [
+     590.8,
+     383.9
+    ],
+    [
+     1009.2,
+     383.9
+    ],
+    [
+     1009.2,
+     645.4
+    ],
+    [
+     590.8,
+     645.4
+    ]
+   ],
+   "screen@2x": [
+    590.8,
+    383.9,
+    1009.2,
+    645.4
+   ],
+   "screen_visible@2x": [
+    598.0,
+    390.6,
+    1002.0,
+    640.3
+   ],
+   "note": "écran 640 x 400 (16:10) ; la vidéo se pose sous l'image, dans screen@2x, le cadre la recouvre"
+  },
+  "m24_34": {
+   "size@2x": [
+    1600,
+    1200
+   ],
+   "screen_corners@2x": [
+    [
+     567.4,
+     348.6
+    ],
+    [
+     942.1,
+     325.7
+    ],
+    [
+     939.2,
+     575.9
+    ],
+    [
+     572.6,
+     618.2
+    ]
+   ],
+   "note": "trois quarts : l'écran est un quadrilatère (coins haut gauche, haut droit, bas droit, bas gauche), à caler par matrix3d"
+  }
+ },
+ "sizes": {
+  "box\\box-rest@2x.webp": 17686,
+  "box\\box-rest.webp": 5552,
+  "box\\box-active@2x.webp": 17220,
+  "box\\box-active.webp": 5526,
+  "box\\box-done@2x.webp": 17898,
+  "box\\box-done.webp": 5738,
+  "box\\box-failed@2x.webp": 17172,
+  "box\\box-failed.webp": 5492,
+  "box\\open\\box-open-00@2x.webp": 15580,
+  "box\\open\\box-open-00.webp": 5076,
+  "box\\open\\box-open-01@2x.webp": 15656,
+  "box\\open\\box-open-01.webp": 5108,
+  "box\\open\\box-open-02@2x.webp": 15672,
+  "box\\open\\box-open-02.webp": 5050,
+  "box\\open\\box-open-03@2x.webp": 15544,
+  "box\\open\\box-open-03.webp": 5008,
+  "box\\open\\box-open-04@2x.webp": 15426,
+  "box\\open\\box-open-04.webp": 4916,
+  "box\\open\\box-open-05@2x.webp": 15916,
+  "box\\open\\box-open-05.webp": 5060,
+  "box\\open\\box-open-06@2x.webp": 16176,
+  "box\\open\\box-open-06.webp": 5224,
+  "box\\open\\box-open-07@2x.webp": 16366,
+  "box\\open\\box-open-07.webp": 5208,
+  "box\\open\\box-open-08@2x.webp": 16572,
+  "box\\open\\box-open-08.webp": 5292,
+  "box\\open\\box-open-09@2x.webp": 16522,
+  "box\\open\\box-open-09.webp": 5184,
+  "box\\open\\box-open-10@2x.webp": 16362,
+  "box\\open\\box-open-10.webp": 5168,
+  "box\\open\\box-open-11@2x.webp": 16598,
+  "box\\open\\box-open-11.webp": 5244,
+  "box\\open\\box-open-12@2x.webp": 16508,
+  "box\\open\\box-open-12.webp": 5376,
+  "box\\open\\box-open-13@2x.webp": 16470,
+  "box\\open\\box-open-13.webp": 5210,
+  "box\\open\\box-open-14@2x.webp": 16138,
+  "box\\open\\box-open-14.webp": 5030,
+  "box\\open\\box-open-15@2x.webp": 15664,
+  "box\\open\\box-open-15.webp": 4982,
+  "box\\open\\box-open-16@2x.webp": 15450,
+  "box\\open\\box-open-16.webp": 5026,
+  "box\\open\\box-open-17@2x.webp": 15676,
+  "box\\open\\box-open-17.webp": 5042,
+  "box\\open\\box-open-18@2x.webp": 15512,
+  "box\\open\\box-open-18.webp": 5024,
+  "box\\open\\box-open-19@2x.webp": 15468,
+  "box\\open\\box-open-19.webp": 5156,
+  "box\\open\\box-open-20@2x.webp": 15612,
+  "box\\open\\box-open-20.webp": 5074,
+  "box\\open\\box-open-21@2x.webp": 15510,
+  "box\\open\\box-open-21.webp": 5076,
+  "box\\open\\box-open-22@2x.webp": 15548,
+  "box\\open\\box-open-22.webp": 5074,
+  "box\\open\\box-open-23@2x.webp": 15572,
+  "box\\open\\box-open-23.webp": 5078,
+  "box\\done\\box-done-00@2x.webp": 15532,
+  "box\\done\\box-done-00.webp": 5066,
+  "box\\done\\box-done-01@2x.webp": 15462,
+  "box\\done\\box-done-01.webp": 5128,
+  "box\\done\\box-done-02@2x.webp": 15498,
+  "box\\done\\box-done-02.webp": 5052,
+  "box\\done\\box-done-03@2x.webp": 15670,
+  "box\\done\\box-done-03.webp": 5092,
+  "box\\done\\box-done-04@2x.webp": 15496,
+  "box\\done\\box-done-04.webp": 5080,
+  "box\\done\\box-done-05@2x.webp": 15564,
+  "box\\done\\box-done-05.webp": 5200,
+  "box\\done\\box-done-06@2x.webp": 15730,
+  "box\\done\\box-done-06.webp": 5256,
+  "box\\done\\box-done-07@2x.webp": 15542,
+  "box\\done\\box-done-07.webp": 5162,
+  "box\\done\\box-done-08@2x.webp": 15684,
+  "box\\done\\box-done-08.webp": 5156,
+  "box\\done\\box-done-09@2x.webp": 15660,
+  "box\\done\\box-done-09.webp": 5194,
+  "box\\done\\box-done-10@2x.webp": 15934,
+  "box\\done\\box-done-10.webp": 5268,
+  "box\\done\\box-done-11@2x.webp": 16066,
+  "box\\done\\box-done-11.webp": 5354,
+  "box\\done\\box-done-12@2x.webp": 16248,
+  "box\\done\\box-done-12.webp": 5326,
+  "box\\done\\box-done-13@2x.webp": 16194,
+  "box\\done\\box-done-13.webp": 5500,
+  "box\\done\\box-done-14@2x.webp": 16172,
+  "box\\done\\box-done-14.webp": 5244,
+  "box\\done\\box-done-15@2x.webp": 16262,
+  "box\\done\\box-done-15.webp": 5302,
+  "box\\box-open-strip@2x.webp": 216612,
+  "box\\box-open-strip.webp": 62842,
+  "box\\box-done-strip@2x.webp": 125624,
+  "box\\box-done-strip.webp": 42572,
+  "row\\row-grey@2x.webp": 129556,
+  "row\\row-grey.webp": 39002,
+  "row\\row-amber@2x.webp": 129432,
+  "row\\row-amber.webp": 39694,
+  "m24\\m24-front@2x.webp": 94142,
+  "m24\\m24-front.webp": 33634,
+  "m24\\m24-off@2x.webp": 91724,
+  "m24\\m24-off.webp": 32662,
+  "m24\\m24-glass@2x.webp": 9212,
+  "m24\\m24-glass.webp": 2964,
+  "m24\\m24-34-tutorial@2x.webp": 133542,
+  "m24\\m24-34-tutorial.webp": 50118,
+  "m24\\m24-34-front@2x.webp": 130150,
+  "m24\\m24-34-front.webp": 49606
+ },
+ "log": []
+}

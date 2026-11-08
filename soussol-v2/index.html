@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script>/* serveur statique qui renvoie la landing pour /board/ : on rejoint la page de la route */ if (location.pathname !== "/" && location.pathname.endsWith("/")) location.replace(location.pathname + "index.html" + location.search + location.hash)</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DarkDatAgent, yesterday’s tutorial becomes an agent by your rules</title>
+  <meta name="description" content="A training video filmed before AI becomes an agent that does the work in today’s software, by your rules, with every run checked in the SQL database." />
+  <meta name="theme-color" content="#0a1b20" />
+  <link rel="canonical" href="http://www.darkdatagent.art/" />
+  <meta property="og:title" content="DarkDatAgent, yesterday’s tutorial becomes an agent by your rules" />
+  <meta property="og:description" content="A training video filmed before AI becomes an agent that does the work in today’s software, by your rules, with every run checked in the SQL database." />
+  <meta property="og:url" content="http://www.darkdatagent.art/" />
+  <meta property="og:type" content="website" />
+  <link rel="preload" href="/fonts/hanken-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/pc6300.woff" as="font" type="font/woff" crossorigin />
+  <link rel="icon" href="/brand/darkdatagent-mark.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="nav" data-nav data-front-free>
+    <a class="skip" href="#problem">Skip the 3D scene</a>
+    <a class="sign" href="/" aria-label="DarkDatAgent, home">
+      <img class="sign__mark" src="/brand/darkdatagent-mark.svg" width="32" height="32" alt="" />
+      <span class="site-name"><span class="dda">D</span>ark<span class="dda">D</span>at<span class="dda">A</span>gent</span>
+    </a>
+    <nav class="nav__links" aria-label="Application" data-front-free>
+      <div class="nav__group" role="group" aria-labelledby="nav-cat-agentic"><span class="nav__cat" id="nav-cat-agentic">Agentic process</span><a href="/pipeline/">Pipeline</a><a href="/storyboard/">Storyboard</a><a href="/skills/">Skills</a><a href="/board/">Demo</a></div>
+      <div class="nav__group" role="group" aria-labelledby="nav-cat-audit"><span class="nav__cat" id="nav-cat-audit">Audit</span><a href="/bench/">Bench</a><a href="/bench/#runs">Runs</a><a href="/drift/">Drift</a></div>
+      <a class="nav__local local-link" href="/start/" data-local-link><span class="local-link__led" aria-hidden="true"></span>Try it locally</a>
+      <a class="nav__cta" href="/board/">Open the demo board</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. [NAME] [HEADLINE] [CATCHPHRASE] [WATCH THE RUN] -->
+    <section class="hero" id="hero" data-slot="HEADLINE" aria-labelledby="hero-title">
+      <div class="hero__stage" data-hero-stage>
+        <img class="hero__poster" src="/poster/soussol.webp" data-src="/poster/soussol.webp" alt="" aria-hidden="true" data-poster fetchpriority="high" />
+        <canvas class="hero__canvas" data-scene aria-hidden="true"></canvas>
+        <div class="hero__amber" data-amber aria-hidden="true"></div>
+
+        <div class="hero__copy" data-hero-copy>
+          <h1 id="hero-title" class="hero__title" data-crt>Yesterday’s tutorial becomes an&nbsp;agent.</h1>
+          <p class="hero__sub" data-crt>It does the work by your rules, and tells you when a video is no longer enough.</p>
+          <p class="hero__catch" data-slot="CATCHPHRASE">Your training archive already holds the demonstrations agents need. We turn it into executable skills instead of asking you to record again.</p>
+          <div class="hero__actions" data-slot="WATCH THE RUN">
+            <a class="btn btn--amber" href="/runs/JZMgB1UItkk-skill-3-1107-195711/">
+              See the run, checked in SQL
+              <svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+            <a class="btn btn--line" href="/board/">Open the demo board</a>
+            <a class="hero__try local-link" href="/start/" data-local-link>
+              <span class="local-link__led" aria-hidden="true"></span>
+              <span class="local-link__label">Try it on your own video</span>
+              <svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+          </div>
+          <p class="hero__url"><span class="hero__url-k">Online at</span> <a href="http://www.darkdatagent.art/">www.darkdatagent.art</a></p>
+        </div>
+
+        <p class="sr-only" aria-live="off" data-screen-text>The screen reads the 2021 tutorial frame by frame and types what the voice says.</p>
+      </div>
+    </section>
+
+    <!-- 2. [PROBLEM] -->
+    <section class="problem section" id="problem" data-slot="PROBLEM">
+      <div class="wrap problem__grid">
+        <h2 class="problem__title" data-crt>Companies are told to adopt AI. Then they are told to redo everything.</h2>
+        <div class="problem__text">
+          <p>Tools that learn a task by watching someone do it shipped this summer. They work, and they all start with the same sentence: <mark class="hl">“record the task”</mark>. In their tool, for the agent, with a microphone, today.</p>
+          <ul class="examples" aria-label="Tools that ask for a new recording">
+            <li><strong>Claude Cowork</strong><span>“Record a skill”</span><span class="mono">July 2026</span></li>
+            <li><strong>OpenAI Codex</strong><span>“Record &amp; Replay”</span><span class="mono">June 2026</span></li>
+            <li><strong>Loom</strong><span>“Record for agent”</span><span class="mono">July 2026</span></li>
+          </ul>
+          <p>That is work companies <mark class="hl">already did</mark>. Years of training videos, internal Looms and vendor tutorials explain to people how to enter an invoice, create a customer, close a case. All of it sits unused, and redoing it takes exactly the time AI promised to save.</p>
+          <p>And generic assistants can click, but they don’t know <mark class="hl">your rules</mark>: which of the two Transports Lemaire?</p>
+        </div>
+      </div>
+      <div class="wrap shelf-row">
+        <div class="row-boxes" data-row aria-hidden="true">
+          <img class="row-boxes__img" src="/renders/row/row-amber.webp" srcset="/renders/row/row-amber.webp 1280w, /renders/row/row-amber@2x.webp 2560w" sizes="(min-width: 1360px) 1200px, 92vw" width="1280" height="228" alt="" loading="lazy" decoding="async" />
+          <img class="row-boxes__img row-boxes__grey" src="/renders/row/row-grey.webp" srcset="/renders/row/row-grey.webp 1280w, /renders/row/row-grey@2x.webp 2560w" sizes="(min-width: 1360px) 1200px, 92vw" width="1280" height="228" alt="" loading="lazy" decoding="async" data-row-grey />
+        </div>
+        <p class="shelf-row__legend">Tutorials filmed for people, never read by a machine.</p>
+      </div>
+    </section>
+
+    <!-- 3. [CATCHPHRASE] [CHAIN] [TOOLS] -->
+    <section class="chain section" id="chain" data-slot="CHAIN">
+      <div class="wrap">
+        <p class="chain__catch" data-crt>Every tool on the market starts from a fresh recording. We start from <mark class="hl">what you already filmed</mark>.</p>
+        <p class="chain__lede prose">We feed an existing video into the pipeline: any video in which you can see the screen and hear someone talk. Below, the chain replays the run of 7 November 2026 on invoice row 3, the duplicate supplier rule.</p>
+
+        <div class="board" data-board>
+          <div class="board__bar" data-front-free>
+            <p class="board__status mono" data-board-status aria-live="polite">Replay of 7 November 2026. The pipeline stages are condensed and the agent run plays at 20x its real 200 s.</p>
+            <div class="board__ctrl">
+              <button class="btn btn--small" type="button" data-board-replay>Replay</button>
+            </div>
+          </div>
+          <ol class="rack" data-rack data-front-free></ol>
+          <div class="reader" data-reader>
+            <div class="reader__col">
+              <p class="reader__h mono" data-reader-in-h>In</p>
+              <div class="reader__body" data-reader-in></div>
+            </div>
+            <div class="reader__col">
+              <p class="reader__h mono" data-reader-out-h>Out</p>
+              <div class="reader__body" data-reader-out></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools" data-slot="TOOLS">
+          <h3 class="tools__title" data-crt>Three services, each on the step it makes possible.</h3>
+          <div class="tool" data-tool>
+            <p class="tool__step mono">Step 2, Listen</p>
+            <h4 class="tool__name">Gladia</h4>
+            <p class="tool__why"><mark class="hl">House rules live in the voice</mark>, not on the screen. The presenter says which menu to open and which field comes next. Gladia turns that voice into sentences with timestamps, so each sentence lands on the frame it describes.</p>
+          </div>
+          <div class="tool" data-tool>
+            <p class="tool__step mono">Step 5, Read</p>
+            <h4 class="tool__name">H Models API, Holo4</h4>
+            <p class="tool__why">A screen from 2021 has to be read the way a person reads it: <mark class="hl">the exact label of a button</mark>, the name of a field. Holo4 reads the keyframes with their sentences, writes the steps and the rules, and flags what has probably changed since.</p>
+          </div>
+          <div class="tool" data-tool>
+            <p class="tool__step mono">Steps 6 and 7, Register and Run</p>
+            <h4 class="tool__name">H Agents API</h4>
+            <p class="tool__why">The skill is registered once and <mark class="hl">pinned to a revision</mark>, so every run says which version it followed. The agent clicks in a real Chrome, and each session has a public replay that can be followed live.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. [PAIR] -->
+    <section class="pair section" id="pair" data-slot="PAIR">
+      <div class="wrap">
+        <h2 class="pair__title" data-crt>The same task, five years apart.</h2>
+        <p class="pair__lede">From the official Dolibarr video of 2021, made for people, to the agent of 2026 entering the same invoice in today’s Dolibarr. Scroll along the five years.</p>
+      </div>
+      <div class="tl" data-tl>
+        <div class="wrap tl__head">
+          <p class="tl__now"><span class="tl__now-k mono">At the playhead</span><span class="tl__now-v" data-tl-now>5 February 2021</span></p>
+        </div>
+        <div class="tl__viewport">
+          <div class="tl__playhead" aria-hidden="true"></div>
+          <ol class="tl__track" data-tl-track>
+            <li class="tl__axis" aria-hidden="true"><span class="tl__fill" data-tl-fill></span></li>
+            <li class="tl__ev tl__ev--up tl__ev--wide" data-x="0" data-when="5 February 2021">
+              <div class="tl__card">
+                <p class="tl__n mono">01, 5 February 2021</p>
+                <h3 class="tl__t">The tutorial is filmed, for people</h3>
+                <div class="m24 m24--small" data-crt-video>
+                  <video class="m24__video" muted loop playsinline preload="none" poster="/img/tutorial-2021.jpg" data-quad="567.4,348.6 942.1,325.7 939.2,575.9 572.6,618.2" width="640" height="400" aria-label="The 2021 Dolibarr tutorial, creating a supplier invoice, from 1:25 to 1:47, no sound" data-video>
+                    <source src="/video/tutorial-2021.mp4" type="video/mp4" />
+                  </video>
+                  <img class="m24__front" src="/renders/m24/m24-34-front.webp" srcset="/renders/m24/m24-34-front.webp 800w, /renders/m24/m24-34-front@2x.webp 1600w" sizes="360px" width="800" height="600" alt="" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </li>
+            <li class="tl__ev tl__ev--down" data-x="1" data-when="2021 to 2026">
+              <div class="tl__card"><p class="tl__n mono">02, 2021 to 2026</p><h3 class="tl__t">Dolibarr changes, the video stays</h3><p class="tl__d">Five years of releases. The screens move, nobody re-films the tutorial.</p></div>
+            </li>
+            <li class="tl__ev tl__ev--up" data-x="2" data-when="7 November 2026">
+              <div class="tl__card"><p class="tl__n mono">03, Listen</p><h3 class="tl__t">Gladia turns the voice into sentences</h3><p class="tl__d">Each sentence with its time, ready to sit on its frame.</p></div>
+            </li>
+            <li class="tl__ev tl__ev--down" data-x="3" data-when="7 November 2026">
+              <div class="tl__card"><p class="tl__n mono">04, Read</p><h3 class="tl__t">Holo4 reads the 2021 screens</h3><p class="tl__d">Steps, exact labels and fields, with what has changed since.</p></div>
+            </li>
+            <li class="tl__ev tl__ev--up" data-x="4" data-when="7 November 2026">
+              <div class="tl__card"><p class="tl__n mono">05, Register</p><h3 class="tl__t">The skill is registered at revision 2</h3><p class="tl__d">One agent with the skill, one control agent without it.</p></div>
+            </li>
+            <li class="tl__ev tl__ev--down" data-x="5" data-when="7 November 2026, 19:57">
+              <div class="tl__card"><p class="tl__n mono">06, Run</p><h3 class="tl__t">The agent works in Dolibarr 22</h3><p class="tl__d">35 steps in 200 seconds, in a real Chrome, 0.13 USD.</p></div>
+            </li>
+            <li class="tl__ev tl__ev--up tl__ev--wide" data-x="6" data-when="7 November 2026, 20:00">
+              <div class="tl__card tl__card--receipt" data-slot="AGENT 2026">
+                <p class="tl__n mono">07, 7 November 2026</p>
+                <h3 class="tl__t">The database confirms the invoice</h3>
+                <dl class="receipt">
+                  <div><dt>Agent says</dt><dd>Invoice created, 288.00 with tax</dd></div>
+                  <div><dt>Database says</dt><dd>1 row before, 2 after, 240.00 before tax, validated</dd></div>
+                </dl>
+                <p class="receipt__verdict"><span class="tag tag--ink">success</span> the Transports Lemaire with a SIREN, a rule the 2021 video never states</p>
+                <a class="link-ext" href="/runs/JZMgB1UItkk-skill-3-1107-195711/">Open this run</a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. [TRAPPED ROWS] [REAL RATE] [DRIFT] -->
+    <section class="proof section" id="proof" data-slot="TRAPPED ROWS">
+      <div class="wrap">
+        <h2 class="proof__title" data-crt>The weekend’s numbers, failures first.</h2>
+        <p class="prose proof__lede">The invoices that depend on a house rule come first: a generic assistant has no way to know these rules. Each verdict is a read of the SQL database, not the agent’s word. This is a pilot, not a study.</p>
+
+        <div class="trapped">
+          <article class="trap trap--fail" data-lamp>
+            <p class="trap__row mono">Row 27, Café du Coin</p>
+            <h3 class="trap__rule">House rule: always 5.5% VAT.</h3>
+            <p class="trap__what">Nothing created. Dolibarr refused the requested date, 22/11/2026, as being in the future, and the agent stopped and said so instead of changing it. The date was a bug in our test data, fixed since: this run says nothing about the rule.</p>
+            <p class="trap__foot"><span class="tag tag--fail">fail</span> <span class="mono">10 steps, 147 s, skill revision 1</span></p>
+          </article>
+          <article class="trap trap--ok" data-lamp>
+            <p class="trap__row mono">Row 3, Transports Lemaire</p>
+            <h3 class="trap__rule">House rule: two suppliers share the name, take the one with a SIREN.</h3>
+            <p class="trap__what">The 2021 video never states this rule, and the skill does not carry it. The agent still picked the third party with a SIREN, and the database holds the invoice. So this row proves nothing about house rules yet: either the screen gives the answer away, or it was a coin toss.</p>
+            <p class="trap__foot"><span class="tag tag--ink">success</span> <span class="mono">35 steps, 200 s, skill revision 2</span></p>
+          </article>
+        </div>
+
+        <div class="rate" data-slot="REAL RATE">
+          <h3 class="rate__title">Generic entry, the same invoices in every arm</h3>
+          <p class="takeaway" data-takeaway><span class="takeaway__fig"><span class="num" data-count="3">3</span> of 7</span> invoices entered from a <mark class="hl">five-year-old tutorial</mark>, each verdict read in SQL. Without a tutorial, the control agent did 1 of 1.</p>
+          <div class="table-scroll" data-lamp><table class="rate__table">
+            <thead><tr><th scope="col">Arm</th><th scope="col">Invoices completed</th><th scope="col">Steps per invoice</th><th scope="col">Time per invoice</th><th scope="col">Cost per invoice</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">No tutorial</th><td><span class="num">1</span> of 1</td><td class="num">23</td><td class="num">161 s</td><td class="num">0.07 USD</td></tr>
+              <tr class="rate__us"><th scope="row">2021 tutorial</th><td><span class="num">3</span> of 7</td><td class="num">19</td><td class="num">386 s</td><td class="num">0.10 USD</td></tr>
+            </tbody>
+          </table></div>
+          <p class="rate__note">4 runs are left out of the counts: the invoice already existed and the agent, told never to create a record twice, created nothing. So far the agent’s own report has matched the database every time, including a session that broke off mid-entry and reported a draft with no price. We still never take its word: <mark class="hl">the verdict comes from SQL</mark>.</p>
+        </div>
+
+        <div class="drift" data-slot="DRIFT">
+          <h3 class="drift__title" data-crt>Where the 2021 video stops matching the job, the agent says so.</h3>
+          <p class="takeaway" data-takeaway>In 3 runs of 11, the agent noted where it had to leave the video: the tutorial starts from an approved purchase order with catalog products, the task is a direct invoice with a free line. These are gaps of coverage, not screen changes: <mark class="hl">no run reported a renamed or moved button</mark>. For a vendor, that is still the report that matters: which videos no longer match how the work is done.</p>
+          <div class="drift__grid">
+            <div class="drift__item" data-box>
+              <p class="mono drift__k">The video</p><p>The invoice is created from an approved purchase order.</p>
+              <p class="mono drift__k">The run</p><p>The agent goes through Billing and payment, Supplier invoices, New invoice, because the task names no order.</p>
+              <p class="mono drift__seen">seen in 1 run of 11</p>
+            </div>
+            <div class="drift__item" data-box>
+              <p class="mono drift__k">The video</p><p>Lines come from predefined products.</p>
+              <p class="mono drift__k">The run</p><p>A free line of type Product with a typed description, a function the video never shows.</p>
+              <p class="mono drift__seen">seen in 1 run of 11</p>
+            </div>
+            <div class="drift__item drift__repair" data-box>
+              <p class="mono drift__k">Repair</p><p>A repair script rewrites the skill’s steps from these notes and registers the next revision. Not run this weekend: the notes are gaps of coverage, not screen changes, so there was nothing to repair.</p>
+              <p class="mono drift__seen">built, not run</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. [DIFFERENCE] -->
+    <section class="difference section" id="difference" data-slot="DIFFERENCE">
+      <div class="wrap">
+        <h2 class="difference__title" data-crt>Why we start from the archive</h2>
+        <ol class="claims" data-claims>
+          <li class="claim" data-claim><span class="claim__k mono">Input</span><p class="claim__v"><mark class="hl">Any existing video</mark>, even one filmed in 2021 for people. Nothing new to record.</p></li>
+          <li class="claim" data-claim><span class="claim__k mono">Output</span><p class="claim__v">A skill that <mark class="hl">carries the rules said in the video</mark>, registered once and pinned to a revision.</p></li>
+          <li class="claim" data-claim><span class="claim__k mono">Proof</span><p class="claim__v">Every run <mark class="hl">read in your database</mark>, not in the agent’s report of itself.</p></li>
+          <li class="claim claim--object" data-claim><span class="claim__k mono">Upkeep</span><p class="claim__v">The agent notes <mark class="hl">where it had to leave the video</mark>. A repair script turns those notes into the next skill revision: built, not run this weekend.</p><span class="claim__box box is-done" aria-hidden="true" data-refile><span class="box__img"><span class="box__num"><span class="box__n">09</span>Repair</span><span class="box__sheet" data-rev>not run yet</span></span></span></li>
+        </ol>
+        <p class="prose difference__note">Learning from demonstration already exists. Our point is that it shouldn’t need a new demonstration.</p>
+      </div>
+    </section>
+
+    <!-- 6b. [TRY IT] -->
+    <section class="tryit section" id="try" data-slot="TRY IT" aria-labelledby="try-title">
+      <div class="wrap tryit__grid">
+        <div class="tryit__copy">
+          <h2 id="try-title" class="tryit__title" data-crt>Run it on your own video.</h2>
+          <p class="tryit__lede">The same chain runs on this machine. Connect your two accounts, add a video, choose the web software the agent will drive, then follow each step as it happens.</p>
+          <div class="tryit__actions">
+            <a class="btn btn--amber tryit__go" href="/start/" data-local-link>
+              Open the local app
+              <svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+          </div>
+          <p class="tryit__off" data-local-off hidden>Not running here. Start it with <code>make</code>: it opens on <span class="mono">127.0.0.1:8000</span>.</p>
+          <p class="tryit__fine">Local only: the app refuses any other computer, and your keys stay in <code>.env</code> on this machine.</p>
+        </div>
+        <figure class="tryit__screen" aria-label="What the local app does, in five steps">
+          <div class="tryit__crt" data-try-screen>
+            <p class="tryit__head"><span>DarkDatAgent, local app</span><span>127.0.0.1:8000</span></p>
+            <ol class="tryit__steps">
+              <li style="--i: 0"><span class="tryit__n">01</span><b>Accounts</b><span>Gladia and H, each key checked with its service</span></li>
+              <li style="--i: 1"><span class="tryit__n">02</span><b>Video</b><span>a file or a YouTube link</span></li>
+              <li style="--i: 2"><span class="tryit__n">03</span><b>Software</b><span>the demo Dolibarr in one click, or an app found on this machine</span></li>
+              <li style="--i: 3"><span class="tryit__n">04</span><b>Watch</b><span>each step of the chain, then the agent in a Chrome window</span></li>
+              <li style="--i: 4"><span class="tryit__n">05</span><b>Proof</b><span>the verdict read in SQL on the demo Dolibarr, the replay on H</span></li>
+            </ol>
+            <p class="tryit__prompt" style="--i: 5">&gt; open /start/<span class="tryit__cursor" aria-hidden="true"></span></p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 7. [NEXT] -->
+    <section class="next section" id="next" data-slot="NEXT">
+      <div class="wrap next__grid">
+        <h2 class="next__title" data-crt>Next steps, if the pilot holds up.</h2>
+        <div class="prose">
+          <p>Software vendors have libraries of tutorials. The agent tells them when a video is no longer enough, so they know when to re-film it.</p>
+          <p>Small businesses that run on software without an API have internal Looms and recorded trainings. Same pipeline, with their rules written down once.</p>
+          <p>The same tutorial exists in English and Spanish. If all three produce the same procedure, we have a robustness measure. We didn’t have time this weekend.</p>
+          <p>Not built yet: finding the right tutorial from a task description, and an agent that stops and asks a person when a rule from the video is ambiguous instead of guessing.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- [FOOTER] -->
+  <footer class="footer" data-slot="FOOTER" data-front-free>
+    <div class="wrap footer__grid">
+      <p class="footer__name"><img class="footer__badge" src="/brand/darkdatagent-badge.svg" width="96" height="96" alt="DarkDatAgent badge: a dark mass of data crossed by an orbit, with the agent as a cursor block" /><span class="site-name"><span class="dda">D</span>ark<span class="dda">D</span>at<span class="dda">A</span>gent</span><span class="footer__cursor" aria-hidden="true"></span><a class="footer__url" href="http://www.darkdatagent.art/">www.darkdatagent.art</a></p>
+      <p class="footer__credits">Built on 7 and 8 November 2026 at the H Company × 42AI hackathon, Paris. In order: YouTube for the source, Gladia for the voice, ffmpeg for the keyframes, H Company Models API to write the skill and Agents API to run it, Dolibarr 22 in Docker as the target, SQL to check. Videos by the Dolibarr association, Creative Commons Attribution. Screen font AT&amp;T PC6300 by VileR, CC BY-SA 4.0. Hanken Grotesk and Chivo Mono, SIL Open Font License. Code under the MIT license.</p>
+      <nav class="footer__links" aria-label="Application pages">
+        <a href="/board/">Demo board</a><a href="/pipeline/">Pipeline</a><a href="/bench/">Bench</a><a href="/start/">Run it locally</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

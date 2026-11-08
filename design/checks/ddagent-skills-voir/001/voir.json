@@ -1,0 +1,32 @@
+{
+  "url": "http://127.0.0.1:5211/skills/",
+  "quand": "2026-11-08T00:50:38.777Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "requetes": [
+        "net::ERR_ABORTED http://127.0.0.1:5211/api/state.json"
+      ],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.5",
+          "y": 682,
+          "fichier": "large-02-0.5.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 284,
+      "fpsRepos": 8,
+      "hauteurPage": 2264
+    }
+  ]
+}

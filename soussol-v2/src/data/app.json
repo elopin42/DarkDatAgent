@@ -1,0 +1,1675 @@
+{
+"snapshot": "2026-11-07",
+"video": {
+"id": "JZMgB1UItkk",
+"title": "Tutoriel 17 FR Dolibarr",
+"channel": "Dolibarr association",
+"license": "CC BY",
+"published": "2021-02-05",
+"duration": 420,
+"url": "https://www.youtube.com/watch?v=JZMgB1UItkk",
+"language": "fr",
+"frames": 106
+},
+"voice": [
+{
+"t": 1.26,
+"s": "Bienvenue dans ce tutoriel vidéo sur le système ERP et CRM Dolibarr."
+},
+{
+"t": 5.7,
+"s": "Cette vidéo explique comment utiliser le mode facture et avoir fournisseurs de Dolibarr."
+},
+{
+"t": 12.68,
+"s": "Prérequis :"
+},
+{
+"t": 14.68,
+"s": "activez les modules facture fournisseur à partir du menu Accueil"
+},
+{
+"t": 18.91,
+"s": "Configuration Modules."
+},
+{
+"t": 23.33,
+"s": "Il est également possible d'activer le module banque et espèces pour enregistrer des paiements sur des comptes bancaires dédiés."
+},
+{
+"t": 31.5,
+"s": "Accordez à vos utilisateurs des autorisations sur le module Fournisseur."
+},
+{
+"t": 35.2,
+"s": "Pour plus d'informations sur la configuration des autorisations pour les utilisateurs,"
+},
+{
+"t": 39.36,
+"s": "vous pouvez regarder notre vidéo"
+},
+{
+"t": 41.22,
+"s": "Utilisateurs, groupes et autorisations."
+},
+{
+"t": 45.77,
+"s": "Création d'une facture fournisseur."
+},
+{
+"t": 49.59,
+"s": "Explorons les différentes façons dont vous pouvez créer une facture fournisseur."
+},
+{
+"t": 53.91,
+"s": "À partir d'une commande valider et approuvée,"
+},
+{
+"t": 56.43,
+"s": "vous pouvez créer une facture fournisseur en cliquant sur le bouton qui convient."
+},
+{
+"t": 61.13,
+"s": "Les informations disponibles dans la commande,"
+},
+{
+"t": 63.13,
+"s": "telles que le fournisseur,"
+},
+{
+"t": 64.65,
+"s": "les conditions de paiement et le projet,"
+},
+{
+"t": 66.87,
+"s": "sont automatiquement copiées dans la facture fournisseur."
+},
+{
+"t": 71.08,
+"s": "Vous pouvez également créer une facture,"
+},
+{
+"t": 73.14,
+"s": "un avoir ou une facture d'acompte d'un tiers qui est un fournisseur en naviguant dans l'onglet Fournisseur."
+},
+{
+"t": 82.14,
+"s": "Il est également possible de créer une facture fournisseur directement à partir du menu"
+},
+{
+"t": 86.79,
+"s": "Facture fournisseur,"
+},
+{
+"t": 88.19,
+"s": "sous l'onglet Facturation et paiement."
+},
+{
+"t": 91.43,
+"s": "Veuillez choisir le fournisseur pour lequel vous créez la facture,"
+},
+{
+"t": 94.53,
+"s": "avoir ou à compte."
+},
+{
+"t": 100.7,
+"s": "Choix du type de facture."
+},
+{
+"t": 104.08,
+"s": "Les factures à avoir peuvent être créées pour remplacer ou corriger des factures émises précédemment."
+},
+{
+"t": 109.97,
+"s": "Pour les créer,"
+},
+{
+"t": 110.99,
+"s": "il faut passer par l'onglet Fournisseur ou par la facture que vous souhaitez corriger."
+},
+{
+"t": 115.85,
+"s": "Vous pouvez ensuite consommer cet avoir pour réduire le montant à payer pour une autre facture valider."
+},
+{
+"t": 122.46,
+"s": "Choisissez la date de la facture,"
+},
+{
+"t": 124.27,
+"s": "l'échéance du paiement,"
+},
+{
+"t": 126.09,
+"s": "les conditions de paiement,"
+},
+{
+"t": 127.67,
+"s": "le type de paiement,"
+},
+{
+"t": 129.15,
+"s": "le compte bancaire et la devise."
+},
+{
+"t": 131.99,
+"s": "Si le module Projet est activé,"
+},
+{
+"t": 133.93,
+"s": "vous pourrez choisir un projet."
+},
+{
+"t": 136.51,
+"s": "Ajoutez des notes publiques ou privées."
+},
+{
+"t": 141.27,
+"s": "Une fois la facture créée,"
+},
+{
+"t": 142.85,
+"s": "vous pouvez ajouter des produits et des services avec les informations de prix pour ceux-ci."
+},
+{
+"t": 149.93,
+"s": "Vous pouvez ajouter plusieurs produits et services."
+},
+{
+"t": 152.55,
+"s": "Vous pouvez choisir parmi les produits et services existants afin d'avoir les tarifs préremplis."
+},
+{
+"t": 160.21,
+"s": "Utilisez le menu Fichier joint pour ajouter des pièces jointes à la facture fournisseur."
+},
+{
+"t": 169.28,
+"s": "Validation et envoi de la facture fournisseur."
+},
+{
+"t": 177.36,
+"s": "Cliquez sur Valider pour valider la facture fournisseur."
+},
+{
+"t": 182.32,
+"s": "Maintenant,"
+},
+{
+"t": 183.0,
+"s": "la facture est prête à être envoyée à votre fournisseur."
+},
+{
+"t": 186.19,
+"s": "Un modèle par défaut est utilisé pour le fichier PDF généré."
+},
+{
+"t": 192.55,
+"s": "Vous pouvez maintenant utiliser le bouton Envoyer e-mail pour envoyer la facture."
+},
+{
+"t": 197.64,
+"s": "Sachez que la facture est automatiquement jointe à l'e-mail."
+},
+{
+"t": 204.24,
+"s": "Facture fournisseur,"
+},
+{
+"t": 205.52,
+"s": "paiement."
+},
+{
+"t": 207.88,
+"s": "Après émission du paiement d'une facture fournisseur,"
+},
+{
+"t": 210.81,
+"s": "Cliquez sur le bouton Saisir le paiement pour enregistrer le paiement dans le système."
+},
+{
+"t": 215.89,
+"s": "Choisissez la date,"
+},
+{
+"t": 216.89,
+"s": "le type de paiement et le compte bancaire."
+},
+{
+"t": 219.61,
+"s": "Saisissez le numéro de transaction et les éventuels commentaires."
+},
+{
+"t": 224.0,
+"s": "Entrez le montant du paiement et confirmez le paiement."
+},
+{
+"t": 229.66,
+"s": "Sachez que si vous avez réalisé un paiement partiel,"
+},
+{
+"t": 232.48,
+"s": "il vous sera possible de saisir à nouveau un paiement."
+},
+{
+"t": 236.04,
+"s": "Une fois que le paiement total dû pour la facture fournisseur a été enregistré,"
+},
+{
+"t": 240.22,
+"s": "La facture fournisseur est automatiquement clôturée."
+},
+{
+"t": 243.65,
+"s": "Si vous désirez marquer une facture comme payée sans nécessairement enregistrer le paiement,"
+},
+{
+"t": 248.31,
+"s": "cliquez sur le bouton qui convient."
+},
+{
+"t": 251.39,
+"s": "La facture fournisseur sera automatiquement clôturée avec le statut payée."
+},
+{
+"t": 256.53,
+"s": "Vous pouvez créer un avoir pour une facture fournisseur en cliquant sur le bouton qui convient."
+},
+{
+"t": 262.15,
+"s": "Sachez que le type de facture sera réglé sur avoir avec la facture à réviser qui sera automatiquement sélectionnée."
+},
+{
+"t": 270.24,
+"s": "Remplissez les champs obligatoires afin de créer l'avoir."
+},
+{
+"t": 281.01,
+"s": "Lorsque vous avez effectué des paiements excédentaires,"
+},
+{
+"t": 283.75,
+"s": "cliquez sur le bouton qui convient pour convertir l'excédent payé en une remise disponible."
+},
+{
+"t": 294.39,
+"s": "La réduction peut maintenant être consommée dans une autre facture provisoire."
+},
+{
+"t": 304.33,
+"s": "Pour les avoir valider,"
+},
+{
+"t": 306.01,
+"s": "vous pouvez saisir un remboursement au lieu d'un paiement,"
+},
+{
+"t": 308.89,
+"s": "c'est-à-dire que vous pouvez également décider de convertir l'avoir en un crédit disponible pour ce fournisseur."
+},
+{
+"t": 320.82,
+"s": "Ainsi,"
+},
+{
+"t": 321.62,
+"s": "vous pourrez consommer cette réduction disponible plus tard en réduisant le montant à payer sur une autre facture fournisseur valider."
+},
+{
+"t": 332.69,
+"s": "Facture fournisseur"
+},
+{
+"t": 334.16,
+"s": "Autre fonction du module."
+},
+{
+"t": 337.93,
+"s": "Utilisez le bouton Cloner si vous souhaitez créer une facture fournisseur similaire."
+},
+{
+"t": 344.77,
+"s": "Vous pouvez consulter la liste des facture fournisseur avec le statut de paiement correspondant dans la vue Liste."
+},
+{
+"t": 351.46,
+"s": "Vous pouvez également consulter la liste en fonction du statut de la facture."
+},
+{
+"t": 355.92,
+"s": "Par exemple,"
+},
+{
+"t": 356.91,
+"s": "brouillon,"
+},
+{
+"t": 357.63,
+"s": "non payé et payé."
+},
+{
+"t": 361.28,
+"s": "Les paiements reçus des fournisseurs sont disponibles dans la vue de la liste des paiements."
+},
+{
+"t": 366.5,
+"s": "Il est possible de créer des rapports pour les paiements reçus sur une base mensuelle."
+},
+{
+"t": 372.69,
+"s": "Le rapport est instantanément disponible pour téléchargement au format PDF."
+},
+{
+"t": 379.77,
+"s": "Les statistiques donnent un aperçu détaillé de toutes les facture fournisseur."
+},
+{
+"t": 383.95,
+"s": "Vous pouvez filtrer les statistiques en fonction des paramètres disponibles."
+},
+{
+"t": 390.89,
+"s": "Plusieurs autres fonctions peuvent être activées à partir de la configuration."
+},
+{
+"t": 394.88,
+"s": "De plus,"
+},
+{
+"t": 395.98,
+"s": "comme la plupart des modules de Dolibarr,"
+},
+{
+"t": 398.36,
+"s": "il vous est possible d'ajouter vos propres champs personnalisés à vos facture fournisseur et vous pourrez exporter votre base de données des factures et des paiements fournisseurs."
+},
+{
+"t": 409.97,
+"s": "Nous vous remercions d'avoir regardé ce tutoriel vidéo."
+},
+{
+"t": 413.21,
+"s": "Visitez le site www.dolibarr.org pour en savoir plus."
+}
+],
+"voice_source": "gladia",
+"shots": [
+{
+"n": 1,
+"file": "0001.jpg",
+"t": 0.0,
+"reason": "tick",
+"said": null,
+"said_t": null
+},
+{
+"n": 2,
+"file": "0002.jpg",
+"t": 2.25,
+"reason": "scene",
+"said": "Bienvenue dans ce tutoriel vidéo sur le système ERP et CRM Dolibarr.",
+"said_t": 1.26
+},
+{
+"n": 3,
+"file": "0003.jpg",
+"t": 7.26,
+"reason": "tick",
+"said": "Cette vidéo explique comment utiliser le mode facture et avoir fournisseurs de Dolibarr.",
+"said_t": 5.7
+},
+{
+"n": 4,
+"file": "0004.jpg",
+"t": 12.26,
+"reason": "tick",
+"said": "Prérequis :",
+"said_t": 12.68
+},
+{
+"n": 5,
+"file": "0005.jpg",
+"t": 17.27,
+"reason": "tick",
+"said": "activez les modules facture fournisseur à partir du menu Accueil",
+"said_t": 14.68
+},
+{
+"n": 6,
+"file": "0006.jpg",
+"t": 18.27,
+"reason": "scene",
+"said": "Configuration Modules.",
+"said_t": 18.91
+},
+{
+"n": 7,
+"file": "0007.jpg",
+"t": 21.9,
+"reason": "scene",
+"said": "Configuration Modules.",
+"said_t": 18.91
+},
+{
+"n": 8,
+"file": "0008.jpg",
+"t": 23.86,
+"reason": "scene",
+"said": "Il est également possible d'activer le module banque et espèces pour enregistrer des paiements sur des comptes bancaires dédiés.",
+"said_t": 23.33
+},
+{
+"n": 9,
+"file": "0009.jpg",
+"t": 27.32,
+"reason": "scene",
+"said": "Il est également possible d'activer le module banque et espèces pour enregistrer des paiements sur des comptes bancaires dédiés.",
+"said_t": 23.33
+},
+{
+"n": 10,
+"file": "0010.jpg",
+"t": 29.74,
+"reason": "scene",
+"said": "Il est également possible d'activer le module banque et espèces pour enregistrer des paiements sur des comptes bancaires dédiés.",
+"said_t": 23.33
+},
+{
+"n": 11,
+"file": "0011.jpg",
+"t": 33.08,
+"reason": "scene",
+"said": "Accordez à vos utilisateurs des autorisations sur le module Fournisseur.",
+"said_t": 31.5
+},
+{
+"n": 12,
+"file": "0012.jpg",
+"t": 36.16,
+"reason": "scene",
+"said": "Pour plus d'informations sur la configuration des autorisations pour les utilisateurs,",
+"said_t": 35.2
+},
+{
+"n": 13,
+"file": "0013.jpg",
+"t": 38.58,
+"reason": "scene",
+"said": "vous pouvez regarder notre vidéo",
+"said_t": 39.36
+},
+{
+"n": 14,
+"file": "0014.jpg",
+"t": 43.59,
+"reason": "tick",
+"said": "Utilisateurs, groupes et autorisations.",
+"said_t": 41.22
+},
+{
+"n": 15,
+"file": "0015.jpg",
+"t": 48.59,
+"reason": "tick",
+"said": "Explorons les différentes façons dont vous pouvez créer une facture fournisseur.",
+"said_t": 49.59
+},
+{
+"n": 16,
+"file": "0016.jpg",
+"t": 53.05,
+"reason": "scene",
+"said": "À partir d'une commande valider et approuvée,",
+"said_t": 53.91
+},
+{
+"n": 17,
+"file": "0017.jpg",
+"t": 57.81,
+"reason": "scene",
+"said": "vous pouvez créer une facture fournisseur en cliquant sur le bouton qui convient.",
+"said_t": 56.43
+},
+{
+"n": 18,
+"file": "0018.jpg",
+"t": 62.81,
+"reason": "tick",
+"said": "telles que le fournisseur,",
+"said_t": 63.13
+},
+{
+"n": 19,
+"file": "0019.jpg",
+"t": 67.82,
+"reason": "tick",
+"said": "sont automatiquement copiées dans la facture fournisseur.",
+"said_t": 66.87
+},
+{
+"n": 20,
+"file": "0020.jpg",
+"t": 72.82,
+"reason": "tick",
+"said": "un avoir ou une facture d'acompte d'un tiers qui est un fournisseur en naviguant dans l'onglet Fournisseur.",
+"said_t": 73.14
+},
+{
+"n": 21,
+"file": "0021.jpg",
+"t": 77.83,
+"reason": "tick",
+"said": "un avoir ou une facture d'acompte d'un tiers qui est un fournisseur en naviguant dans l'onglet Fournisseur.",
+"said_t": 73.14
+},
+{
+"n": 22,
+"file": "0022.jpg",
+"t": 79.45,
+"reason": "scene",
+"said": "un avoir ou une facture d'acompte d'un tiers qui est un fournisseur en naviguant dans l'onglet Fournisseur.",
+"said_t": 73.14
+},
+{
+"n": 23,
+"file": "0023.jpg",
+"t": 82.46,
+"reason": "scene",
+"said": "Il est également possible de créer une facture fournisseur directement à partir du menu",
+"said_t": 82.14
+},
+{
+"n": 24,
+"file": "0024.jpg",
+"t": 87.46,
+"reason": "tick",
+"said": "sous l'onglet Facturation et paiement.",
+"said_t": 88.19
+},
+{
+"n": 25,
+"file": "0025.jpg",
+"t": 90.22,
+"reason": "scene",
+"said": "sous l'onglet Facturation et paiement.",
+"said_t": 88.19
+},
+{
+"n": 26,
+"file": "0026.jpg",
+"t": 95.22,
+"reason": "tick",
+"said": "avoir ou à compte.",
+"said_t": 94.53
+},
+{
+"n": 27,
+"file": "0027.jpg",
+"t": 100.22,
+"reason": "tick",
+"said": "Choix du type de facture.",
+"said_t": 100.7
+},
+{
+"n": 28,
+"file": "0028.jpg",
+"t": 105.23,
+"reason": "tick",
+"said": "Les factures à avoir peuvent être créées pour remplacer ou corriger des factures émises précédemment.",
+"said_t": 104.08
+},
+{
+"n": 29,
+"file": "0029.jpg",
+"t": 110.23,
+"reason": "tick",
+"said": "il faut passer par l'onglet Fournisseur ou par la facture que vous souhaitez corriger.",
+"said_t": 110.99
+},
+{
+"n": 30,
+"file": "0030.jpg",
+"t": 115.24,
+"reason": "tick",
+"said": "Vous pouvez ensuite consommer cet avoir pour réduire le montant à payer pour une autre facture valider.",
+"said_t": 115.85
+},
+{
+"n": 31,
+"file": "0031.jpg",
+"t": 120.25,
+"reason": "tick",
+"said": "Vous pouvez ensuite consommer cet avoir pour réduire le montant à payer pour une autre facture valider.",
+"said_t": 115.85
+},
+{
+"n": 32,
+"file": "0032.jpg",
+"t": 125.25,
+"reason": "tick",
+"said": "les conditions de paiement,",
+"said_t": 126.09
+},
+{
+"n": 33,
+"file": "0033.jpg",
+"t": 130.25,
+"reason": "tick",
+"said": "le compte bancaire et la devise.",
+"said_t": 129.15
+},
+{
+"n": 34,
+"file": "0034.jpg",
+"t": 135.26,
+"reason": "tick",
+"said": "vous pourrez choisir un projet.",
+"said_t": 133.93
+},
+{
+"n": 35,
+"file": "0035.jpg",
+"t": 140.26,
+"reason": "tick",
+"said": "Une fois la facture créée,",
+"said_t": 141.27
+},
+{
+"n": 36,
+"file": "0036.jpg",
+"t": 145.27,
+"reason": "tick",
+"said": "vous pouvez ajouter des produits et des services avec les informations de prix pour ceux-ci.",
+"said_t": 142.85
+},
+{
+"n": 37,
+"file": "0037.jpg",
+"t": 150.28,
+"reason": "tick",
+"said": "Vous pouvez ajouter plusieurs produits et services.",
+"said_t": 149.93
+},
+{
+"n": 38,
+"file": "0038.jpg",
+"t": 155.28,
+"reason": "tick",
+"said": "Vous pouvez choisir parmi les produits et services existants afin d'avoir les tarifs préremplis.",
+"said_t": 152.55
+},
+{
+"n": 39,
+"file": "0039.jpg",
+"t": 160.28,
+"reason": "tick",
+"said": "Utilisez le menu Fichier joint pour ajouter des pièces jointes à la facture fournisseur.",
+"said_t": 160.21
+},
+{
+"n": 40,
+"file": "0040.jpg",
+"t": 162.41,
+"reason": "scene",
+"said": "Utilisez le menu Fichier joint pour ajouter des pièces jointes à la facture fournisseur.",
+"said_t": 160.21
+},
+{
+"n": 41,
+"file": "0041.jpg",
+"t": 167.42,
+"reason": "tick",
+"said": "Utilisez le menu Fichier joint pour ajouter des pièces jointes à la facture fournisseur.",
+"said_t": 160.21
+},
+{
+"n": 42,
+"file": "0042.jpg",
+"t": 172.42,
+"reason": "tick",
+"said": "Validation et envoi de la facture fournisseur.",
+"said_t": 169.28
+},
+{
+"n": 43,
+"file": "0043.jpg",
+"t": 177.43,
+"reason": "tick",
+"said": "Cliquez sur Valider pour valider la facture fournisseur.",
+"said_t": 177.36
+},
+{
+"n": 44,
+"file": "0044.jpg",
+"t": 179.43,
+"reason": "scene",
+"said": "Cliquez sur Valider pour valider la facture fournisseur.",
+"said_t": 177.36
+},
+{
+"n": 45,
+"file": "0045.jpg",
+"t": 184.35,
+"reason": "scene",
+"said": "la facture est prête à être envoyée à votre fournisseur.",
+"said_t": 183.0
+},
+{
+"n": 46,
+"file": "0046.jpg",
+"t": 186.1,
+"reason": "scene",
+"said": "Un modèle par défaut est utilisé pour le fichier PDF généré.",
+"said_t": 186.19
+},
+{
+"n": 47,
+"file": "0047.jpg",
+"t": 190.48,
+"reason": "scene",
+"said": "Un modèle par défaut est utilisé pour le fichier PDF généré.",
+"said_t": 186.19
+},
+{
+"n": 48,
+"file": "0048.jpg",
+"t": 194.53,
+"reason": "scene",
+"said": "Vous pouvez maintenant utiliser le bouton Envoyer e-mail pour envoyer la facture.",
+"said_t": 192.55
+},
+{
+"n": 49,
+"file": "0049.jpg",
+"t": 199.53,
+"reason": "tick",
+"said": "Sachez que la facture est automatiquement jointe à l'e-mail.",
+"said_t": 197.64
+},
+{
+"n": 50,
+"file": "0050.jpg",
+"t": 201.62,
+"reason": "scene",
+"said": "Sachez que la facture est automatiquement jointe à l'e-mail.",
+"said_t": 197.64
+},
+{
+"n": 51,
+"file": "0051.jpg",
+"t": 206.62,
+"reason": "tick",
+"said": "paiement.",
+"said_t": 205.52
+},
+{
+"n": 52,
+"file": "0052.jpg",
+"t": 211.63,
+"reason": "tick",
+"said": "Cliquez sur le bouton Saisir le paiement pour enregistrer le paiement dans le système.",
+"said_t": 210.81
+},
+{
+"n": 53,
+"file": "0053.jpg",
+"t": 212.88,
+"reason": "scene",
+"said": "Cliquez sur le bouton Saisir le paiement pour enregistrer le paiement dans le système.",
+"said_t": 210.81
+},
+{
+"n": 54,
+"file": "0054.jpg",
+"t": 217.88,
+"reason": "tick",
+"said": "le type de paiement et le compte bancaire.",
+"said_t": 216.89
+},
+{
+"n": 55,
+"file": "0055.jpg",
+"t": 222.89,
+"reason": "tick",
+"said": "Entrez le montant du paiement et confirmez le paiement.",
+"said_t": 224.0
+},
+{
+"n": 56,
+"file": "0056.jpg",
+"t": 227.89,
+"reason": "tick",
+"said": "Entrez le montant du paiement et confirmez le paiement.",
+"said_t": 224.0
+},
+{
+"n": 57,
+"file": "0057.jpg",
+"t": 230.15,
+"reason": "scene",
+"said": "Sachez que si vous avez réalisé un paiement partiel,",
+"said_t": 229.66
+},
+{
+"n": 58,
+"file": "0058.jpg",
+"t": 233.19,
+"reason": "scene",
+"said": "il vous sera possible de saisir à nouveau un paiement.",
+"said_t": 232.48
+},
+{
+"n": 59,
+"file": "0059.jpg",
+"t": 238.2,
+"reason": "tick",
+"said": "Une fois que le paiement total dû pour la facture fournisseur a été enregistré,",
+"said_t": 236.04
+},
+{
+"n": 60,
+"file": "0060.jpg",
+"t": 243.2,
+"reason": "tick",
+"said": "Si vous désirez marquer une facture comme payée sans nécessairement enregistrer le paiement,",
+"said_t": 243.65
+},
+{
+"n": 61,
+"file": "0061.jpg",
+"t": 246.71,
+"reason": "scene",
+"said": "Si vous désirez marquer une facture comme payée sans nécessairement enregistrer le paiement,",
+"said_t": 243.65
+},
+{
+"n": 62,
+"file": "0062.jpg",
+"t": 249.08,
+"reason": "scene",
+"said": "cliquez sur le bouton qui convient.",
+"said_t": 248.31
+},
+{
+"n": 63,
+"file": "0063.jpg",
+"t": 254.09,
+"reason": "tick",
+"said": "La facture fournisseur sera automatiquement clôturée avec le statut payée.",
+"said_t": 251.39
+},
+{
+"n": 64,
+"file": "0064.jpg",
+"t": 259.09,
+"reason": "tick",
+"said": "Vous pouvez créer un avoir pour une facture fournisseur en cliquant sur le bouton qui convient.",
+"said_t": 256.53
+},
+{
+"n": 65,
+"file": "0065.jpg",
+"t": 264.1,
+"reason": "tick",
+"said": "Sachez que le type de facture sera réglé sur avoir avec la facture à réviser qui sera automatiquement sélectionnée.",
+"said_t": 262.15
+},
+{
+"n": 66,
+"file": "0066.jpg",
+"t": 269.1,
+"reason": "tick",
+"said": "Remplissez les champs obligatoires afin de créer l'avoir.",
+"said_t": 270.24
+},
+{
+"n": 67,
+"file": "0067.jpg",
+"t": 274.11,
+"reason": "tick",
+"said": "Remplissez les champs obligatoires afin de créer l'avoir.",
+"said_t": 270.24
+},
+{
+"n": 68,
+"file": "0068.jpg",
+"t": 275.69,
+"reason": "scene",
+"said": "Remplissez les champs obligatoires afin de créer l'avoir.",
+"said_t": 270.24
+},
+{
+"n": 69,
+"file": "0069.jpg",
+"t": 278.9,
+"reason": "scene",
+"said": "Remplissez les champs obligatoires afin de créer l'avoir.",
+"said_t": 270.24
+},
+{
+"n": 70,
+"file": "0070.jpg",
+"t": 283.91,
+"reason": "tick",
+"said": "cliquez sur le bouton qui convient pour convertir l'excédent payé en une remise disponible.",
+"said_t": 283.75
+},
+{
+"n": 71,
+"file": "0071.jpg",
+"t": 286.91,
+"reason": "scene",
+"said": "cliquez sur le bouton qui convient pour convertir l'excédent payé en une remise disponible.",
+"said_t": 283.75
+},
+{
+"n": 72,
+"file": "0072.jpg",
+"t": 288.91,
+"reason": "scene",
+"said": "cliquez sur le bouton qui convient pour convertir l'excédent payé en une remise disponible.",
+"said_t": 283.75
+},
+{
+"n": 73,
+"file": "0073.jpg",
+"t": 292.33,
+"reason": "scene",
+"said": "cliquez sur le bouton qui convient pour convertir l'excédent payé en une remise disponible.",
+"said_t": 283.75
+},
+{
+"n": 74,
+"file": "0074.jpg",
+"t": 297.34,
+"reason": "tick",
+"said": "La réduction peut maintenant être consommée dans une autre facture provisoire.",
+"said_t": 294.39
+},
+{
+"n": 75,
+"file": "0075.jpg",
+"t": 299.3,
+"reason": "scene",
+"said": "La réduction peut maintenant être consommée dans une autre facture provisoire.",
+"said_t": 294.39
+},
+{
+"n": 76,
+"file": "0076.jpg",
+"t": 304.3,
+"reason": "tick",
+"said": "Pour les avoir valider,",
+"said_t": 304.33
+},
+{
+"n": 77,
+"file": "0077.jpg",
+"t": 309.31,
+"reason": "tick",
+"said": "c'est-à-dire que vous pouvez également décider de convertir l'avoir en un crédit disponible pour ce fournisseur.",
+"said_t": 308.89
+},
+{
+"n": 78,
+"file": "0078.jpg",
+"t": 313.15,
+"reason": "scene",
+"said": "c'est-à-dire que vous pouvez également décider de convertir l'avoir en un crédit disponible pour ce fournisseur.",
+"said_t": 308.89
+},
+{
+"n": 79,
+"file": "0079.jpg",
+"t": 316.86,
+"reason": "scene",
+"said": "c'est-à-dire que vous pouvez également décider de convertir l'avoir en un crédit disponible pour ce fournisseur.",
+"said_t": 308.89
+},
+{
+"n": 80,
+"file": "0080.jpg",
+"t": 319.24,
+"reason": "scene",
+"said": "c'est-à-dire que vous pouvez également décider de convertir l'avoir en un crédit disponible pour ce fournisseur.",
+"said_t": 308.89
+},
+{
+"n": 81,
+"file": "0081.jpg",
+"t": 324.24,
+"reason": "tick",
+"said": "vous pourrez consommer cette réduction disponible plus tard en réduisant le montant à payer sur une autre facture fournisseur valider.",
+"said_t": 321.62
+},
+{
+"n": 82,
+"file": "0082.jpg",
+"t": 326.37,
+"reason": "scene",
+"said": "vous pourrez consommer cette réduction disponible plus tard en réduisant le montant à payer sur une autre facture fournisseur valider.",
+"said_t": 321.62
+},
+{
+"n": 83,
+"file": "0083.jpg",
+"t": 331.37,
+"reason": "tick",
+"said": "vous pourrez consommer cette réduction disponible plus tard en réduisant le montant à payer sur une autre facture fournisseur valider.",
+"said_t": 321.62
+},
+{
+"n": 84,
+"file": "0084.jpg",
+"t": 336.38,
+"reason": "tick",
+"said": "Autre fonction du module.",
+"said_t": 334.16
+},
+{
+"n": 85,
+"file": "0085.jpg",
+"t": 340.34,
+"reason": "scene",
+"said": "Utilisez le bouton Cloner si vous souhaitez créer une facture fournisseur similaire.",
+"said_t": 337.93
+},
+{
+"n": 86,
+"file": "0086.jpg",
+"t": 344.6,
+"reason": "scene",
+"said": "Vous pouvez consulter la liste des facture fournisseur avec le statut de paiement correspondant dans la vue Liste.",
+"said_t": 344.77
+},
+{
+"n": 87,
+"file": "0087.jpg",
+"t": 348.35,
+"reason": "scene",
+"said": "Vous pouvez consulter la liste des facture fournisseur avec le statut de paiement correspondant dans la vue Liste.",
+"said_t": 344.77
+},
+{
+"n": 88,
+"file": "0088.jpg",
+"t": 353.35,
+"reason": "tick",
+"said": "Vous pouvez également consulter la liste en fonction du statut de la facture.",
+"said_t": 351.46
+},
+{
+"n": 89,
+"file": "0089.jpg",
+"t": 356.4,
+"reason": "scene",
+"said": "brouillon,",
+"said_t": 356.91
+},
+{
+"n": 90,
+"file": "0090.jpg",
+"t": 361.4,
+"reason": "tick",
+"said": "Les paiements reçus des fournisseurs sont disponibles dans la vue de la liste des paiements.",
+"said_t": 361.28
+},
+{
+"n": 91,
+"file": "0091.jpg",
+"t": 366.41,
+"reason": "tick",
+"said": "Il est possible de créer des rapports pour les paiements reçus sur une base mensuelle.",
+"said_t": 366.5
+},
+{
+"n": 92,
+"file": "0092.jpg",
+"t": 371.41,
+"reason": "tick",
+"said": "Il est possible de créer des rapports pour les paiements reçus sur une base mensuelle.",
+"said_t": 366.5
+},
+{
+"n": 93,
+"file": "0093.jpg",
+"t": 375.67,
+"reason": "scene",
+"said": "Le rapport est instantanément disponible pour téléchargement au format PDF.",
+"said_t": 372.69
+},
+{
+"n": 94,
+"file": "0094.jpg",
+"t": 378.0,
+"reason": "scene",
+"said": "Le rapport est instantanément disponible pour téléchargement au format PDF.",
+"said_t": 372.69
+},
+{
+"n": 95,
+"file": "0095.jpg",
+"t": 383.01,
+"reason": "tick",
+"said": "Vous pouvez filtrer les statistiques en fonction des paramètres disponibles.",
+"said_t": 383.95
+},
+{
+"n": 96,
+"file": "0096.jpg",
+"t": 388.01,
+"reason": "tick",
+"said": "Vous pouvez filtrer les statistiques en fonction des paramètres disponibles.",
+"said_t": 383.95
+},
+{
+"n": 97,
+"file": "0097.jpg",
+"t": 389.35,
+"reason": "scene",
+"said": "Vous pouvez filtrer les statistiques en fonction des paramètres disponibles.",
+"said_t": 383.95
+},
+{
+"n": 98,
+"file": "0098.jpg",
+"t": 391.27,
+"reason": "scene",
+"said": "Plusieurs autres fonctions peuvent être activées à partir de la configuration.",
+"said_t": 390.89
+},
+{
+"n": 99,
+"file": "0099.jpg",
+"t": 393.06,
+"reason": "scene",
+"said": "Plusieurs autres fonctions peuvent être activées à partir de la configuration.",
+"said_t": 390.89
+},
+{
+"n": 100,
+"file": "0100.jpg",
+"t": 394.81,
+"reason": "scene",
+"said": "comme la plupart des modules de Dolibarr,",
+"said_t": 395.98
+},
+{
+"n": 101,
+"file": "0101.jpg",
+"t": 399.82,
+"reason": "tick",
+"said": "il vous est possible d'ajouter vos propres champs personnalisés à vos facture fournisseur et vous pourrez exporter votre base de données des factures et des paiements fournisseurs.",
+"said_t": 398.36
+},
+{
+"n": 102,
+"file": "0102.jpg",
+"t": 400.86,
+"reason": "scene",
+"said": "il vous est possible d'ajouter vos propres champs personnalisés à vos facture fournisseur et vous pourrez exporter votre base de données des factures et des paiements fournisseurs.",
+"said_t": 398.36
+},
+{
+"n": 103,
+"file": "0103.jpg",
+"t": 405.86,
+"reason": "tick",
+"said": "il vous est possible d'ajouter vos propres champs personnalisés à vos facture fournisseur et vous pourrez exporter votre base de données des factures et des paiements fournisseurs.",
+"said_t": 398.36
+},
+{
+"n": 104,
+"file": "0104.jpg",
+"t": 409.45,
+"reason": "scene",
+"said": "Nous vous remercions d'avoir regardé ce tutoriel vidéo.",
+"said_t": 409.97
+},
+{
+"n": 105,
+"file": "0105.jpg",
+"t": 414.45,
+"reason": "tick",
+"said": "Visitez le site www.dolibarr.org pour en savoir plus.",
+"said_t": 413.21
+},
+{
+"n": 106,
+"file": "0106.jpg",
+"t": 419.46,
+"reason": "tick",
+"said": "Visitez le site www.dolibarr.org pour en savoir plus.",
+"said_t": 413.21
+}
+],
+"runs": [
+{
+"id": "JZMgB1UItkk-skill-1-1107-152836",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 1,
+"started_at": "2026-11-07T14:28:36+00:00",
+"finished_at": "2026-11-07T14:31:32+00:00",
+"duration": 176,
+"status": "completed",
+"error": null,
+"verdict": "success",
+"steps": 28,
+"cost": 0.102992,
+"skill_loaded": true,
+"before": 0,
+"after": 1,
+"agent_created": true,
+"agent_validated": true,
+"agent_ttc": 220.8,
+"sql_ht": 184.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/069b5845-77f2-4f29-b75e-f1de3324782e",
+"note": null,
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-none-2-1107-153235",
+"arm": "none",
+"row": 2,
+"rule": null,
+"revision": null,
+"started_at": "2026-11-07T14:32:35+00:00",
+"finished_at": "2026-11-07T14:35:16+00:00",
+"duration": 161,
+"status": "completed",
+"error": null,
+"verdict": "success",
+"steps": 23,
+"cost": 0.07404820000000001,
+"skill_loaded": false,
+"before": 1,
+"after": 2,
+"agent_created": true,
+"agent_validated": true,
+"agent_ttc": 70.8,
+"sql_ht": 59.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/76db6be4-fd1d-4c1c-b531-6dee6f2417ca",
+"note": null,
+"supplier": null
+},
+{
+"id": "JZMgB1UItkk-skill-1-1107-154730",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 1,
+"started_at": "2026-11-07T14:47:31+00:00",
+"finished_at": "2026-11-07T14:58:54+00:00",
+"duration": 683,
+"status": "completed",
+"error": null,
+"verdict": "noop",
+"steps": 4,
+"cost": 0.008172200000000001,
+"skill_loaded": true,
+"before": 2,
+"after": 2,
+"agent_created": false,
+"agent_validated": false,
+"agent_ttc": 0.0,
+"sql_ht": 184.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/3744a7a6-9a34-4dbf-8c85-a941e32cdde9",
+"note": "nothing created by this run: an invoice with this reference already existed and the agent did not duplicate it",
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-skill-1-1107-163738",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 1,
+"started_at": "2026-11-07T15:37:39+00:00",
+"finished_at": "2026-11-07T15:38:23+00:00",
+"duration": 44,
+"status": "completed",
+"error": null,
+"verdict": "noop",
+"steps": 7,
+"cost": 0.0282468,
+"skill_loaded": true,
+"before": 2,
+"after": 2,
+"agent_created": false,
+"agent_validated": true,
+"agent_ttc": 220.8,
+"sql_ht": 184.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/ffb6b59d-29e2-4f3e-8610-c2cf04f942b9",
+"note": "nothing created by this run: an invoice with this reference already existed and the agent did not duplicate it",
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-skill-1-1107-163859",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 1,
+"started_at": "2026-11-07T15:38:59+00:00",
+"finished_at": "2026-11-07T15:39:43+00:00",
+"duration": 44,
+"status": "completed",
+"error": null,
+"verdict": "noop",
+"steps": 2,
+"cost": 0.0093552,
+"skill_loaded": true,
+"before": 2,
+"after": 2,
+"agent_created": false,
+"agent_validated": true,
+"agent_ttc": 220.8,
+"sql_ht": 184.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/6b63d232-e201-4a56-832e-a63d1029aad5",
+"note": "nothing created by this run: an invoice with this reference already existed and the agent did not duplicate it",
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-skill-27-1107-164022",
+"arm": "old-voice",
+"row": 27,
+"rule": "tva",
+"revision": 1,
+"started_at": "2026-11-07T15:40:22+00:00",
+"finished_at": "2026-11-07T15:42:49+00:00",
+"duration": 147,
+"status": "completed",
+"error": null,
+"verdict": "fail",
+"steps": 10,
+"cost": null,
+"skill_loaded": true,
+"before": 2,
+"after": 2,
+"agent_created": false,
+"agent_validated": null,
+"agent_ttc": null,
+"sql_ht": null,
+"sql_status": null,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/307dc4a7-5aa8-4053-91d6-0c597b08dff4",
+"note": "no invoice with this supplier reference",
+"agent_said": "BLOCKED: Dolibarr rejects the date 22/11/2026 with “Error, the date cannot be in the future.”, the system's current date is 7 November 2026, so 22 November 2026 is in the future. The form was correctly filled (Supplier: Café du Coin, Ref: CDC-9401, Type: Standard invoice) but the draft could not be created. To proceed, either: (1) use a date on or before 07/11/2026, or (2) change the system date / Dolibarr date validation setting to allow future dates.",
+"supplier": "Café du Coin"
+},
+{
+"id": "JZMgB1UItkk-skill-1-1107-164303",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 1,
+"started_at": "2026-11-07T15:43:04+00:00",
+"finished_at": "2026-11-07T15:45:59+00:00",
+"duration": 175,
+"status": "completed",
+"error": null,
+"verdict": "noop",
+"steps": 11,
+"cost": 0.049370800000000006,
+"skill_loaded": true,
+"before": 2,
+"after": 2,
+"agent_created": false,
+"agent_validated": true,
+"agent_ttc": 220.8,
+"sql_ht": 184.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/bdf832e8-5ada-4086-9d90-db70ab7e1c72",
+"note": "nothing created by this run: an invoice with this reference already existed and the agent did not duplicate it",
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-skill-1-1107-192947",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 2,
+"started_at": "2026-11-07T18:29:48+00:00",
+"finished_at": "2026-11-07T18:32:04+00:00",
+"duration": 137,
+"status": "completed",
+"error": null,
+"verdict": "success",
+"steps": 27,
+"cost": 0.0959026,
+"skill_loaded": true,
+"before": 0,
+"after": 1,
+"agent_created": true,
+"agent_validated": true,
+"agent_ttc": 220.8,
+"sql_ht": 184.0,
+"sql_status": 1,
+"drifts": 2,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/d63ada99-a8b1-453c-969d-ffea577be3c4",
+"note": null,
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-skill-3-1107-193206",
+"arm": "old-voice",
+"row": 3,
+"rule": "doublon",
+"revision": 2,
+"started_at": "2026-11-07T18:32:06+00:00",
+"finished_at": "2026-11-07T18:52:44+00:00",
+"duration": 1237,
+"status": "completed",
+"error": null,
+"verdict": "partial",
+"steps": 18,
+"cost": null,
+"skill_loaded": true,
+"before": 1,
+"after": 2,
+"agent_created": true,
+"agent_validated": false,
+"agent_ttc": 0.0,
+"sql_ht": 0.0,
+"sql_status": 0,
+"drifts": 1,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/3ee9124a-8c1b-4377-9c2a-bda510a4272a",
+"note": "total before tax is 0.00, still a draft",
+"agent_said": "Supplier invoice PROV2 was created as draft with: supplier Transports Lemaire, ref. TL-3391, date 07/10/2026. The free line “Livraison palette” was entered in the description area but the unit price before tax of 240.00 € could not be entered before the browser became irreversible (CDP session lost). The invoice has NOT been validated. You must open invoice PROV2 (http://localhost:8080/fourn/facture/card.php?id=2), add the free line “Livraison palette” at 240.00 € before tax / VAT 20 %, then click VALIDER.",
+"supplier": "Transports Lemaire"
+},
+{
+"id": "JZMgB1UItkk-skill-3-1107-195711",
+"arm": "old-voice",
+"row": 3,
+"rule": "doublon",
+"revision": 2,
+"started_at": "2026-11-07T18:57:11+00:00",
+"finished_at": "2026-11-07T19:00:32+00:00",
+"duration": 200,
+"status": "completed",
+"error": null,
+"verdict": "success",
+"steps": 35,
+"cost": 0.1310664,
+"skill_loaded": true,
+"before": 1,
+"after": 2,
+"agent_created": true,
+"agent_validated": true,
+"agent_ttc": 288.0,
+"sql_ht": 240.0,
+"sql_status": 1,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/ed48b5f0-8b03-49a0-ad60-599a666a4abf",
+"note": null,
+"supplier": "Transports Lemaire"
+},
+{
+"id": "JZMgB1UItkk-skill-1-1107-212105",
+"arm": "old-voice",
+"row": 1,
+"rule": null,
+"revision": 2,
+"started_at": "2026-11-07T20:21:06+00:00",
+"finished_at": "2026-11-07T20:33:26+00:00",
+"duration": 740,
+"status": "running",
+"error": null,
+"verdict": "crash",
+"steps": 0,
+"cost": null,
+"skill_loaded": true,
+"before": 1,
+"after": 1,
+"agent_created": null,
+"agent_validated": null,
+"agent_ttc": null,
+"sql_ht": null,
+"sql_status": null,
+"drifts": 0,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/8f3e916a-5237-43ae-8f7e-31e42f8804c7",
+"note": "the session failed before creating anything",
+"agent_said": "",
+"supplier": "Papeterie Nord"
+},
+{
+"id": "JZMgB1UItkk-skill-13-1107-220000",
+"arm": "old-voice",
+"row": 13,
+"rule": null,
+"revision": 2,
+"started_at": "2026-11-07T21:00:01+00:00",
+"finished_at": "2026-11-07T21:01:04+00:00",
+"duration": 63,
+"status": "completed",
+"error": null,
+"verdict": "fail",
+"steps": 12,
+"cost": 0.0507852,
+"skill_loaded": true,
+"before": 1,
+"after": 1,
+"agent_created": false,
+"agent_validated": false,
+"agent_ttc": 0.0,
+"sql_ht": null,
+"sql_status": null,
+"drifts": 1,
+"share_url": "https://agp.eu.hcompany.ai/share/api/v1/trajectories/acd68fac-d38d-4d6f-baab-263b314e8154",
+"note": "no invoice with this supplier reference",
+"agent_said": "BLOCKING: the requested date 2026-11-08 (entered 08/11/2026) is rejected by Dolibarr with “Erreur, la date ne peut pas être dans le futur.” The demo system date seems to be around October 2026 (existing invoice SI2610-0002). Supplier “Fournitures Sud” and supplier reference “FS-1372” were correctly entered in the form, but the draft was NOT created. I did not change the date without your agreement. Please indicate the date to use (or confirm a date earlier than the system date) to finalize the creation and validation of the invoice.",
+"supplier": "Fournitures Sud"
+}
+],
+"traps": [
+{
+"row": 3,
+"piege": "doublon",
+"arms": {
+"old-voice": {
+"verdict": "success",
+"run_id": "JZMgB1UItkk-skill-3-1107-195711",
+"sentence": "bon tiers (celui avec SIREN)"
+}
+}
+},
+{
+"row": 27,
+"piege": "tva",
+"arms": {
+"old-voice": {
+"verdict": "fail",
+"run_id": "JZMgB1UItkk-skill-27-1107-164022",
+"sentence": "rien créé"
+}
+}
+}
+],
+"rules": {
+"3": {
+"rule": "doublon",
+"text": "deux Transports Lemaire : prendre celui qui a un SIREN",
+"text_en": "two Transports Lemaire: take the one that has a SIREN"
+},
+"27": {
+"rule": "tva",
+"text": "Café du Coin : toujours TVA 5,5 %",
+"text_en": "Café du Coin: always VAT 5.5 %"
+}
+},
+"drift": [
+{
+"fr": "Le tutoriel montre la création depuis une commande fournisseur approuvée, ici la facture a été créée directement via Facturation > Factures fournisseur > Nouvelle facture (chemin alternatif non détaillé dans le tutoriel)",
+"seen": 1,
+"of": 11
+},
+{
+"fr": "Le tutoriel utilise des lignes 'Produits prédéfinis', ici une ligne libre de type 'Produit' a été utilisée avec description manuelle 'Ramettes A4 x20' (fonction non montrée dans le tutoriel)",
+"seen": 1,
+"of": 11
+},
+{
+"fr": "La création directe depuis le menu Facturation > Factures fournisseur > Nouvelle facture n'est pas couverte par le tutoriel (chemin alternatif non montré)",
+"seen": 1,
+"of": 11
+},
+{
+"fr": "Chemin de création utilisé : Facturation | Paiement > Factures fournisseur > Nouvelle facture (création directe, sans commande), car la tâche ne mentionne aucune commande fournisseur, le tutoriel montre la création depuis une commande approuvés",
+"seen": 1,
+"of": 11
+}
+],
+"bench": {
+"traps": [
+{
+"arm": "2021 tutorial",
+"n": 3,
+"success": 1,
+"partial": 1,
+"failed": 1,
+"steps": 21,
+"duration": 528,
+"cost": 0.13,
+"skill_loaded": 3
+}
+],
+"generic": [
+{
+"arm": "No tutorial",
+"n": 1,
+"success": 1,
+"partial": 0,
+"failed": 0,
+"steps": 23,
+"duration": 161,
+"cost": 0.07,
+"skill_loaded": 0
+},
+{
+"arm": "2021 tutorial",
+"n": 7,
+"success": 3,
+"partial": 1,
+"failed": 3,
+"steps": 19,
+"duration": 386,
+"cost": 0.1,
+"skill_loaded": 7
+}
+]
+},
+"noops": 4
+}

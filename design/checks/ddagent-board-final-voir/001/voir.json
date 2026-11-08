@@ -1,0 +1,57 @@
+{
+  "url": "http://127.0.0.1:5211/board/?final=1",
+  "quand": "2026-11-08T00:49:53.736Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "requetes": [
+        "net::ERR_ABORTED http://127.0.0.1:5211/api/state.json"
+      ],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.4",
+          "y": 543,
+          "fichier": "large-02-0.4.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 276,
+      "fpsRepos": 7,
+      "hauteurPage": 2258
+    },
+    {
+      "taille": "375x812@2",
+      "console": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "requetes": [
+        "net::ERR_ABORTED http://127.0.0.1:5211/api/state.json"
+      ],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "mobile-01-0.png"
+        },
+        {
+          "etat": "0.4",
+          "y": 1160,
+          "fichier": "mobile-02-0.4.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 273,
+      "fpsRepos": 7,
+      "hauteurPage": 3713
+    }
+  ]
+}

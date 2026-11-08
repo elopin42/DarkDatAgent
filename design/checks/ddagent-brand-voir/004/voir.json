@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:5211/brand/preview.html",
+  "quand": "2026-11-08T01:33:07.915Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        }
+      ],
+      "pret": false,
+      "pretMs": 15036,
+      "fpsRepos": 61,
+      "hauteurPage": 900
+    }
+  ]
+}

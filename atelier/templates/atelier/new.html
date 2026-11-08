@@ -1,0 +1,49 @@
+{% extends "atelier/app.html" %}
+{% block title %}Add a video{% endblock %}
+{% block desc %}The tutorial video and the software the agent will work in.{% endblock %}
+{% block crumbs %}{% if onboarding %}<p class="crumbs"><a href="{% url 'welcome' %}">Welcome</a>, <a href="{% url 'keys' %}">step 1</a>, step 2 of 2</p>{% else %}<p class="crumbs"><a href="{% url 'start' %}">Your videos</a>, add a video</p>{% endif %}{% endblock %}
+{% block h1 %}Add a video{% endblock %}
+{% block lede %}<p class="page__lede">The tutorial video, and the software the agent will do the task in. Then press Start.</p>{% endblock %}
+{% block main %}
+      {% if connected %}<p class="notice" role="status">Accounts connected.</p>{% endif %}
+      {% if not ready %}
+      <p class="notice notice--alert" role="alert">
+        {% for k in keys %}{% if not k.set %}<strong>{{ k.label }} is not connected.</strong> {% endif %}{% endfor %}
+        <a href="{% url 'keys' %}">Connect your accounts</a> first.
+      </p>
+      {% endif %}
+      {% if error %}<p class="notice notice--alert" role="alert"><strong>{{ error }}</strong></p>{% endif %}
+
+      <form class="form" method="post" action="{% url 'new' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="fieldset"><legend>The tutorial video</legend>
+          <p><label for="video-file">A video file on this computer</label><input class="input" type="file" id="video-file" name="video" accept="video/*" /></p>
+          <p><label for="video-url">or a YouTube link</label><input class="input" type="url" id="video-url" name="url" placeholder="https://www.youtube.com/watch?v=JZMgB1UItkk" value="{{ form.url|default:'' }}" /></p>
+          <p><label for="lang">Language spoken in the video</label><select class="input" id="lang" name="lang"><option value="fr"{% if form.lang != 'en' %} selected{% endif %}>French</option><option value="en"{% if form.lang == 'en' %} selected{% endif %}>English</option></select></p>
+          <p class="check"><input type="checkbox" id="recent" name="recent" value="1"{% if form.recent == '1' %} checked{% endif %} /><label for="recent">This is a recent recording of a task an older tutorial already shows (the bench compares the two skills)</label></p>
+        </fieldset>
+        <fieldset class="fieldset" id="software"><legend>The software the agent will use</legend>
+          <p>The agent works in a web browser: pick software that opens in a browser. Here is what runs on this computer right now (<a href="{% url 'new' %}#software">refresh the list</a>).</p>
+          <p class="check"><input type="radio" id="sw-demo" name="software" value="demo"{% if not form.software or form.software == 'demo' %} checked{% endif %} /><label for="sw-demo">Dolibarr 22, the demo in Docker on <code>localhost:8080</code>: {% if dolibarr_up %}running{% elif dolibarr_starting %}starting, about a minute{% else %}<strong>stopped</strong>, start it with the button below{% endif %}</label></p>
+          {% for a in detected %}
+          <p class="check"><input type="radio" id="sw-{{ a.port }}" name="software" value="{{ a.url }}"{% if form.software == a.url %} checked{% endif %} /><label for="sw-{{ a.port }}">{{ a.name }} (<code>localhost:{{ a.port }}</code>)</label></p>
+          {% empty %}
+          <p class="muted">No other web software found running on this computer.</p>
+          {% endfor %}
+          <p class="check"><input type="radio" id="sw-other" name="software" value="other"{% if form.software == 'other' %} checked{% endif %} /><label for="sw-other">Another address</label></p>
+          <p>
+            <input class="input input--inline" type="text" id="sw-url" name="software_url" value="{{ form.software_url|default:'' }}" placeholder="localhost:3000 or a full address" aria-label="Address of the software" onfocus="document.getElementById('sw-other').checked = true" />
+            <input class="input input--inline" type="text" id="sw-name" name="software_name" value="{{ form.software_name|default:'' }}" placeholder="Name (optional)" aria-label="Name of the software" onfocus="document.getElementById('sw-other').checked = true" />
+          </p>
+        </fieldset>
+        <p><button class="btn btn--amber" type="submit">Start</button></p>
+      </form>
+
+      {% if not dolibarr_up and not dolibarr_starting %}
+      <form class="form" method="post" action="{% url 'dolibarr_start' %}">
+        {% csrf_token %}
+        <p><button class="btn btn--small" type="submit">Start the demo Dolibarr</button></p>
+        <p class="muted">Needs Docker. The first start takes a few minutes.</p>
+      </form>
+      {% endif %}
+{% endblock %}

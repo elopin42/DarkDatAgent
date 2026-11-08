@@ -1,0 +1,31 @@
+{% extends "atelier/app.html" %}
+{% block title %}Connect your accounts{% endblock %}
+{% block desc %}Paste the Gladia and H Company keys, saved on this computer only.{% endblock %}
+{% block crumbs %}{% if onboarding %}<p class="crumbs"><a href="{% url 'welcome' %}">Welcome</a>, step 1 of 2</p>{% else %}<p class="crumbs"><a href="{% url 'start' %}">Your videos</a>, accounts</p>{% endif %}{% endblock %}
+{% block h1 %}Connect your accounts{% endblock %}
+{% block lede %}<p class="page__lede">Gladia listens to the video, H Company understands it, writes the procedure and runs the agent. For each one: open its page, create a key, paste it here. Then press Connect: each key is checked with the service right away{% if onboarding %}, and you move on to the video{% endif %}.</p>{% endblock %}
+{% block main %}
+      {% if notices %}
+      <ul class="notices" role="status">
+        {% for n in notices %}<li>{{ n }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      <form class="form" method="post" action="{% url 'keys' %}" autocomplete="off">
+        {% csrf_token %}
+        {% for k in keys %}
+        <fieldset class="fieldset"><legend>{{ k.label }}{% if k.optional %} (optional){% endif %}</legend>
+          <p>{{ k.use }}</p>
+          <ol>
+            <li><a href="{{ k.url }}" target="_blank" rel="noopener noreferrer">Open {{ k.label }}</a> ({{ k.where }}), sign in and create a key.</li>
+            <li><label for="{{ k.name }}">{% if k.set %}Paste a new key to replace it{% else %}Paste the key{% endif %}</label><input class="input" type="password" id="{{ k.name }}" name="{{ k.name }}" spellcheck="false" autocomplete="off" /></li>
+          </ol>
+          <p class="muted">{% if k.set %}Connected, key ending with <code>…{{ k.tail }}</code>{% else %}Not connected{% endif %}{% if k.check %}. {{ k.check }}{% endif %}</p>
+          {% if k.set %}
+          <p class="check"><input type="checkbox" id="remove-{{ k.name }}" name="remove" value="{{ k.name }}" /><label for="remove-{{ k.name }}">Disconnect (delete the key from this computer)</label></p>
+          {% endif %}
+        </fieldset>
+        {% endfor %}
+        <p><button class="btn btn--amber" type="submit" name="action" value="check">Connect</button>{% if not onboarding %}<a href="{% url 'start' %}">Back to your videos</a>{% endif %}</p>
+      </form>
+      <p class="muted">Keys are saved in <code>.env</code> on this computer only, readable by your user, never shown again.</p>
+{% endblock %}

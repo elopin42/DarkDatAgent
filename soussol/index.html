@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yesterday's tutorial becomes an agent, by your rules</title>
+  <meta name="description" content="A training video filmed before AI becomes an agent that does the work in today's software, by your rules, with every run checked in the SQL database." />
+  <meta name="theme-color" content="#0a1b20" />
+  <link rel="preload" href="/fonts/hanken-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/pc6300.woff" as="font" type="font/woff" crossorigin />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a1b20'/%3E%3Crect x='4' y='4' width='5' height='8' fill='%23faab3f'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip" href="#problem">Skip the basement</a>
+
+  <header class="nav" data-nav>
+    <a class="sign" href="/" aria-label="Yesterday's tutorial, home">
+      <span class="sign__cursor" aria-hidden="true"></span>
+      <span class="site-name">Yesterday's tutorial</span>
+    </a>
+    <nav class="nav__links" aria-label="Application" data-front-free>
+      <a href="/pipeline/">Pipeline</a>
+      <a href="/storyboard/">Storyboard</a>
+      <a href="/skills/">Skills</a>
+      <a href="/bench/">Bench</a>
+      <a href="/drift/">Drift</a>
+      <a class="nav__cta" href="/board/">Open the board</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. [NAME] [HEADLINE] [CATCHPHRASE] [WATCH THE RUN] -->
+    <section class="hero" id="hero" data-slot="HEADLINE" aria-labelledby="hero-title">
+      <div class="hero__stage" data-hero-stage>
+        <img class="hero__poster" data-src="/poster/soussol.webp" alt="" aria-hidden="true" data-poster />
+        <canvas class="hero__canvas" data-scene aria-hidden="true"></canvas>
+        <div class="hero__amber" data-amber aria-hidden="true"></div>
+
+        <div class="hero__copy" data-hero-copy>
+          <h1 id="hero-title" class="hero__title" data-crt>Yesterday's tutorial becomes an&nbsp;agent.</h1>
+          <p class="hero__sub" data-crt>It does the work by your rules, and tells you when a video is no longer enough.</p>
+          <p class="hero__catch" data-slot="CATCHPHRASE">Your training archive already holds the demonstrations agents need. We turn it into executable skills instead of asking you to record again.</p>
+          <div class="hero__actions" data-slot="WATCH THE RUN">
+            <a class="btn btn--amber" href="https://agp.eu.hcompany.ai/share/api/v1/trajectories/ed48b5f0-8b03-49a0-ad60-599a666a4abf" rel="noopener" target="_blank">
+              Watch the run on H
+              <svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+            <a class="btn btn--line" href="#chain">See the chain</a>
+          </div>
+        </div>
+
+        <figure class="hero__caption" data-hero-caption>
+          <figcaption>
+            <span class="mono">On the M24</span>
+            Dolibarr official tutorial, 5 February 2021, 7:00, CC BY. Its 106 keyframes and its own voice, read at 2.5x.
+          </figcaption>
+        </figure>
+        <p class="sr-only" aria-live="off" data-screen-text>The screen reads the 2021 tutorial frame by frame and types what the voice says.</p>
+      </div>
+    </section>
+
+    <!-- 2. [PROBLEM] -->
+    <section class="problem section" id="problem" data-slot="PROBLEM">
+      <div class="wrap problem__grid">
+        <h2 class="problem__title" data-crt>Companies are told to adopt AI. Then they are told to redo everything.</h2>
+        <div class="problem__text prose">
+          <p>Tools that learn a task by watching someone do it shipped this summer: Claude Cowork “Record a skill” (July 2026), OpenAI Codex “Record &amp; Replay” (June 2026), Loom “Record for agent” (July 2026). They work. They all start with the same sentence: “record the task”. In their tool, for the agent, with a microphone, today.</p>
+          <p>That is work companies already did. Years of training videos, internal Looms and vendor tutorials explain to people how to enter an invoice, create a customer, close a case. All of it sits unused, and redoing it takes exactly the time AI promised to save.</p>
+          <p>And generic assistants can click, but they don’t know your rules: which of the two Transports Lemaire?</p>
+        </div>
+      </div>
+      <div class="wrap shelf-row" aria-hidden="true">
+        <svg class="sleepers" data-sleepers viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid meet"></svg>
+        <p class="shelf-row__legend"><span class="mono">24 boxes</span> filmed for people, never read by a machine.</p>
+      </div>
+    </section>
+
+    <!-- 3. [CATCHPHRASE] [CHAIN] [TOOLS] -->
+    <section class="chain section" id="chain" data-slot="CHAIN">
+      <div class="wrap">
+        <p class="chain__catch" data-crt>Every tool on the market starts from a fresh recording. We start from what you already filmed.</p>
+        <p class="chain__lede prose">We feed an existing video into the pipeline. Any video, as long as you can see the screen and hear someone talk. Below, the chain replays the run of 7 November on invoice row 3, the duplicate supplier rule.</p>
+
+        <div class="board" data-board>
+          <div class="board__bar">
+            <p class="board__status mono" data-board-status aria-live="polite">Replay of 7 Nov 2026. Pipeline stages condensed, the agent run plays at 20x its real 200 s.</p>
+            <div class="board__ctrl">
+              <button class="btn btn--small" type="button" data-board-replay>Replay</button>
+            </div>
+          </div>
+          <ol class="rack" data-rack data-front-free></ol>
+          <div class="reader" data-reader>
+            <div class="reader__col">
+              <p class="reader__h mono" data-reader-in-h>In</p>
+              <div class="reader__body" data-reader-in></div>
+            </div>
+            <div class="reader__col">
+              <p class="reader__h mono" data-reader-out-h>Out</p>
+              <div class="reader__body" data-reader-out></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools" data-slot="TOOLS">
+          <h3 class="tools__title" data-crt>Three services, each on the step it makes possible.</h3>
+          <div class="tool" data-box>
+            <p class="tool__step mono">Step 2, Listen</p>
+            <h4 class="tool__name">Gladia</h4>
+            <p class="tool__why">The house rule is in the voice, not on the screen. The presenter says which menu, which field, in which order. Gladia turns that voice into sentences with timestamps, so each sentence lands on the frame it describes.</p>
+          </div>
+          <div class="tool" data-box>
+            <p class="tool__step mono">Step 5, Read</p>
+            <h4 class="tool__name">H Models API, Holo4</h4>
+            <p class="tool__why">A screen from 2021 has to be read the way a person reads it: the exact label of a button, the name of a field, the order of a form. Holo4 reads the keyframes with their sentences and writes the steps, the fields and the rules, and flags what has probably changed since.</p>
+          </div>
+          <div class="tool" data-box>
+            <p class="tool__step mono">Steps 6 and 7, Register and Run</p>
+            <h4 class="tool__name">H Agents API</h4>
+            <p class="tool__why">The skill is registered once and pinned to a revision, so every run says which version it followed. The agent clicks in a real Chrome, each session has a public replay, and its steps can be followed live.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. [PAIR] -->
+    <section class="pair section" id="pair" data-slot="PAIR">
+      <div class="wrap">
+        <h2 class="pair__title" data-crt>The same task, five years apart.</h2>
+        <div class="pair__grid">
+          <figure class="pair__fig" data-ray>
+            <div class="pair__frame ray">
+              <img src="/img/tutorial-2021.jpg" width="1152" height="720" alt="Keyframe 35 of the 2021 Dolibarr tutorial: the supplier invoice card, with its fields and buttons." loading="lazy" />
+            </div>
+            <figcaption><span class="mono">Keyframe 35 of 106</span> Dolibarr, official tutorial, 5 February 2021</figcaption>
+          </figure>
+          <figure class="pair__fig" data-ray>
+            <div class="pair__frame pair__receipt ray" data-slot="AGENT 2026">
+              <p class="receipt__h mono">Run JZMgB1UItkk-skill-3-1107-195711</p>
+              <dl class="receipt">
+                <div><dt>Task</dt><dd>Supplier invoice TL-3391, Transports Lemaire, delivery of one pallet, 240.00 before tax</dd></div>
+                <div><dt>Skill</dt><dd>old-voice, revision 2, pinned</dd></div>
+                <div><dt>Agent</dt><dd>35 steps in 200 s, 0.13 USD</dd></div>
+                <div><dt>Agent says</dt><dd>Invoice created, 288.00 with tax</dd></div>
+                <div><dt>Database says</dt><dd>1 row before, 2 after, 240.00 before tax, validated</dd></div>
+              </dl>
+              <p class="receipt__verdict"><span class="tag tag--ink">success</span> it took the Transports Lemaire that has a SIREN</p>
+              <a class="link-ext" href="https://agp.eu.hcompany.ai/share/api/v1/trajectories/ed48b5f0-8b03-49a0-ad60-599a666a4abf" rel="noopener" target="_blank">Watch this replay on H</a>
+            </div>
+            <figcaption><span class="mono">Dolibarr 22, 7 November 2026, 19:57</span> The agent, following the skill read from that video</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. [TRAPPED ROWS] [REAL RATE] [DRIFT] -->
+    <section class="proof section" id="proof" data-slot="TRAPPED ROWS">
+      <div class="wrap">
+        <h2 class="proof__title" data-crt>The weekend’s numbers, failures first.</h2>
+        <p class="prose proof__lede">The invoices that depend on a house rule come first: a generic assistant gets these wrong. Each verdict is a read of the SQL database, not the agent’s word. This is a pilot, not a study.</p>
+
+        <div class="trapped">
+          <article class="trap trap--fail" data-box>
+            <p class="trap__row mono">Row 27, Café du Coin</p>
+            <h3 class="trap__rule">House rule: always 5.5&nbsp;% VAT.</h3>
+            <p class="trap__what">Nothing created. Dolibarr refused the requested date, 22/11/2026, as being in the future, and the agent stopped and said so instead of changing it.</p>
+            <p class="trap__foot"><span class="tag tag--fail">fail</span> <span class="mono">10 steps, 147 s, skill revision 1</span></p>
+          </article>
+          <article class="trap trap--ok" data-box>
+            <p class="trap__row mono">Row 3, Transports Lemaire</p>
+            <h3 class="trap__rule">House rule: two suppliers share the name, take the one with a SIREN.</h3>
+            <p class="trap__what">Nothing on the screen says which one. The skill carries the rule, the agent picked the right third party, and the database holds the new invoice.</p>
+            <p class="trap__foot"><span class="tag tag--ink">success</span> <span class="mono">35 steps, 200 s, skill revision 2</span></p>
+          </article>
+        </div>
+
+        <div class="rate" data-slot="REAL RATE">
+          <h3 class="rate__title">Generic entry, same invoices in every arm <span class="tag tag--line">pilot</span></h3>
+          <table class="rate__table">
+            <thead><tr><th scope="col">Arm</th><th scope="col">Invoices completed</th><th scope="col">Steps per invoice</th><th scope="col">Time per invoice</th><th scope="col">Cost per invoice</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">No tutorial</th><td><span class="num" data-count="1">1</span> of 1</td><td class="num">23</td><td class="num">161 s</td><td class="num">0.07 USD</td></tr>
+              <tr><th scope="row">2021 tutorial</th><td><span class="num" data-count="3">3</span> of 7</td><td class="num">19</td><td class="num">386 s</td><td class="num">0.10 USD</td></tr>
+            </tbody>
+          </table>
+          <p class="rate__note">4 runs are left out of the counts: the invoice already existed and the agent, told never to create a record twice, created nothing. The database confirms. In 1 run the agent said it had created the invoice while the database says otherwise. That is why the verdict comes from SQL.</p>
+        </div>
+
+        <div class="drift" data-slot="DRIFT">
+          <h3 class="drift__title" data-crt>The tutorial is out of date in four places, and the agent says where.</h3>
+          <div class="drift__grid">
+            <div class="drift__item" data-box>
+              <p class="mono drift__k">2021</p><p>The invoice is created from an approved purchase order.</p>
+              <p class="mono drift__k">2026</p><p>The agent goes through Billing and payment, Supplier invoices, New invoice, because the task names no order.</p>
+              <p class="mono drift__seen">seen in 1 run of 11</p>
+            </div>
+            <div class="drift__item" data-box>
+              <p class="mono drift__k">2021</p><p>Lines come from predefined products.</p>
+              <p class="mono drift__k">2026</p><p>A free line of type Product with a typed description, a function the video never shows.</p>
+              <p class="mono drift__seen">seen in 1 run of 11</p>
+            </div>
+            <div class="drift__item drift__repair" data-box>
+              <p class="mono drift__k">Repair</p><p>The noted drifts go back into the skill as revision 2. On the same invoice, row 1: revision 1 succeeded in 28 steps, revision 2 in 27.</p>
+              <p class="mono drift__seen">revision 1 to 2, pinned</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. [DIFFERENCE] -->
+    <section class="difference section" id="difference" data-slot="DIFFERENCE">
+      <div class="wrap">
+        <h2 class="difference__title" data-crt>Others record. We read the archive.</h2>
+        <div class="table-scroll">
+          <table class="diff" data-diff>
+            <thead><tr><th scope="col">Tool</th><th scope="col">Input</th><th scope="col">Output</th><th scope="col">Runs the task</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Claude Cowork “Record a skill”</th><td>a recording made in Cowork, with narration</td><td>skill</td><td>yes, in Cowork</td></tr>
+              <tr><th scope="row">OpenAI Codex “Record &amp; Replay”</th><td>a recording made for Codex</td><td>skill</td><td>yes, Computer Use</td></tr>
+              <tr><th scope="row">Loom “Record for agent”</th><td>a recording made in Loom in agent mode</td><td>action plan</td><td>no</td></tr>
+              <tr class="diff__us" data-us><th scope="row"><span class="site-name">Yesterday's tutorial</span></th><td>any existing video, even from 2021</td><td>skill and house rules, checked in SQL</td><td>yes, H agent</td></tr>
+              <tr><th scope="row">heyclicky</th><td>generic model knowledge</td><td>skills, withdrawn in September 2026</td><td>yes, with none of your house rules and no proof in the database</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose difference__note">We don’t claim to have invented learning from demonstration. We claim it shouldn’t require a new demonstration. Scribe, Guidde and Trupeer already turn existing videos into documentation, and Microsoft’s Resource2Skill distills public tutorials into skills. None of them connects an organisation’s own archive to executable skills that carry its rules and are checked in its database.</p>
+      </div>
+    </section>
+
+    <!-- 7. [NEXT] -->
+    <section class="next section" id="next" data-slot="NEXT">
+      <div class="wrap next__grid">
+        <h2 class="next__title" data-crt>What comes next, if it holds.</h2>
+        <div class="prose">
+          <p>Software vendors have libraries of tutorials. The agent tells them when a video is no longer enough, so they know when to re-film it.</p>
+          <p>Small businesses that run on software without an API have internal Looms and recorded trainings. Same pipeline, with your rules written down once.</p>
+          <p>The same tutorial exists in English and Spanish. If all three produce the same procedure, we have a robustness measure. We didn’t have time this weekend.</p>
+          <p>Not built yet: finding the right tutorial from a task description, and an agent that stops and asks a person when a rule from the video is ambiguous instead of guessing.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- [FOOTER] -->
+  <footer class="footer" data-slot="FOOTER">
+    <div class="wrap footer__grid">
+      <p class="footer__name"><span class="site-name">Yesterday's tutorial</span><span class="footer__cursor" aria-hidden="true"></span></p>
+      <p class="footer__credits">Built on 7 and 8 November 2026 at the H Company × 42AI hackathon, Paris. In order: YouTube for the source, Gladia for the voice, ffmpeg for the keyframes, H Company Models API to write the skill and Agents API to run it, Dolibarr 22 in Docker as the target, SQL to check. Videos by the Dolibarr association, Creative Commons Attribution. Screen font AT&amp;T PC6300 by VileR, CC BY-SA 4.0. Hanken Grotesk and Chivo Mono, SIL Open Font License. Code under the MIT license.</p>
+      <nav class="footer__links" aria-label="Application pages">
+        <a href="/board/">Board</a><a href="/pipeline/">Pipeline</a><a href="/bench/">Bench</a><a href="/start/">Run it locally</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

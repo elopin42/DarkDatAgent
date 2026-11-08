@@ -1,0 +1,81 @@
+{% extends "atelier/base.html" %}
+{% load fmt %}
+{% block title %}Bench · Yesterday’s tutorial{% endblock %}
+{% block main %}
+<p class="crumbs"><a href="{% url 'pipeline' %}">Pipeline</a> · steps 8 and 9</p>
+<h1>Bench</h1>
+<p>Same invoices, same order, one agent per arm. The verdict comes from the SQL database, never from what the agent says about itself.</p>
+<pre><code>python scripts/90_bench.py {{ frames_vid }} --arms none,old-voice,new-voice --n 8</code></pre>
+
+<section id="traps">
+  <h2>House-rule rows (pilot, indicative)</h2>
+  <p class="lede">Rows where the right answer depends on a house rule the 2021 tutorial never mentions. The task sent to the agent does not state the rule, except in the row 27 run: it predates that change and still gave the VAT rate.</p>
+  {% include "atelier/_traps.html" %}
+</section>
+
+<section>
+  <h2>Generic data entry, per arm</h2>
+  <table>
+    <thead>
+      <tr><th>Arm</th><th class="num">n</th><th class="num">Passed</th><th class="num">Partial</th><th class="num">Failed</th><th class="num">Avg steps</th><th class="num">Avg time</th><th class="num">Avg cost</th><th class="num">Skill loaded</th></tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <th scope="row">{{ row.arm.label }}</th>
+        {% if row.arm.not_run %}
+        <td colspan="8" class="muted">not run yet, planned if time allows</td>
+        {% else %}
+        <td class="num">{{ row.s.n }}</td>
+        <td class="num">{{ row.s.success }}</td><td class="num">{{ row.s.partial }}</td><td class="num">{{ row.s.fail }}</td>
+        <td class="num">{{ row.s.steps|num }}</td><td class="num">{{ row.s.duration|dur }}</td><td class="num">{{ row.s.cost|usd }}</td>
+        <td class="num">{% if row.arm.skill %}{{ row.s.skill_loaded }}/{{ row.s.n }}{% else %}—{% endif %}</td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if noops %}<p class="muted">{{ noops }} run{{ noops|pluralize }} left out of the counts: the invoice already existed before the run and the agent, told never to create a record twice, created nothing. The database confirms. They stay in the run list below, marked “not counted”.</p>{% endif %}
+</section>
+
+<section>
+  <h2>What it measures</h2>
+  <p>Counts, not percentages. A pilot, no confidence interval.</p>
+  <dl class="deltas">
+    {% for title, fig, why in deltas %}
+    <dt>{{ title }}</dt><dd><b>{{ fig }}</b>, {{ why }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section>
+  <h2>Runs</h2>
+  <p>One row of <code>report/bench.csv</code> per H session.</p>
+  <nav class="tabs" aria-label="Arm">
+    <ul>
+      {% for key, label, count in tabs %}
+      <li><a href="{% if key == 'all' %}{% url 'bench' %}{% else %}?arm={{ key }}{% endif %}"{% if key == current %} aria-current="page"{% endif %}>{{ label }} ({{ count }})</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <table>
+    <thead>
+      <tr><th>Run</th><th>Invoice</th><th>Verdict</th><th class="num">Steps</th><th class="num">Time</th><th class="num">Cost</th><th class="num">Drifts</th><th>What happened</th></tr>
+    </thead>
+    <tbody>
+      {% for r in runs %}
+      <tr>
+        <td><a href="{% url 'run' r.id %}"><code>{{ r.id }}</code></a></td>
+        <td>{{ r.row }} · {{ r.invoice.supplier }}</td>
+        <td class="verdict verdict-{{ r.verdict }}">{{ r.verdict|verdict }}</td>
+        <td class="num">{{ r.steps }}</td>
+        <td class="num">{{ r.duration|dur }}</td>
+        <td class="num">{{ r.cost|usd }}</td>
+        <td class="num">{{ r.drift|length|default:"—" }}</td>
+        <td>{% if r.error %}<code>{{ r.error }}</code> · {% endif %}{{ r.note|default:"Matches the CSV" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

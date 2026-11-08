@@ -1,0 +1,28 @@
+{
+  "url": "http://127.0.0.1:5211/setup/",
+  "quand": "2026-11-08T00:50:54.302Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.5",
+          "y": 438,
+          "fichier": "large-02-0.5.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 304,
+      "fpsRepos": 8,
+      "hauteurPage": 1775
+    }
+  ]
+}

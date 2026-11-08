@@ -1,0 +1,188 @@
+{
+  "label": "tokens",
+  "commit": "5d4b2c1",
+  "results": [
+    {
+      "gate": "D10",
+      "item": "cellar-ink sur canvas",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.13 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "ink sur canvas",
+      "status": "PASS",
+      "hard": true,
+      "detail": "13.79 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "ink-muted sur canvas",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.71 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary-ink sur canvas",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.22 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "carton-edge sur canvas",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.86 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary sur canvas (non textuel)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.61 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary-ink sur canvas (non textuel)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.22 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "focus sur canvas (non textuel)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.61 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "cellar-ink sur surface-1",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.29 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "ink sur surface-1",
+      "status": "PASS",
+      "hard": true,
+      "detail": "15.73 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "ink-muted sur surface-1",
+      "status": "PASS",
+      "hard": true,
+      "detail": "6.51 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary-ink sur surface-1",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.95 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "carton-edge sur surface-1",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "2.12 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary sur surface-1 (non textuel)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.84 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary-ink sur surface-1 (non textuel)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.95 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "focus sur surface-1 (non textuel)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.84 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "cellar-ink sur surface-2",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.13 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "ink sur surface-2",
+      "status": "PASS",
+      "hard": true,
+      "detail": "13.79 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "ink-muted sur surface-2",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.71 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary-ink sur surface-2",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.22 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "carton-edge sur surface-2",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.86 (minimum 4.5)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary sur surface-2 (non textuel)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.61 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "primary-ink sur surface-2 (non textuel)",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.22 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "focus sur surface-2 (non textuel)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "1.61 (minimum 3)"
+    },
+    {
+      "gate": "D10",
+      "item": "on-primary sur primary",
+      "status": "PASS",
+      "hard": true,
+      "detail": "8.57"
+    },
+    {
+      "gate": "D10",
+      "item": "on-fail sur fail",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5.79"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:5221/bench/",
+  "quand": "2026-11-08T02:34:32.002Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 393,
+      "fpsRepos": 6,
+      "hauteurPage": 3287
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "antipattern": "gray-on-color",
+    "name": "Gray text on colored background",
+    "description": "Gray text looks washed out on colored backgrounds. Use a darker shade of the background color instead, or white/near-white for contrast.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "text #505d64 on bg gradient(#f6c178, #f3cd98, #f2d2a5, #f4c98f, #f6c177, #f5c584, #f3cd98, #f2d2a5, #f3cb94, #f6bf74, #f4c98d, #f3cd99, #f2d2a6, #f3cb93, #f6bf74)",
+    "selector": "div.problem__text > p:nth-of-type(1) > mark.hl"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "4.1:1 (need 4.5:1) — text #505d64 on #f6bf74 (gradient on mark.hl)",
+    "selector": "div.problem__text > p:nth-of-type(1) > mark.hl"
+  },
+  {
+    "antipattern": "gray-on-color",
+    "name": "Gray text on colored background",
+    "description": "Gray text looks washed out on colored backgrounds. Use a darker shade of the background color instead, or white/near-white for contrast.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "text #505d64 on bg gradient(#f4c687, #f3cd98, #f2d1a4, #f4ca90, #f5c584, #f3cb93, #f3cd99, #f2d2a5, #f3cc95, #f4c787, #f4cb92, #f3ce9a, #f2d2a6, #f3cb94, #f6c077)",
+    "selector": "div.problem__text > p:nth-of-type(2) > mark.hl"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "4.1:1 (need 4.5:1) — text #505d64 on #f6c077 (gradient on mark.hl)",
+    "selector": "div.problem__text > p:nth-of-type(2) > mark.hl"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "4.0:1 (need 4.5:1) — text #505d64 on #f6be70 (gradient on mark.hl)",
+    "selector": "p:nth-of-type(3) > mark.hl"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"it.\" alone on the last of 3 lines (2% of the measure)",
+    "advisory": true,
+    "selector": "article.trap.trap--fail > p.trap__what"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "4.0:1 (need 4.5:1) — text #505d64 on #f6bd6e (gradient on mark.hl)",
+    "selector": "p.rate__note > mark.hl"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"order.\" alone on the last of 2 lines (12% of the measure)",
+    "advisory": true,
+    "selector": "div.drift__item:nth-of-type(1) > p:nth-of-type(2)"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"follows.\" alone on the last of 3 lines (18% of the measure)",
+    "advisory": true,
+    "selector": "li.claim.claim--object > p.claim__v"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "\"guessing.\" alone on the last of 3 lines (12% of the measure)",
+    "advisory": true,
+    "selector": "div.prose > p:nth-of-type(4)"
+  },
+  {
+    "antipattern": "cream-palette",
+    "name": "Cream / beige palette",
+    "description": "A warm cream or beige page background has become the default \"tasteful\" AI surface, reached for by reflex. Choose a background that comes from a deliberate palette, not the safe warm off-white.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "http://127.0.0.1:5221/",
+    "line": 0,
+    "snippet": "cream/beige page background rgb(237, 235, 231)",
+    "selector": "body"
+  }
+]

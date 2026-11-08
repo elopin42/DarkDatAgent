@@ -1,0 +1,25 @@
+{% load fmt %}<tr>
+  <th scope="row">{% if r.invoice %}{% if r.row %}Invoice {{ r.row }}{% else %}New invoice {{ r.invoice.ref_fournisseur }}{% endif %}, {{ r.invoice.fournisseur }}{% elif r.row %}Invoice {{ r.row }}{% else %}{{ r.task|truncatechars:60 }}{% endif %}</th>
+  <td data-label="When">{% if r.started %}{{ r.started|date:"j M, H:i" }}{% endif %}</td>
+  <td data-label="Agent">{% if r.arm == 'skill' %}with skill{% else %}without skill{% endif %}</td>
+  <td data-label="Result">
+    <span>{% if r.verdict == 'success' %}<span class="tag tag--ink">success</span>{% elif r.verdict == 'noop' %}<span class="tag tag--line">nothing created</span>{% elif r.verdict == 'unverified' %}<span class="tag tag--line">not checked</span>{% elif r.verdict %}<span class="tag tag--fail">{{ r.verdict }}</span>{% elif r.status == 'starting' or r.status == 'running' %}<span class="tag tag--amber">running</span>{% elif r.status == 'failed' %}<span class="tag tag--fail">did not run</span>{% else %}<span class="tag tag--line">{{ r.status }}</span>{% endif %}
+    <span class="run-why">{% if r.verdict == 'success' and r.answer %}Created{% if r.answer.invoice_ref %} {{ r.answer.invoice_ref }}{% endif %}{% if r.answer.total_ttc %}, {{ r.answer.total_ttc|eur }} after tax{% endif %}{% if r.answer.validated %}, validated{% endif %}.{% elif r.verdict == 'unverified' and r.answer.notes %}{{ r.answer.notes|en:tr|truncatechars:140 }}{% elif r.note %}{{ r.note|capfirst }}.{% elif r.error_code == 'environment_error' %}The browser session could not start.{% elif r.status == 'failed' %}Stopped before the database check.{% endif %}</span></span>
+  </td>
+  <td class="num" data-label="Steps">{{ r.steps|default:"" }}</td>
+  <td class="num" data-label="Time">{% if r.duration_s %}{{ r.duration_s|dur }}{% endif %}</td>
+  <td data-label="">{% if r.status == 'starting' or r.status == 'running' %}{% if r.agent_view_url %}<a href="{{ r.agent_view_url }}" rel="noopener noreferrer">Watch live</a>{% endif %}{% elif r.share_url %}<a href="{{ r.share_url }}" rel="noopener noreferrer">Replay</a>{% elif r.agent_view_url %}<a href="{{ r.agent_view_url }}" rel="noopener noreferrer">H platform</a>{% endif %}</td>
+</tr>
+{% if r.answer or r.drift or r.error or r.log %}<tr class="run-more">
+  <td colspan="7">
+    <details id="run-{{ r.id }}">
+      <summary>What the agent reported</summary>
+      {% if r.answer and r.invoice %}<p>The agent says: {% if r.answer.created %}created{% else %}not created{% endif %}{% if r.answer.invoice_ref %}, reference <code>{{ r.answer.invoice_ref }}</code>{% endif %}{% if r.answer.supplier_name %}, supplier “{{ r.answer.supplier_name }}”{% endif %}{% if r.answer.total_ttc %}, total {{ r.answer.total_ttc|eur }} after tax{% endif %}{% if r.answer.validated %}, validated{% endif %}.</p>
+      {% if r.answer.notes %}<p>{{ r.answer.notes|en:tr }}</p>{% endif %}
+      {% elif r.answer %}<p>The agent says: {% if r.answer.notes %}{{ r.answer.notes|en:tr }}{% elif r.answer.created %}created.{% else %}nothing created.{% endif %}{% if r.answer.reference %} Reference <code>{{ r.answer.reference }}</code>.{% endif %}</p>{% endif %}
+      {% if r.drift %}<p>What changed since the video:</p><ul>{% for d in r.drift %}<li>{{ d|en:tr }}</li>{% endfor %}</ul>{% endif %}
+      {% if r.error %}<p>Error: <code>{{ r.error }}</code></p>{% endif %}
+      {% if r.log %}<pre>{{ r.log }}</pre>{% endif %}
+    </details>
+  </td>
+</tr>{% endif %}

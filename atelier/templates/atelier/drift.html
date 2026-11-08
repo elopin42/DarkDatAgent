@@ -1,0 +1,52 @@
+{% extends "atelier/base.html" %}
+{% load static fmt %}
+{% block title %}Drift report · Yesterday’s tutorial{% endblock %}
+{% block main %}
+<p class="crumbs"><a href="{% url 'bench' %}">Bench</a> · 2021 tutorial arm</p>
+<h1>Drift report</h1>
+<p>Every time a step of the skill no longer matched the 2026 screen, the agent noted it in <code>drift</code>. Deduplicated, sorted by frequency, tied to the moment in the video.</p>
+
+<dl class="facts">
+  <dt>Out-of-date steps</dt><dd>{{ items|length }} of {{ skill_steps }} in the skill induced from 2021</dd>
+  <dt>Drifts noted</dt><dd>{{ total }} over {{ old_n }} runs, {{ per_run|num:1 }} per run</dd>
+  <dt>Runs passed anyway</dt><dd>{{ old_success }} of {{ old_counted }}, the agent found the equivalent on screen</dd>
+  <dt>Tutorial age</dt><dd>5 years, {{ video.published }}, never re-recorded</dd>
+  {% if not items %}<dt>So far</dt><dd>No drift reported by the 2021 tutorial arm yet</dd>{% endif %}
+</dl>
+
+<section>
+  <h2>What changed since 2021</h2>
+  <table class="diff">
+    <thead><tr><th>Step</th><th>Moment</th><th>2021</th><th>2026</th><th class="num">Seen</th><th>Runs</th></tr></thead>
+    <tbody>
+      {% for d in items %}
+      <tr id="{{ d.id }}">
+        <th scope="row">{% if d.step %}Step {{ d.step }}{% else %}—{% endif %}</th>
+        <td>{% if d.t is not None %}<span class="tc">{{ d.t|tc }}</span>{% else %}—{% endif %}</td>
+        <td>{{ d.was|default:"—" }}</td>
+        <td>{{ d.now }}</td>
+        <td class="num">{{ d.seen }} of {{ old_n }}</td>
+        <td>{% for r in d.runs %}<a href="{% url 'run' r.id %}"><code>{{ r.id }}</code></a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>What should be re-filmed</h2>
+  <p>The parts of the video the out-of-date steps come from.</p>
+  <ol class="shots">
+    {% for d in items %}{% if d.shot %}
+    <li>
+      <figure>
+        <img src="{% url 'frame' frames_vid d.shot.frame %}" alt="Keyframe {{ d.shot.frame }} at {{ d.shot.t|tc }}" width="640" height="400">
+        <figcaption><span class="tc">{{ d.shot.t|tc }}</span> · <code>{{ d.shot.frame }}</code></figcaption>
+      </figure>
+      <p>“{{ d.shot.en }}”</p>
+      <p>Today: {{ d.now }}</p>
+    </li>
+    {% endif %}{% endfor %}
+  </ol>
+</section>
+{% endblock %}

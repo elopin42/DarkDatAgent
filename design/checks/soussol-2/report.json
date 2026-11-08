@@ -1,0 +1,118 @@
+{
+  "label": "soussol-2",
+  "commit": "5d4b2c1",
+  "results": [
+    {
+      "gate": "K1",
+      "item": "home 375 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "home 768 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K1",
+      "item": "home 1440 débordement horizontal",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "home fond en motif répété (grille, points, damier)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "F4",
+      "item": "home alignements (bords gauches de texte)",
+      "status": "FAIL",
+      "hard": true,
+      "detail": "11 bords, 7 orphelins (6 au plus) à x=0,16,62,348,632,646,1218"
+    },
+    {
+      "gate": "F4",
+      "item": "home échelle typographique",
+      "status": "PASS",
+      "hard": true,
+      "detail": "5 tailles (14, 17, 20, 44, 64 px), rapport 4.6"
+    },
+    {
+      "gate": "F4",
+      "item": "home espacements hors échelle de 4",
+      "status": "PASS",
+      "hard": true,
+      "detail": "14 valeurs, hors échelle : aucune"
+    },
+    {
+      "gate": "F4",
+      "item": "home lignes trop longues (plus de 85 signes)",
+      "status": "WARN",
+      "hard": false,
+      "detail": "1"
+    },
+    {
+      "gate": "K9",
+      "item": "home backdrop-filter sur un composant",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K3",
+      "item": "erreurs console et exceptions",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "R3",
+      "item": "favicon",
+      "status": "PASS",
+      "hard": false,
+      "detail": ""
+    },
+    {
+      "gate": "K3",
+      "item": "requêtes vers une origine tierce",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K8",
+      "item": "typo rendue (caractères bannis)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K10",
+      "item": "copie rendue (mots IA, chatbot, faux chiffres)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K9",
+      "item": "home fondus d'entrée (opacité seule de 0 vers 1)",
+      "status": "PASS",
+      "hard": true,
+      "detail": ""
+    },
+    {
+      "gate": "K13",
+      "item": "home rafale d'entrée",
+      "status": "INFO",
+      "hard": false,
+      "detail": "shots/home-burst.jpg"
+    }
+  ]
+}

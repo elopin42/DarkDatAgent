@@ -1,0 +1,49 @@
+[
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5211/",
+    "line": 0,
+    "snippet": "\"save.\" alone on the last of 5 lines (8% of the measure)",
+    "advisory": true,
+    "selector": "div.problem__text.prose > p:nth-of-type(2)"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5211/",
+    "line": 0,
+    "snippet": "\"invoice.\" alone on the last of 3 lines (11% of the measure)",
+    "advisory": true,
+    "selector": "article.trap.trap--ok > p.trap__what"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "http://127.0.0.1:5211/",
+    "line": 0,
+    "snippet": "\"guessing.\" alone on the last of 3 lines (12% of the measure)",
+    "advisory": true,
+    "selector": "div.prose > p:nth-of-type(4)"
+  },
+  {
+    "antipattern": "cream-palette",
+    "name": "Cream / beige palette",
+    "description": "A warm cream or beige page background has become the default \"tasteful\" AI surface, reached for by reflex. Choose a background that comes from a deliberate palette, not the safe warm off-white.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "http://127.0.0.1:5211/",
+    "line": 0,
+    "snippet": "cream/beige page background rgb(237, 235, 231)",
+    "selector": "body"
+  }
+]

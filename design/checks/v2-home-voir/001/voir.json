@@ -1,0 +1,53 @@
+{
+  "url": "http://127.0.0.1:5221/",
+  "quand": "2026-11-08T02:33:35.409Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@2",
+      "console": [],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "1000px",
+          "y": 1000,
+          "fichier": "large-02-1000px.png"
+        },
+        {
+          "etat": "0.3",
+          "y": 2323,
+          "fichier": "large-03-0.3.png"
+        },
+        {
+          "etat": "0.45",
+          "y": 3484,
+          "fichier": "large-04-0.45.png"
+        },
+        {
+          "etat": "0.6",
+          "y": 4645,
+          "fichier": "large-05-0.6.png"
+        },
+        {
+          "etat": "0.75",
+          "y": 5807,
+          "fichier": "large-06-0.75.png"
+        },
+        {
+          "etat": "0.9",
+          "y": 6968,
+          "fichier": "large-07-0.9.png"
+        }
+      ],
+      "pret": true,
+      "pretMs": 3813,
+      "fpsRepos": 7,
+      "hauteurPage": 8642
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{% extends "atelier/base.html" %}
+{% load fmt %}
+{% block title %}{{ r.id }} · Yesterday’s tutorial{% endblock %}
+{% block main %}
+<p class="crumbs"><a href="{% url 'bench' %}">Bench</a> · <a href="{% url 'bench' %}?arm={{ r.arm }}">{{ arm.label }}</a></p>
+<h1>Invoice {{ r.row }}, {{ inv.supplier }}</h1>
+<p>Verdict: <span class="verdict verdict-{{ r.verdict }}">{{ r.verdict|verdict }}</span>. Run <code>{{ r.id }}</code>, session <code>{{ r.session }}</code>, {{ r.started_at|time:"H:i" }}.</p>
+<p class="run-nav">
+  {% if prev %}<a href="{% url 'run' prev.id %}">← {{ prev.id }}</a>{% endif %}
+  {% if next %}<a href="{% url 'run' next.id %}">{{ next.id }} →</a>{% endif %}
+  {% if r.share_url %}{% if r.session %}<a href="https://platform.hcompany.ai/agent-view/{{ r.session }}" rel="noopener noreferrer">Replay on H (sign-in required)</a> {% endif %}<a href="{{ r.share_url }}" rel="noopener noreferrer">Raw trajectory (public JSON)</a>{% else %}<span class="muted">No H replay for this run</span>{% endif %}
+</p>
+
+<section class="receipt" aria-labelledby="receipt-h">
+  <h2 id="receipt-h">Verification receipt</h2>
+  <div class="receipt-side receipt-agent">
+    <h3>Agent says</h3>
+    {% if receipt.agent %}
+    <dl>
+      <dt>Created</dt><dd>{% if receipt.agent.created %}yes{% elif receipt.agent.created is None %}—{% else %}no{% endif %}</dd>
+      <dt>Supplier</dt><dd>{{ receipt.agent.supplier_name|default:"—" }}</dd>
+      <dt>Total incl. VAT</dt><dd>{% if receipt.agent.total_ttc is not None and receipt.agent.total_ttc != "" %}{{ receipt.agent.total_ttc }} €{% else %}—{% endif %}</dd>
+      <dt>Validated</dt><dd>{% if receipt.agent.validated %}yes{% elif receipt.agent.validated is None %}—{% else %}no{% endif %}</dd>
+      <dt>Notes</dt><dd>{{ receipt.agent.notes|default:"—" }}</dd>
+    </dl>
+    {% else %}
+    <p>No answer{% if r.error %}: the session ended with <code>{{ r.error }}</code>{% endif %}.</p>
+    {% endif %}
+  </div>
+  <div class="receipt-side receipt-db">
+    <h3>Database says</h3>
+    {% if receipt.db %}
+    <dl>
+      <dt>Supplier</dt><dd>{{ receipt.db.supplier|default:"—" }}</dd>
+      <dt>SIREN</dt><dd>{{ receipt.db.siren|default:"none" }}</dd>
+      <dt>Total excl. VAT</dt><dd>{% if receipt.db.total_ht is not None %}{{ receipt.db.total_ht }} €{% else %}—{% endif %}</dd>
+      <dt>Line VAT rate</dt><dd>{{ receipt.db.tva|default:"—" }}</dd>
+      <dt>Status</dt><dd><code>fk_statut</code> {{ receipt.db.status|default_if_none:"—" }}{% if receipt.db.status|stringformat:"s" == "1" %} · validated{% elif receipt.db.status|stringformat:"s" == "0" %} · draft{% endif %}</dd>
+    </dl>
+    {% else %}
+    <p>No supplier invoice found in <code>llx_facture_fourn</code> for this run.</p>
+    {% endif %}
+  </div>
+  <p class="verdict {% if r.verdict == 'success' %}verdict-success{% else %}verdict-fail{% endif %}">Verdict: {{ r.verdict|verdict|default:"—" }}</p>
+  {% if r.note %}<p class="section-note">{{ r.note }}</p>{% endif %}
+</section>
+
+<dl class="facts">
+  <dt>Steps</dt><dd>{{ r.steps }} of 40 (<code>max_steps</code>)</dd>
+  <dt>Time</dt><dd>{{ r.duration|dur }} (<code>max_time_s</code>: 10 min)</dd>
+  <dt>Cost</dt><dd>{{ r.cost|usd }} (<code>metrics.total_cost</code>)</dd>
+  <dt>SQL database</dt><dd>{{ r.before|default_if_none:"—" }} rows before, {{ r.after|default_if_none:"—" }} after</dd>
+  {% if r.note %}<dt>What happened</dt><dd>{% if r.error %}<code>{{ r.error }}</code> · {% endif %}{{ r.note }}</dd>{% endif %}
+</dl>
+
+<section>
+  <h2>Expected and found in the database</h2>
+  <p>Row {{ r.row }} of <code>data/factures.csv</code> against <code>llx_facture_fourn</code>{% if inv.trap %} · trap: {{ inv.trap }}{% endif %}.</p>
+  <table class="compare">
+    <thead><tr><th></th><th>CSV</th><th>SQL database</th></tr></thead>
+    <tbody>
+      {% for label, want, got, ok in compare %}
+      <tr><th scope="row">{{ label }}</th><td>{{ want }}</td><td{% if not ok %} class="bad"{% endif %}>{{ got|default:"—" }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>The agent’s answer</h2>
+  <p><code>answer_schema Result</code>, what the agent says it did.</p>
+  {% if r.answer %}
+  <pre><code>{{ answer_json }}</code></pre>
+  {% else %}
+  <p>No answer: the session ended with <code>{{ r.error }}</code>.</p>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Run context</h2>
+  <dl class="facts">
+    <dt>Agent</dt><dd><code>{% if r.agent %}{{ r.agent }}{% else %}{{ arm.agent }}{% endif %}</code></dd>
+    <dt>Skill loaded</dt><dd>{% if r.skill_ref %}<code>{{ r.skill_ref }}</code>{% elif skill %}<code>{{ skill.name }}:{{ skill.revision }}</code>{% else %}none{% endif %}</dd>
+    <dt>Skill revision</dt><dd>{% if r.skill_revision is not None %}{{ r.skill_revision }}{% else %}<span class="badge-muted">not recorded</span>{% endif %}</dd>
+    <dt>Model</dt><dd>holo4-27b</dd>
+    <dt>Environment</dt><dd>web on user_device, Chrome 9222</dd>
+    <dt>Session status</dt><dd><code>{{ r.status }}</code></dd>
+    <dt>Drifts noted</dt><dd>{% for d in drifts %}<a href="{% url 'drift' %}#{{ d.id }}">{% if d.step %}step {{ d.step }}{% else %}{{ d.now|truncatechars:50 }}{% endif %}</a>{% if not forloop.last %}, {% endif %}{% empty %}none{% endfor %}</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>The task sent</h2>
+  <pre>{{ task }}</pre>
+</section>
+{% endblock %}

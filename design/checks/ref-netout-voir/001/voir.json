@@ -1,0 +1,91 @@
+{
+  "url": "https://netout.tech/home",
+  "quand": "2026-11-08T08:48:33.711Z",
+  "gpu": "metal",
+  "vues": [
+    {
+      "taille": "1440x900@1",
+      "console": [
+        "warning: THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+        "warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+        "warning: THREE.FBXLoader: %s map is not supported in three.js, skipping texture. ShininessExponent",
+        "warning: THREE.FBXLoader: %s map is not supported in three.js, skipping texture. ShininessExponent",
+        "warning: THREE.FBXLoader: %s map is not supported in three.js, skipping texture. ShininessExponent",
+        "warning: THREE.FBXLoader: %s map is not supported in three.js, skipping texture. ShininessExponent",
+        "warning: THREE.FBXLoader: The FBX file contains invalid (negative) material indices. The asset might not render as expected."
+      ],
+      "requetes": [],
+      "captures": [
+        {
+          "etat": "0",
+          "y": 0,
+          "fichier": "large-01-0.png"
+        },
+        {
+          "etat": "0.08",
+          "y": 1383,
+          "fichier": "large-02-0.08.png"
+        },
+        {
+          "etat": "0.16",
+          "y": 2766,
+          "fichier": "large-03-0.16.png"
+        },
+        {
+          "etat": "0.24",
+          "y": 4150,
+          "fichier": "large-04-0.24.png"
+        },
+        {
+          "etat": "0.32",
+          "y": 5533,
+          "fichier": "large-05-0.32.png"
+        },
+        {
+          "etat": "0.4",
+          "y": 6916,
+          "fichier": "large-06-0.4.png"
+        },
+        {
+          "etat": "0.48",
+          "y": 8299,
+          "fichier": "large-07-0.48.png"
+        },
+        {
+          "etat": "0.56",
+          "y": 9682,
+          "fichier": "large-08-0.56.png"
+        },
+        {
+          "etat": "0.64",
+          "y": 11066,
+          "fichier": "large-09-0.64.png"
+        },
+        {
+          "etat": "0.72",
+          "y": 12449,
+          "fichier": "large-10-0.72.png"
+        },
+        {
+          "etat": "0.8",
+          "y": 13832,
+          "fichier": "large-11-0.8.png"
+        },
+        {
+          "etat": "0.88",
+          "y": 15215,
+          "fichier": "large-12-0.88.png"
+        },
+        {
+          "etat": "0.96",
+          "y": 16598,
+          "fichier": "large-13-0.96.png"
+        }
+      ],
+      "pret": false,
+      "pretMs": 15979,
+      "fpsRepos": 13,
+      "hauteurPage": 18190
+    }
+  ]
+}

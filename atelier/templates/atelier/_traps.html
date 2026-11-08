@@ -1,0 +1,21 @@
+{% load fmt %}
+  {% if traps %}
+  <div class="table-wrap"><table class="trap-table">
+    <thead><tr><th>Invoice</th><th>Rule</th>{% for a in trap_arms %}<th>{{ a.label }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for t in traps %}
+      <tr>
+        <th scope="row">{{ t.row|default:"—" }}</th>
+        <td><span class="badge">{{ t.label }}</span> {{ t.rule }}</td>
+        {% for c in t.by_arm %}
+        <td>{% if c %}{% if c.run_id %}<a href="{% url 'run' c.run_id %}">{% endif %}<span class="verdict {% if c.verdict == 'success' %}verdict-success{% else %}verdict-fail{% endif %}">{{ c.verdict|verdict|default:"—" }}</span>{% if c.run_id %}</a>{% endif %}{% else %}<span class="badge-muted">not run</span>{% endif %}</td>
+        {% endfor %}
+      </tr>
+      <tr><td colspan="{{ trap_cols }}"><p class="trap-sentence">{% for c in t.cells %}{% if c.sentence %}{{ c.label }}: {{ c.sentence }}{% if not forloop.last %} / {% endif %}{% endif %}{% endfor %}</p></td></tr>
+      {% endfor %}
+    </tbody>
+  </table></div>
+  <p class="section-note">Expected: “No video” and “2021 tutorial” fail on these rows; “Internal video” passes. The table shows what happened, even if partial.</p>
+  {% else %}
+  <p class="section-note">No house-rule row run yet: <code>report/bench_traps.json</code> is missing.</p>
+  {% endif %}

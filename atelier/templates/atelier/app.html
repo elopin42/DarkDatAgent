@@ -1,0 +1,51 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Local app{% endblock %}, DarkDatAgent</title>
+  <meta name="description" content="{% block desc %}Turn a tutorial video into an agent, on your computer.{% endblock %}" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#edebe7" />
+  <link rel="icon" href="/brand/darkdatagent-mark.svg" type="image/svg+xml" />
+  <link rel="preload" href="/fonts/hanken-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+  {{ front_assets|safe }}
+  <link rel="stylesheet" href="{% static 'atelier/app.css' %}">
+  {% block head %}{% endblock %}
+</head>
+<body class="app {% block body_class %}{% endblock %}">
+  <header class="nav is-light" data-nav data-front-free>
+    <a class="skip" href="#main">Skip to the content</a>
+    <a class="sign" href="/" aria-label="DarkDatAgent, home">
+      <img class="sign__mark" src="/brand/darkdatagent-mark.svg" width="32" height="32" alt="" />
+      <span class="site-name"><span class="dda">D</span>ark<span class="dda">D</span>at<span class="dda">A</span>gent</span>
+    </a>
+    <nav class="nav__links" aria-label="Application" data-front-free>
+      <div class="nav__group" role="group" aria-labelledby="nav-cat-app"><span class="nav__cat" id="nav-cat-app">Local app</span><a href="{% url 'start' %}"{% if page == 'home' %} aria-current="page"{% endif %}>Videos</a><a href="{% url 'new' %}"{% if page == 'new' %} aria-current="page"{% endif %}>New</a><a href="{% url 'keys' %}"{% if page == 'setup' %} aria-current="page"{% endif %}>Accounts</a></div>
+      <div class="nav__group" role="group" aria-labelledby="nav-cat-agentic"><span class="nav__cat" id="nav-cat-agentic">Agentic process</span><a href="/pipeline/">Pipeline</a><a href="/storyboard/">Storyboard</a><a href="/skills/">Skills</a><a href="/board/">Demo</a></div>
+      <div class="nav__group" role="group" aria-labelledby="nav-cat-audit"><span class="nav__cat" id="nav-cat-audit">Audit</span><a href="/bench/">Bench</a><a href="/drift/">Drift</a></div>
+      <a class="nav__cta" href="/board/">Open the demo board</a>
+    </nav>
+  </header>
+  <main id="main" class="page">
+    <div class="wrap page__head">
+      {% block crumbs %}{% endblock %}
+      <h1 class="page__title" data-crt>{% block h1 %}{% endblock %}</h1>
+      {% block lede %}{% endblock %}
+    </div>
+    <section class="wrap section-app">
+{% block main %}{% endblock %}
+    </section>
+  </main>
+  <footer class="footer footer--app" data-front-free>
+    <div class="wrap footer__grid">
+      <p class="footer__name"><img class="footer__badge" src="/brand/darkdatagent-badge.svg" width="96" height="96" alt="DarkDatAgent badge: a dark mass of data crossed by an orbit, with the agent as a cursor block" /><span class="site-name"><span class="dda">D</span>ark<span class="dda">D</span>at<span class="dda">A</span>gent</span><a class="footer__url" href="http://www.darkdatagent.art/">www.darkdatagent.art</a></p>
+      <p class="footer__credits">{% block footer %}Local app. Everything runs on this computer. Videos and results stay in <code>data/</code> and <code>work/</code>. Nothing leaves it except the calls to Gladia and H Company.{% endblock %}</p>
+      <nav class="footer__links" aria-label="Application pages">
+        <a href="/board/">Demo board</a><a href="/pipeline/">Pipeline</a><a href="/bench/">Bench</a><a href="{% url 'start' %}">Your videos</a>
+      </nav>
+    </div>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

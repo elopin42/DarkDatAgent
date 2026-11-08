@@ -1,0 +1,49 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Yesterday’s tutorial becomes an agent · by your rules, checked in the database{% endblock %}</title>
+  <meta name="description" content="A 2021 tutorial video becomes an agent that does the work by your rules, checks every run in the database, and tells you when a video is no longer enough.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="{% static 'atelier/style.css' %}">
+  {% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+<header class="site-header">
+  {% if app %}
+  <a class="site-name" href="{% url 'start' %}">Yesterday’s tutorial</a>
+  <nav class="site-nav" aria-label="App pages">
+    <ul>
+      <li><a href="{% url 'start' %}"{% if page == 'home' %} aria-current="page"{% endif %}>Your videos</a></li>
+      <li><a href="{% url 'new' %}"{% if page == 'new' %} aria-current="page"{% endif %}>Add a video</a></li>
+      <li><a href="{% url 'keys' %}"{% if page == 'setup' %} aria-current="page"{% endif %}>Accounts</a></li>
+      <li><a href="{% url 'landing' %}">About the project</a></li>
+    </ul>
+  </nav>
+  {% else %}
+  <a class="site-name" href="{% url 'landing' %}">Yesterday’s tutorial</a>
+  <nav class="site-nav" aria-label="Site pages">
+    <ul>
+      <li><a href="{% url 'pipeline' %}"{% if page == 'pipeline' %} aria-current="page"{% endif %}>Pipeline</a></li>
+      <li><a href="{% url 'storyboard' %}"{% if page == 'storyboard' %} aria-current="page"{% endif %}>Storyboard</a></li>
+      <li><a href="{% url 'skills' %}"{% if page == 'skills' %} aria-current="page"{% endif %}>Induced skills</a></li>
+      <li><a href="{% url 'board' %}"{% if page == 'board' %} aria-current="page"{% endif %}>Demo board</a></li>
+      <li><a href="{% url 'bench' %}"{% if page == 'bench' %} aria-current="page"{% endif %}>Bench</a></li>
+      <li><a href="{% url 'start' %}">Try it</a></li>
+    </ul>
+  </nav>
+  {% endif %}
+</header>
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  {% block footer %}{% if sample %}<p class="mock-note">Mockup, sample data: no bench run yet. Source video: <code>{{ frames_vid }}</code>, February 5, 2021, 7:00.</p>{% else %}<p>Bench data: <code>report/bench.csv</code> and <code>work/runs/</code>. Source video: <code>{{ frames_vid }}</code>, February 5, 2021, 7:00.</p>{% endif %}{% if not app %}<p class="section-note">Secondary: <a href="{% url 'drift' %}">full drift list</a>.</p>{% endif %}{% endblock %}
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>
