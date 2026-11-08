@@ -19,6 +19,51 @@ The project docs (SETUP, ARCHITECTURE, PLAN, BENCH, PITCH, LANDING) live on the
 `docs/kickoff` branch, not here. Remaining work is in `A_FAIRE.md`.
 The pipeline that produces `work/` is in `scripts/` (see `scripts/README.md`).
 
+## For the jury: test it in 10 minutes
+
+Prerequisites: Linux or macOS, `python3`, `node` + `npm`, Docker (with
+`docker compose`), Google Chrome or Chromium, a Gladia API key and an H API key.
+
+Copy-paste these, in order:
+
+```bash
+git clone git@github.com:elopin42/DarkDatAgent.git && cd DarkDatAgent
+make dolibarr   # demo Dolibarr on http://localhost:8080 (first start: ~1 min)
+make chrome     # the agent's Chrome, already opened on Dolibarr
+make            # installs everything and opens http://127.0.0.1:8000/start/
+```
+
+In the Chrome opened by `make chrome`, log in to Dolibarr **once**:
+login `agent`, password `agent-demo-2026` (the profile keeps the session).
+Admin account if you want to look around: `admin` / `admin`.
+
+Then in the site (http://127.0.0.1:8000/start/), type exactly this:
+
+| Page | Field | Value |
+|---|---|---|
+| `/welcome/` | — | click the button |
+| `/setup/` | Gladia key | your Gladia API key |
+| `/setup/` | H key | your H API key |
+| `/new/` | Video | YouTube link `https://www.youtube.com/watch?v=JZMgB1UItkk` |
+| `/new/` | Software | **the demo Dolibarr** (`http://localhost:8080`) |
+| `/new/` | — | click launch |
+
+You land on `/projects/<id>/`. The page refreshes itself: wait until every
+step is done (a few minutes). You then see the transcript, the storyboard,
+what the model understood and the written skill.
+
+Last step, on the same page: **Run the agent** → pick invoice row `1`
+(or row `3`, `4` or `8`, the ones with a house rule) → with the skill → run.
+The agent drives the Chrome on your machine and enters the invoice in Dolibarr;
+the run shows up with its verdict read directly from the Dolibarr database.
+
+If something is stuck: `make status`, `make logs`, `make dolibarr-logs`.
+To start Dolibarr from scratch: `make dolibarr-reset`. To stop everything:
+`make stop && make dolibarr-stop`.
+
+No keys? The showcase alone is online at
+[www.darkdatagent.art](http://www.darkdatagent.art/), nothing to install.
+
 ## Architecture
 
 ```mermaid
