@@ -1,23 +1,23 @@
-# Le tutoriel d'hier devient un agent — le site
+# Yesterday's tutorial becomes an agent — the site
 
-**Le site en ligne : [www.darkdatagent.art](http://www.darkdatagent.art/)**
+**Live site: [www.darkdatagent.art](http://www.darkdatagent.art/)**
 
-C'est la vitrine construite depuis `soussol-v2/` (landing, pipeline, storyboard,
-skills, pupitre de démo, banc, reçus des runs, dérives). L'application locale,
-qui lance le pipeline et l'agent, tourne sur votre machine avec `make` (plus bas).
+This is the showcase built from `soussol-v2/` (landing, pipeline, storyboard,
+skills, demo console, bench, run receipts, drift). The local application,
+which runs the pipeline and the agent, runs on your machine with `make` (below).
 
-Vitrine du projet pour le hackathon H Company × 42AI (7–8 novembre 2026) :
-landing pour le jury, atelier pour suivre le pipeline (storyboard, skills
-induits, pupitre de démo, banc, rapport de dérive). Le site est en anglais.
+Project showcase for the H Company × 42AI hackathon (November 7–8, 2026):
+a landing page for the jury, and a workshop to follow the pipeline (storyboard,
+induced skills, demo console, bench, drift report). The site is in English.
 
-Le produit est l'agent qui **fait la tâche selon les règles de la maison** ;
-l'audit de dérive est la couche qui **répare** ces règles quand le logiciel
-change. « Votre archive devient des agents qui font le travail selon vos
-règles, et qui vous préviennent quand une vidéo ne leur suffit plus. »
+The product is the agent that **does the task according to house rules**;
+the drift audit is the layer that **repairs** those rules when the software
+changes. "Your archive becomes agents that do the work by your rules, and
+that warn you when a video is no longer enough for them."
 
-La doc du projet (SETUP, ARCHITECTURE, PLAN, BENCH, PITCH, LANDING) est sur la
-branche `docs/kickoff`, pas ici. Ce qui reste à faire est dans `A_FAIRE.md`.
-Le pipeline qui produit `work/` est dans `scripts/` (voir `scripts/README.md`).
+The project docs (SETUP, ARCHITECTURE, PLAN, BENCH, PITCH, LANDING) live on the
+`docs/kickoff` branch, not here. Remaining work is in `A_FAIRE.md`.
+The pipeline that produces `work/` is in `scripts/` (see `scripts/README.md`).
 
 ## Architecture
 
@@ -110,80 +110,80 @@ class node_verify,node_repair,node_bench,node_report,node_reports toneRose
 class node_hapi,node_target toneIndigo
 ```
 
-Le front est volontairement nu : HTML sémantique, CSS minimal, aucune police.
-Seules exceptions : le bandeau jaune des alertes et le défilement du storyboard
-sur `/projects/<id>/`. La mise en forme vient dans un second temps.
+The front end is deliberately bare: semantic HTML, minimal CSS, no fonts.
+The only exceptions: the yellow alert banner and the storyboard scroller
+on `/projects/<id>/`. Styling comes later.
 
-Le site **lit** `work/` et `report/`. Il a aussi une partie application, locale
-seulement (refusée à toute autre machine) :
+The site **reads** `work/` and `report/`. It also has an application part,
+local only (refused to any other machine):
 
-`make` ouvre `/start/`, qui mène là où on en est, comme une appli qu'on
-installe :
+`make` opens `/start/`, which takes you to where you left off, like an app you
+install:
 
-1. `/welcome/` : accueil, ce que fait l'appli en trois lignes, un bouton.
-   Tant que les comptes ne sont pas connectés.
-2. `/setup/` (étape 1 sur 2) : les clés Gladia et H, vérifiées auprès des
-   services, écrites dans `.env`.
-3. `/new/` (étape 2 sur 2) : ajouter une vidéo (fichier ou lien YouTube),
-   choisir le logiciel web (le Dolibarr de démo, avec un bouton pour le
-   démarrer, une appli détectée sur la machine, ou une adresse tapée), lancer.
-   Le pipeline tourne en arrière-plan (`scripts/run_project.py`).
-4. `/projects/<id>/` : l'avancement étape par étape, le journal, ce que
-   le modèle de H a compris du tutoriel (étapes avec libellés exacts,
-   champs, règles, corrections de la transcription, ce qui a sans doute
-   changé), le skill écrit, le storyboard. Le storyboard est replié derrière
-   un bouton ; ouvert, il défile seul, une capture à la fois (pause au survol,
-   flèches, swipe). Une capture porte une alerte ⚠ quand sa phrase demande
-   quelque chose avant de continuer : être connecté, activer un module, avoir
-   les droits (`_storyboard_with_warnings` dans `atelier/views.py`). Tant
-   qu'une étape ou un run tourne, la page se met à jour seule toutes les 3 s
-   sans se recharger : seuls l'état, les étapes, les runs et le journal sont
-   remplacés, et rien ne bouge pendant qu'on tape une tâche. Puis l'agent,
-   enregistré chez H avec ce skill : « Run the agent » (une facture de `data/factures.csv`
-   ou une tâche libre, avec ou sans le skill) ouvre un Chrome sur cette
-   machine et fait la tâche dans le logiciel choisi ; chaque run est listé
-   avec son verdict lu dans la base Dolibarr, le direct et le replay H.
-5. `/start/` une fois une vidéo ajoutée : la liste des vidéos et leur état,
-   les comptes, « Add a video ».
+1. `/welcome/`: home, what the app does in three lines, one button.
+   Shown until the accounts are connected.
+2. `/setup/` (step 1 of 2): the Gladia and H keys, checked against the
+   services, written to `.env`.
+3. `/new/` (step 2 of 2): add a video (file or YouTube link), pick the web
+   software (the demo Dolibarr, with a button to start it, an app detected on
+   the machine, or a typed address), launch. The pipeline runs in the
+   background (`scripts/run_project.py`).
+4. `/projects/<id>/`: step-by-step progress, the log, what H's model
+   understood from the tutorial (steps with exact labels, fields, rules,
+   transcription corrections, what has probably changed), the written skill,
+   the storyboard. The storyboard is collapsed behind a button; once open, it
+   scrolls by itself, one capture at a time (pause on hover, arrows, swipe).
+   A capture carries a ⚠ alert when its sentence requires something before
+   continuing: being logged in, enabling a module, having permissions
+   (`_storyboard_with_warnings` in `atelier/views.py`). While a step or a run
+   is in progress, the page updates itself every 3 s without reloading: only
+   the status, steps, runs and log are replaced, and nothing moves while you
+   type a task. Then the agent, registered with H using this skill: "Run the
+   agent" (an invoice from `data/factures.csv` or a free task, with or without
+   the skill) opens a Chrome on this machine and does the task in the chosen
+   software; each run is listed with its verdict read from the Dolibarr
+   database, the live view and the H replay.
+5. `/start/` once a video is added: the list of videos and their status,
+   the accounts, "Add a video".
 
-Les anciennes adresses `/keys/` et `/start/dolibarr/` redirigent. La vitrine
-(`/` et les pages du pipeline) montre des données d'exemple (`atelier/data.py`)
-tant que `report/bench.csv` n'a pas de run vérifié, puis lit les vraies sorties
-de `work/` et `report/`.
+The old `/keys/` and `/start/dolibarr/` URLs redirect. The showcase
+(`/` and the pipeline pages) shows sample data (`atelier/data.py`)
+until `report/bench.csv` has a verified run, then reads the real outputs
+from `work/` and `report/`.
 
 ```bash
-make           # installe tout, lance le site et ouvre http://127.0.0.1:8000/start/
-make install   # crée .venv et installe Django, gladiaio-sdk, yt-dlp, requests
-make run       # lance le site au premier plan : http://127.0.0.1:8000
-make start     # le lance en arrière-plan (make stop, make status, make logs)
-make restart   # l'arrête et le relance
-make update    # git pull + dépendances + migrate + collectstatic, relance s'il tournait
+make           # installs everything, starts the site and opens http://127.0.0.1:8000/start/
+make install   # creates .venv and installs Django, gladiaio-sdk, yt-dlp, requests
+make run       # runs the site in the foreground: http://127.0.0.1:8000
+make start     # runs it in the background (make stop, make status, make logs)
+make restart   # stops and restarts it
+make update    # git pull + deps + migrate + collectstatic, restarts if it was running
 
-make dolibarr  # Dolibarr de démo sur http://localhost:8080, pré-rempli
-make chrome    # le Chrome de l'agent, port 9222
+make dolibarr  # demo Dolibarr on http://localhost:8080, pre-filled
+make chrome    # the agent's Chrome, port 9222
 
-make prep ID=JZMgB1UItkk         # étapes 1 à 4 du pipeline pour une vidéo
-make register ID=…               # le skill et les agents dans le catalogue H
-make agent-run ID=… ROW=1        # un run de l'agent sur une facture, puis le verdict SQL
-make bench-traps ID=JZMgB1UItkk RECENT=<id vidéo interne> N=8
-                                 # d'abord : les lignes à règle de maison (colonne piege), bras none,old-voice,new-voice
-make bench ID=… ARMS=none,skill N=8   # ensuite, si le budget de sessions le permet
-make translate ID=…              # copie anglaise, pour les pages, de ce que l'agent a appris et des comptes rendus des runs
-make bench-import ID=…           # verse dans report/bench.csv les runs faits depuis la page projet (le site lit bench.csv)
-make report                      # report/bench.md (tableau piégé en premier), drift.md, errors.md
+make prep ID=JZMgB1UItkk         # pipeline steps 1 to 4 for a video
+make register ID=…               # the skill and the agents in the H catalog
+make agent-run ID=… ROW=1        # one agent run on an invoice, then the SQL verdict
+make bench-traps ID=JZMgB1UItkk RECENT=<internal video id> N=8
+                                 # first: rows with a house rule (piege column), arms none,old-voice,new-voice
+make bench ID=… ARMS=none,skill N=8   # then, if the session budget allows
+make translate ID=…              # English copy, for the pages, of what the agent learned and of run reports
+make bench-import ID=…           # loads runs made from the project page into report/bench.csv (the site reads bench.csv)
+make report                      # report/bench.md (trap table first), drift.md, errors.md
 
 python scripts/75_repair.py <video_id> [--variant old-voice] [--from-runs <run_id,...>]
-                                 # les dérives des runs réparent le skill : révision N → N+1, work/<id>/repairs.json
+                                 # drift from runs repairs the skill: revision N → N+1, work/<id>/repairs.json
 ```
 
-L'ordre de la nuit et les critères d'acceptation sont dans `A_FAIRE.md`.
+The overnight order and acceptance criteria are in `A_FAIRE.md`.
 
-`make help` liste toutes les cibles (status, logs, check, clean, dolibarr-*…).
+`make help` lists all targets (status, logs, check, clean, dolibarr-*…).
 
-Pages : `/` landing, `/pipeline/`, `/storyboard/`, `/skills/`, `/board/`
-(pupitre projeté pendant la démo, `?autoplay` pour lancer seul),
-`/bench/`, `/runs/<run_id>/`, `/drift/`, et l'application `/start/`, `/welcome/`,
+Pages: `/` landing, `/pipeline/`, `/storyboard/`, `/skills/`, `/board/`
+(console projected during the demo, `?autoplay` to run on its own),
+`/bench/`, `/runs/<run_id>/`, `/drift/`, and the application `/start/`, `/welcome/`,
 `/setup/`, `/new/`, `/projects/<id>/`.
 
-Images attendues : `atelier/static/atelier/captures/` (deux captures datées
-de la landing) et `atelier/static/atelier/frames/` (images clés de la vidéo).
+Expected images: `atelier/static/atelier/captures/` (two dated captures
+of the landing) and `atelier/static/atelier/frames/` (video keyframes).
