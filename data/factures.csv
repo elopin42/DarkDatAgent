@@ -1,0 +1,31 @@
+id,fournisseur,ref_fournisseur,date,libelle,montant_ht,tva,notes,piege
+1,Papeterie Nord,PN-2026-0412,2026-10-03,Ramettes A4 x20,184.00,20,,
+2,Hébergeur Alpha,HA-77812,2026-10-05,Serveur octobre,59.00,20,,
+3,Transports Lemaire,TL-3391,2026-10-07,Livraison palette,240.00,20,"doublon de tiers, prendre celui avec SIREN",doublon
+4,Café du Coin,CDC-118,2026-10-09,"Café réunions, octobre",86.40,5.5,"TVA 5,5 %",tva
+5,Fournitures Sud,FS-20931,2026-10-12,Cartouches d’encre,132.50,20,,
+6,Papeterie Nord,PN-2026-0457,2026-10-15,"Classeurs, 40",96.00,20,,
+7,Hébergeur Alpha,HA-77950,2026-10-18,Nom de domaine,14.99,20,,
+8,Café du Coin,CDC-131,2026-10-21,Plateaux-repas,212.00,5.5,"TVA 5,5 %",tva
+9,Papeterie Nord,PN-2026-0583,2026-10-08,Agrafeuses x3,359.11,20,,
+10,Hébergeur Alpha,HA-5092,2026-10-15,Sauvegarde mensuelle,425.79,20,,
+11,Transports Lemaire,TL-9019,2026-10-22,Livraison colis,296.38,20,"doublon de tiers, prendre celui avec SIREN",doublon
+12,Café du Coin,CDC-9400,2026-10-01,Viennoiseries,43.89,5.5,"TVA 5,5 %",tva
+13,Fournitures Sud,FS-1372,2026-10-08,Écran 24 pouces,293.25,20,,
+14,Papeterie Nord,PN-2026-0978,2026-10-15,Agrafeuses x3,79.84,20,,
+15,Hébergeur Alpha,HA-7226,2026-10-22,Certificat SSL,227.00,20,,
+16,Transports Lemaire,TL-4928,2026-10-01,Transport palette x2,421.65,20,"doublon de tiers, prendre celui avec SIREN",doublon
+17,Café du Coin,CDC-4692,2026-10-08,Plateaux-repas x6,375.81,5.5,"TVA 5,5 %",tva
+18,Fournitures Sud,FS-3300,2026-10-15,Papier photo,268.55,20,,
+19,Papeterie Nord,PN-2026-0669,2026-10-22,"Stylos, boîte de 50",272.95,20,,
+20,Hébergeur Alpha,HA-6658,2026-10-01,Stockage 1 To,170.54,20,,
+21,Transports Lemaire,TL-6019,2026-10-08,Livraison colis,19.12,20,"doublon de tiers, prendre celui avec SIREN",doublon
+22,Café du Coin,CDC-7245,2026-10-15,Plateaux-repas x6,132.53,5.5,"TVA 5,5 %",tva
+23,Fournitures Sud,FS-1201,2026-10-22,Écran 24 pouces,380.42,20,,
+24,Papeterie Nord,PN-2026-0929,2026-10-01,"Stylos, boîte de 50",438.61,20,,
+25,Hébergeur Alpha,HA-2184,2026-10-08,Serveur novembre,178.36,20,,
+26,Transports Lemaire,TL-5644,2026-10-15,Livraison colis,36.77,20,"doublon de tiers, prendre celui avec SIREN",doublon
+27,Café du Coin,CDC-9401,2026-10-22,Viennoiseries,396.96,5.5,"TVA 5,5 %",tva
+28,Fournitures Sud,FS-9820,2026-10-01,Câbles réseau x10,163.21,20,,
+29,Papeterie Nord,PN-2026-0701,2026-10-08,Agrafeuses x3,115.65,20,,
+30,Hébergeur Alpha,HA-4092,2026-10-15,Sauvegarde mensuelle,62.02,20,,
